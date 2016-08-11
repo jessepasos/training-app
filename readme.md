@@ -108,7 +108,7 @@ Make these changes:
    2. This number represents the number of chances the ship gets to raid the port. Each attack has a 50/50 chance of winning. 
    3. For every unsuccessful raid, the ship accrues 20% damage. Once the ship reaches 100%, it sinks and is lost forever. For every successful raid, the ship acquires half the original treasure.
    4. The ship can be repaired at the cost of 1 piece of gold for 10% damage. Any user can pay for a repair.
-Ships can only hold 200 pieces of gold before they have to transfer them to Port Royal. Make sure this happens otherwise they sink!
+3. Ships can only hold 200 pieces of gold before they have to transfer them to Port Royal. Make sure this happens otherwise they sink!
 
 Set up a process to run through these attacks programmatically until either the whole fleet sinks or our plucky pirates have stripped every port of it’s last piece of eight.
 
