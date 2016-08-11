@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
+
+Route::auth();
+
+Route::get('/the-black-perl', 'ShipController@theBlackPerl');
+Route::get('/pirate/{id}', 'PirateController@index');
+Route::post('/pirate/{id}', 'PirateController@store');
