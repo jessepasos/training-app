@@ -21,14 +21,13 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
-
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="name" name="pirate_name" value="{{ $pirate->name }}">
                                 </div>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
@@ -43,7 +42,6 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
                             <div class="form-group">
                                 <label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>
                                 <div class="col-sm-10">
@@ -56,7 +54,6 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
