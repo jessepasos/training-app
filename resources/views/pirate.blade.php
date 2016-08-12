@@ -31,12 +31,22 @@
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
+                                    {{ $pirate->rank }}
+                                    {{ $pirate->rank == 'Boatswain' }}
                                         <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
                                             <?php
                                             $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
                                             ?>
+
                                             @foreach($rank_names as $rank_name)
-                                                <option value="{{ $rank_name }}">{{ $rank_name }}</option>
+
+                                                @if($rank_name == $pirate->rank)
+                                                    <option selected="selected" value="{{ $rank_name }}">{{ $rank_name }}</option>
+                                                @else
+                                                    <option value="{{ $rank_name }}">{{ $rank_name }}</option>
+                                                @endif
+
+
 
                                             @endforeach
                                         </select>
