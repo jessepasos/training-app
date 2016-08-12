@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+
+use Log;
+
 class PirateController extends Controller
 {
     /**
@@ -33,10 +36,13 @@ class PirateController extends Controller
 
     public function store($id, Request $request)
     {
+
+        Log::info($request);
         $pirate = Pirate::find($id);
 
         $pirate->name = $request->get('pirate_name');
         $pirate->attributes = $request->get('attributes');
+        $pirate->rank = $request->get('rank');
 
         $pirate->save();
 
