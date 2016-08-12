@@ -18,3 +18,5 @@ Route::auth();
 Route::get('/the-black-perl', 'ShipController@theBlackPerl');
 Route::get('/pirate/{id}', 'PirateController@index');
 Route::post('/pirate/{id}', 'PirateController@store');
+
+Route::get('/seaport',  'SeaportController@index');
