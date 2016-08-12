@@ -28,13 +28,20 @@
                                     <input type="text" class="form-control" id="name" name="pirate_name" value="{{ $pirate->name }}">
                                 </div>
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
                                     {{--<div class="col-sm-3">--}}
                                         <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
-                                            <?php $rank_names = ['Captain', 'First mate', 'Seamen', 'Wow']; ?>
+                                            <?php
+                                            $rank_names = ['Captain', 'First mate', 'Boatswain',
+                                            'Second mate',
+                                            'Sergeant-at-arms',
+                                            'Seaman',
+                                            'Cook',]; 
+                                            ?>
+
                                             @foreach($rank_names as $rank_name)
                                                 <option value="{{ $rank_name }}">{{ $rank_name }}</option>
 
