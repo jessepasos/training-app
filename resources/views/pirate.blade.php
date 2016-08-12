@@ -31,7 +31,27 @@
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     Create dropdown here
-                                    <input type="text" class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
+                                    <div class="col-sm-3">
+                                        <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
+                                            @for($i = date('Y'); $i <= date('Y') +  10; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+
+                                    {{--<input type="text" class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">--}}
+
+                                    {{--<div class="dropdown open" value="{{ $pirate->rank }}">--}}
+                                        {{--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="{{ $pirate->rank }}">--}}
+                                            {{--Dropdown button--}}
+                                        {{--</button>--}}
+                                        {{--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" value="{{ $pirate->rank }}">--}}
+                                            {{--<a class="dropdown-item" href="#">Action</a>--}}
+                                            {{--<a class="dropdown-item" href="#">Another action</a>--}}
+                                            {{--<a class="dropdown-item" href="#">Something else here</a>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+
                                     {{--<div class="dropdown">--}}
                                         {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown", value="{{ $pirate->rank }}">Dropdown Example--}}
                                             {{--<span class="caret"></span></button>--}}
