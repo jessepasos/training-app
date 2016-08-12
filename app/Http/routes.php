@@ -20,3 +20,4 @@ Route::get('/pirate/{id}', 'PirateController@index');
 Route::post('/pirate/{id}', 'PirateController@store');
 
 Route::get('/seaport',  'SeaportController@index');
+Route::get('/seaport/{id}',  'SeaportController@show');

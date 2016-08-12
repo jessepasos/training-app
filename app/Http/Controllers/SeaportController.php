@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Seaport;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -46,16 +47,18 @@ class SeaportController extends Controller
 //        //
 //    }
 //
-//    /**
-//     * Display the specified resource.
-//     *
-//     * @param  int  $id
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function show($id)
-//    {
-//        //
-//    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $seaport = Seaport::find($id);
+
+        return view('seaport')->withSeaport($seaport);
+    }
 //
 //    /**
 //     * Show the form for editing the specified resource.
