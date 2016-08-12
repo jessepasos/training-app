@@ -32,35 +32,16 @@
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
-                                    {{--<div class="col-sm-3">--}}
                                         <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
                                             <?php
-                                            $rank_names = ['Captain', 'First mate', 'Boatswain',
-                                            'Second mate',
-                                            'Sergeant-at-arms',
-                                            'Seaman',
-                                            'Cook',]; 
+                                            $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
                                             ?>
-
                                             @foreach($rank_names as $rank_name)
                                                 <option value="{{ $rank_name }}">{{ $rank_name }}</option>
 
                                             @endforeach
-
-
-                                            {{--@for($i = date('Y'); $i <= date('Y') +  10; $i++)--}}
-                                                {{--<option value="{{ $i }}">{{ $i }}</option>--}}
-                                            {{--@endfor--}}
-
-                                            {{--<option value = "Captain">Captain</option>--}}
-                                            {{--<option value = "First mate">First mate</option>--}}
-                                            {{--<option value = "Boatswain">Boatswain</option>--}}
-                                            {{--<option value = "Second mate">Second mate</option>--}}
-                                            {{--<option value = "Sergeant-at-arms">Sergeant-at-arms</option>--}}
-                                            {{--<option value = "Seaman">Seaman</option>--}}
-                                            {{--<option value = "Cook">Cook</option>--}}
                                         </select>
-                                    {{--</div>--}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
