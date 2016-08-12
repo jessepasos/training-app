@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -33,17 +34,24 @@
                                     {{--Create dropdown here--}}
                                     {{--<div class="col-sm-3">--}}
                                         <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
+                                            <?php $rank_names = ['Captain', 'First mate', 'Seamen', 'Wow']; ?>
+                                            @foreach($rank_names as $rank_name)
+                                                <option value="{{ $rank_name }}">{{ $rank_name }}</option>
+
+                                            @endforeach
+
+
                                             {{--@for($i = date('Y'); $i <= date('Y') +  10; $i++)--}}
                                                 {{--<option value="{{ $i }}">{{ $i }}</option>--}}
                                             {{--@endfor--}}
 
-                                            <option value = "Captain">Captain</option>
-                                            <option value = "First mate">First mate</option>
-                                            <option value = "Boatswain">Boatswain</option>
-                                            <option value = "Second mate">Second mate</option>
-                                            <option value = "Sergeant-at-arms">Sergeant-at-arms</option>
-                                            <option value = "Seaman">Seaman</option>
-                                            <option value = "Cook">Cook</option>
+                                            {{--<option value = "Captain">Captain</option>--}}
+                                            {{--<option value = "First mate">First mate</option>--}}
+                                            {{--<option value = "Boatswain">Boatswain</option>--}}
+                                            {{--<option value = "Second mate">Second mate</option>--}}
+                                            {{--<option value = "Sergeant-at-arms">Sergeant-at-arms</option>--}}
+                                            {{--<option value = "Seaman">Seaman</option>--}}
+                                            {{--<option value = "Cook">Cook</option>--}}
                                         </select>
                                     {{--</div>--}}
                                 </div>
