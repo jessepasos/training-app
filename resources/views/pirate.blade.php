@@ -30,12 +30,23 @@
                             <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
-                                    Create dropdown here
+                                    {{--Create dropdown here--}}
                                     <div class="col-sm-3">
                                         <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
-                                            @for($i = date('Y'); $i <= date('Y') +  10; $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
+                                            {{--@for($i = date('Y'); $i <= date('Y') +  10; $i++)--}}
+                                                {{--<option value="{{ $i }}">{{ $i }}</option>--}}
+                                            {{--@endfor--}}
+
+
+
+
+
+                                            <option value = "Captain">Captain</option>
+                                            <option value = "First mate">First mate</option>
+                                            <option value = "Captain">Captain</option>
+                                            <option value = "Captain">Captain</option>
+                                            <option value = "Captain">Captain</option>
+                                            <option value = "Captain">Captain</option>
                                         </select>
                                     </div>
 
