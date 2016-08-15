@@ -35,8 +35,8 @@
 
             {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
             {{ csrf_field() }}
-            attack this!
-            <button type="submit" class="btn btn-primary">Save</button>
+            {{--attack this!--}}
+            <button type="submit" class="btn btn-primary">Attack this port!</button>
             {{ Form::close() }}
 
             {{--{{ Form::open(array('route' => array('admin.pages.destroy', $page->id), 'method' => 'delete')) }}--}}
