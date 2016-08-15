@@ -10,7 +10,7 @@
 
                     <div class="panel-body">
                         <div>List of seaports</div>
-                        <div><a href="{{url('/test')}}"> Add new seaport </a></div>
+                        <div><a href="{{url('/seaport-new')}}"> Add new seaport </a></div>
                         @foreach ($seaports as $seaport)
                             <li class="list-group-item">
                                 <a href="/seaport/{{ $seaport->id }}">
