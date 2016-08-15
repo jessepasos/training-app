@@ -16,8 +16,8 @@ class CreateShipsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 //            $table->integer('pirate_id')->unsigned()->nullable();
-            $table->integer('captain_id')->unsigned()->nullable();
-            $table->foreign('captain_id')->references('id')->on('pirates');
+            $table->integer('pirate_id')->unsigned()->nullable();
+            $table->foreign('pirate_id')->references('id')->on('pirates');
             $table->double('displacement');
             $table->double('length');
             $table->double('draft');
