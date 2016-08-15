@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Log;
+use Carbon;
 
 class SeaportController extends Controller
 {
@@ -84,8 +85,15 @@ class SeaportController extends Controller
     public function getAttacked($id)
     {
         Log::info('in get attacked function');
+
+
         $seaport = Seaport::find($id);
         $seaport->treasure_amount = 0;
+
+        $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
+        Log::info($formatted_time);
+        $seaport->attacked_at = $formatted_time;
+//        $seaport->attacked_at = $original_time->toDateTimeString();
         $seaport->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
