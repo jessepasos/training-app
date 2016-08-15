@@ -21,6 +21,11 @@ Route::post('/pirate/{id}', 'PirateController@store');
 
 Route::get('/seaport',  'SeaportController@index');
 Route::get('/seaport/{id}',  'SeaportController@show');
-Route::post('/seaport/{id}', 'SeaportController@update');
+Route::get('/seaport/wow',  'SeaportController@create');
 
+Route::post('/seaport/{id}', 'SeaportController@update');
 Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
+
+
+Route::get('/test',  'SeaportController@create');
+Route::post('/test',  'SeaportController@store');
