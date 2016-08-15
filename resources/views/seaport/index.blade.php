@@ -26,10 +26,13 @@
                                     @endif
                                 </a>
 
+                                @if($seaport -> id != 1)
                                 {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-primary">Attack this port!</button>
                                 {{ Form::close() }}
+                                    @endif
+
                             </li>
                         @endforeach
 

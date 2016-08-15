@@ -74,11 +74,17 @@ class SeaportController extends Controller
     {
         Log::info('in get attacked function');
         $seaport = Seaport::find($id);
+
+        $black_perl = Seaport::find(1);
+        $black_perl -> treasure_amount = $black_perl -> treasure_amount + $seaport -> treasure_amount;
+
         $seaport->treasure_amount = 0;
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
         $seaport->attacked_at = $formatted_time;
+
         $seaport->save();
+        $black_perl->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
