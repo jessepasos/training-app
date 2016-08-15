@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Log;
+
 class SeaportController extends Controller
 {
     /**
@@ -42,6 +44,24 @@ class SeaportController extends Controller
 //        //
 //    }
 //
+
+
+    public function store($id, Request $request)
+    {
+
+        Log::info($request);
+        $seaport = Seaport::find($id);
+
+        $seaport->name = $request->get('seaport_name');
+//        $seaport->attributes = $request->get('attributes');
+//        $seaport->rank = $request->get('rank');
+
+        $seaport->save();
+
+        return redirect()->back()->with('status', 'Profile saved!');
+    }
+
+
     /**
      * Display the specified resource.
      *

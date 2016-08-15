@@ -27,31 +27,13 @@
                                     <input type="text" class="form-control" id="name" name="seaport_name" value="{{ $seaport->name }}">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="rank" class="col-sm-2 control-label">Rank</label>
-                                <div class="col-sm-10">
-                                    {{--Create dropdown here--}}
-                                    <select class="form-control" id="rank" name="rank" value="{{ $seaport->rank }}">
-                                        <?php
-                                        $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
-                                        ?>
 
-                                        @foreach($rank_names as $rank_name)
-                                            @if($rank_name == $seaport->rank)
-                                                <option selected="selected" value="{{ $rank_name }}">{{ $rank_name }}</option>
-                                            @else
-                                                <option value="{{ $rank_name }}">{{ $rank_name }}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="attributes" name="attributes" value="{{ $seaport->attributes }}">
-                                </div>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<input type="text" class="form-control" id="attributes" name="attributes" value="{{ $seaport->attributes }}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button type="submit" class="btn btn-primary">Save</button>
