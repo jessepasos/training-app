@@ -15,8 +15,9 @@
                             <li class="list-group-item">
                                 <a href="/seaport/{{ $seaport->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    <div> {{ $seaport->name }} </div>
+                                    <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+                                    <div>last attacked at: {{ $seaport -> attacked_at }}</div>
                                 </a>
 
                                 {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
