@@ -83,10 +83,10 @@ class SeaportController extends Controller
      */
     public function getAttacked($id)
     {
+        Log::info('in get attacked function');
         $seaport = Seaport::find($id);
-//        return view('seaport.show')->withSeaport($seaport);
         $seaport->treasure_amount = 0;
-        $seaport->save;
+        $seaport->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
