@@ -13,7 +13,7 @@ class CreateSeaportsTable extends Migration
     public function up()
     {
         //
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('seaports', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->double('treasure_amount');
