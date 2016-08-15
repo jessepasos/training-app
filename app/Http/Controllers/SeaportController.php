@@ -28,8 +28,11 @@ class SeaportController extends Controller
 //
 //        return view('seaport')->withSeaport($seaport);
 
+        $seaports= Seaport::all();
 
-        return view('seaport');
+        return view('seaport')->withSeaports($seaports);
+
+//        return view('seaport');
     }
 
 
