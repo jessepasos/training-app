@@ -14,9 +14,9 @@ SEAPORT INDEX
 
     <div class="container">
 
-        <a class="navbar-brand" href="{{ url('/seaport') }}">
-        SEAPORT INDEX
-        </a>
+        {{--<a class="navbar-brand" href="{{ url('/seaport') }}">--}}
+        {{--SEAPORT INDEX--}}
+        {{--</a>--}}
 
         <div class="row">
 
@@ -37,7 +37,7 @@ SEAPORT INDEX
                     <div class="panel-body">
 
 
-                        <h1>Edit seaport</h1>
+                        <h1>Create New Seaport</h1>
 
                         @if (session('status'))
                             <div class="alert alert-success">

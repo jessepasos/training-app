@@ -9,7 +9,8 @@
                             Perl. Only proceed if you think you have what it takes.</b></div>
 
                     <div class="panel-body">
-                        List of seaports
+                        <div>List of seaports</div>
+                        <div><a href = "{{url('/test')}}" > Add new seaport </a></div>
                         @foreach ($seaports as $seaport)
                             <li class="list-group-item">
                                 <a href="/seaport/{{ $seaport->id }}">
