@@ -42,6 +42,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     THE BLACK PERL
                 </a>
+                <a class="navbar-brand" href="{{ url('/seaport') }}">
+                    SEAPORTS
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
