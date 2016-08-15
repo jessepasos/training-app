@@ -47,21 +47,7 @@ class SeaportController extends Controller
 //
 
 
-    public function store($id, Request $request)
-    {
 
-        Log::info($request);
-        $seaport = Seaport::find($id);
-
-        $seaport->name = $request->get('seaport_name');
-        $seaport->treasure_amount = $request->get('seaport_treasure_amount');
-//        $seaport->attributes = $request->get('attributes');
-//        $seaport->rank = $request->get('rank');
-
-        $seaport->save();
-
-        return redirect()->back()->with('status', 'Profile saved!');
-    }
 
 
     /**
@@ -106,17 +92,26 @@ class SeaportController extends Controller
 //        //
 //    }
 //
-//    /**
-//     * Update the specified resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @param  int  $id
-//     * @return \Illuminate\Http\Response
-//     */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
 //    public function update(Request $request, $id)
 //    {
 //        //
 //    }
+    public function update(Request $request, $id)
+    {
+        Log::info($request);
+        $seaport = Seaport::find($id);
+        $seaport->name = $request->get('seaport_name');
+        $seaport->treasure_amount = $request->get('seaport_treasure_amount');
+        $seaport->save();
+        return redirect()->back()->with('status', 'Profile saved!');
+    }
 //
 //    /**
 //     * Remove the specified resource from storage.
