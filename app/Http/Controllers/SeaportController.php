@@ -24,40 +24,33 @@ class SeaportController extends Controller
     }
 
 
-//    /**
-//     * Show the form for creating a new resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
         public function create()
         {
-//            $seaport = new Seaport();
-//            Log::info(var_dump($seaport));
-            return view('seaport.new');//->withSeaport($seaport);
+            return view('seaport.new');
         }
-////
-//    /**
-//     * Store a newly created resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @return \Illuminate\Http\Response
-//     */
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
         $seaport = new Seaport();
         Log::info($request);
-//        $seaport = Seaport::find($id);
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
         $seaport->save();
-        return redirect()->back()->with('status', 'Profile saved!');
+        return redirect()->back()->with('status', 'New seaport created!');
     }
-
-
-
-
-
 
     /**
      * Display the specified resource.
