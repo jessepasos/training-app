@@ -15,22 +15,27 @@
                                 <a href="/ship/{{ $ship->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     <div>name: {{ $ship->name }} </div>
-                                    <div>treasure amount: {{ $ship -> treasure_amount }}</div>
+                                    <div>displacement: {{ $ship->displacement }} </div>
+                                    <div>length: {{ $ship->length }} </div>
+                                    <div>draft: {{ $ship->draft }} </div>
+                                    <div>crew_saltiness: {{ $ship->crew_saltiness }} </div>
+                                    <div>num_cannons: {{ $ship->num_cannons }} </div>
+                                    {{--<div>treasure amount: {{ $ship -> treasure_amount }}</div>--}}
 
 
-                                    @if($ship -> attacked_at == '0000-00-00 00:00:00')
-                                        <div> never attacked before</div>
-                                    @else
-                                        <div>last attacked at: {{ $ship -> attacked_at }}</div>
-                                    @endif
+                                    {{--@if($ship -> attacked_at == '0000-00-00 00:00:00')--}}
+                                        {{--<div> never attacked before</div>--}}
+                                    {{--@else--}}
+                                        {{--<div>last attacked at: {{ $ship -> attacked_at }}</div>--}}
+                                    {{--@endif--}}
                                 </a>
 
-                                @if($ship -> id != 1)
-                                {{ Form::open(array('url' => '/ship/' . $ship -> id . '/attack')) }}
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-primary">Attack this port!</button>
-                                {{ Form::close() }}
-                                    @endif
+                                {{--@if($ship -> id != 1)--}}
+                                {{--{{ Form::open(array('url' => '/ship/' . $ship -> id . '/attack')) }}--}}
+                                {{--{{ csrf_field() }}--}}
+                                {{--<button type="submit" class="btn btn-primary">Attack this port!</button>--}}
+                                {{--{{ Form::close() }}--}}
+                                    {{--@endif--}}
 
                             </li>
                         @endforeach
