@@ -17,6 +17,7 @@ class CreateSeaportsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->double('treasure_amount');
+            $table->dateTime('attacked_at');
             $table->timestamps();
         });
 
