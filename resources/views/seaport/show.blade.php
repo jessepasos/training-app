@@ -6,12 +6,12 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ $pirate->rank }} {{ $pirate->name }}</div>
+                    <div class="panel-heading">{{ $seaport->rank }} {{ $seaport->name }}</div>
 
                     <div class="panel-body">
-                        A message from your Captain: <b>"{{ $captains_message }}"</b>
+                        {{--A message from your Captain: <b>"{{ $captains_message }}"</b>--}}
 
-                        <h1>Edit Pirate</h1>
+                        <h1>Edit seaport</h1>
 
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -24,20 +24,20 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="pirate_name" value="{{ $pirate->name }}">
+                                    <input type="text" class="form-control" id="name" name="seaport_name" value="{{ $seaport->name }}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
-                                    <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
+                                    <select class="form-control" id="rank" name="rank" value="{{ $seaport->rank }}">
                                         <?php
                                         $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
                                         ?>
 
                                         @foreach($rank_names as $rank_name)
-                                            @if($rank_name == $pirate->rank)
+                                            @if($rank_name == $seaport->rank)
                                                 <option selected="selected" value="{{ $rank_name }}">{{ $rank_name }}</option>
                                             @else
                                                 <option value="{{ $rank_name }}">{{ $rank_name }}</option>
@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="attributes" name="attributes" value="{{ $pirate->attributes }}">
+                                    <input type="text" class="form-control" id="attributes" name="attributes" value="{{ $seaport->attributes }}">
                                 </div>
                             </div>
                             <div class="form-group">
