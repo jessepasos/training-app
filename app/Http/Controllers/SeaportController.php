@@ -74,6 +74,23 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         return view('seaport.show')->withSeaport($seaport);
     }
+
+    /**
+     * Get attacked
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getAttacked($id)
+    {
+        $seaport = Seaport::find($id);
+//        return view('seaport.show')->withSeaport($seaport);
+        $seaport->treasure_amount = 0;
+        $seaport->save;
+        return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
+    }
+
+
 //
 //    /**
 //     * Show the form for editing the specified resource.
