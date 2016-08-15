@@ -5,29 +5,28 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><b>You are about to embark on an epic journey with the crew of the Black
-                            Perl. Only proceed if you think you have what it takes.</b></div>
+                    <div class="panel-heading"><b> Ship Index </b></div>
 
                     <div class="panel-body">
-                        <div>List of seaports</div>
-                        <div><a href="{{url('/seaport-new')}}"> Add new seaport </a></div>
-                        @foreach ($seaports as $seaport)
+                        <div>List of ships</div>
+                        <div><a href="{{url('/ship-new')}}"> Add new ship </a></div>
+                        @foreach ($ships as $ship)
                             <li class="list-group-item">
-                                <a href="/seaport/{{ $seaport->id }}">
+                                <a href="/ship/{{ $ship->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    <div>name: {{ $seaport->name }} </div>
-                                    <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+                                    <div>name: {{ $ship->name }} </div>
+                                    <div>treasure amount: {{ $ship -> treasure_amount }}</div>
 
 
-                                    @if($seaport -> attacked_at == '0000-00-00 00:00:00')
+                                    @if($ship -> attacked_at == '0000-00-00 00:00:00')
                                         <div> never attacked before</div>
                                     @else
-                                        <div>last attacked at: {{ $seaport -> attacked_at }}</div>
+                                        <div>last attacked at: {{ $ship -> attacked_at }}</div>
                                     @endif
                                 </a>
 
-                                @if($seaport -> id != 1)
-                                {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
+                                @if($ship -> id != 1)
+                                {{ Form::open(array('url' => '/ship/' . $ship -> id . '/attack')) }}
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-primary">Attack this port!</button>
                                 {{ Form::close() }}
