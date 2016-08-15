@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ship extends Model
 {
-    //
-    public function pirate()
+
+    public function pirates()
     {
-        return $this->belongsTo('App\Pirate');
+        return $this->hasMany('App\Pirate');
     }
 
 }

@@ -31,5 +31,6 @@ class CreateSeaportsTable extends Migration
     public function down()
     {
         //
+        Schema::drop('seaports');
     }
 }
