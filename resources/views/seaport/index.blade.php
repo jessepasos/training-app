@@ -21,6 +21,12 @@
                                <div> {{ $seaport->name }} </div>
                                 <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
                                 </a>
+
+                                {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
+                                {{ csrf_field() }}
+                                {{--attack this!--}}
+                                <button type="submit" class="btn btn-primary">Attack this port!</button>
+                                {{ Form::close() }}
                             </li>
                         @endforeach
 
