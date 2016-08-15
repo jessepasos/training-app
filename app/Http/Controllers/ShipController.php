@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Pirate;
+use App\Ship;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,4 +32,17 @@ class ShipController extends Controller
 
         return view('the-ship')->withPirates($pirates);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $ships = Ship::all();
+        return view('ship.index')->withShips($ships);
+    }
+
+
 }
