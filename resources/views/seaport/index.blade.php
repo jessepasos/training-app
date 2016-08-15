@@ -10,7 +10,7 @@
 
                     <div class="panel-body">
                         <div>List of seaports</div>
-                        <div><a href = "{{url('/test')}}" > Add new seaport </a></div>
+                        <div><a href="{{url('/test')}}"> Add new seaport </a></div>
                         @foreach ($seaports as $seaport)
                             <li class="list-group-item">
                                 <a href="/seaport/{{ $seaport->id }}">
@@ -20,10 +20,10 @@
 
 
                                     @if($seaport -> attacked_at == '0000-00-00 00:00:00')
-                                        <div> never attacked before </div>
+                                        <div> never attacked before</div>
                                     @else
-                                    <div>last attacked at: {{ $seaport -> attacked_at }}</div>
-                                        @endif
+                                        <div>last attacked at: {{ $seaport -> attacked_at }}</div>
+                                    @endif
                                 </a>
 
                                 {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
