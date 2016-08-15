@@ -15,6 +15,7 @@ class CreateShipsTable extends Migration
         Schema::create('ships', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('name');
 //            $table->integer('pirate_id')->unsigned()->nullable();
 //            $table->integer('pirate_id')->unsigned()->nullable();
 //            $table->foreign('pirate_id')->references('id')->on('pirates');

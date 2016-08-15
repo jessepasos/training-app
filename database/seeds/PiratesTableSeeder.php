@@ -13,7 +13,8 @@ class PiratesTableSeeder extends Seeder
     {
         DB::table('pirates')->insert([
             'name' => 'Blackbird',
-            'rank' => 'Captain'
+            'rank' => 'Captain',
+//            'ship_id' => 1,
         ]);
 
         DB::table('pirates')->insert([
