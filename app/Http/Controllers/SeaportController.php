@@ -17,7 +17,7 @@ class SeaportController extends Controller
     public function index()
     {
         $seaports = Seaport::all();
-        return view('seaport.seaport')->withSeaports($seaports);
+        return view('seaport.index')->withSeaports($seaports);
     }
 
 
@@ -51,7 +51,7 @@ class SeaportController extends Controller
     public function show($id)
     {
         $seaport = Seaport::find($id);
-        return view('seaport.seaport')->withSeaport($seaport);
+        return view('seaport.show')->withSeaport($seaport);
     }
 //
 //    /**
