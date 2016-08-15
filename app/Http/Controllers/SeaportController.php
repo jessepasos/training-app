@@ -31,9 +31,9 @@ class SeaportController extends Controller
 //     */
         public function create()
         {
-            $seaport = new Seaport();
+//            $seaport = new Seaport();
 //            Log::info(var_dump($seaport));
-            return view('seaport.new')->withSeaport($seaport);
+            return view('seaport.new');//->withSeaport($seaport);
         }
 ////
 //    /**
@@ -45,8 +45,9 @@ class SeaportController extends Controller
     public function store(Request $request)
     {
         //
+        $seaport = new Seaport();
         Log::info($request);
-        $seaport = Seaport::find($id);
+//        $seaport = Seaport::find($id);
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
         $seaport->save();
