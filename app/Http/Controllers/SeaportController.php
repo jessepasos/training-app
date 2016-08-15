@@ -77,7 +77,7 @@ class SeaportController extends Controller
     }
 
     /**
-     * Get attacked
+     * Get attacked; set treasure_amount to 0 and update created_at with current time. 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -85,21 +85,14 @@ class SeaportController extends Controller
     public function getAttacked($id)
     {
         Log::info('in get attacked function');
-
-
         $seaport = Seaport::find($id);
         $seaport->treasure_amount = 0;
-
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
         $seaport->attacked_at = $formatted_time;
-////        $seaport->attacked_at = $original_time->toDateTimeString();
-//        $now = new \DateTime();
-//        $seaport->attacked_at = $now;
         $seaport->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
-
 
 //
 //    /**
