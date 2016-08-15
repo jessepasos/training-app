@@ -14,6 +14,7 @@ class ShipsTableSeeder extends Seeder
         //
         DB::table('ships')->insert([
             'name' => 'Dragon Ship',
+
         ]);
 
 //        DB::table('seaports')->insert([
