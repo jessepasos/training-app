@@ -16,23 +16,8 @@ class SeaportController extends Controller
      */
     public function index()
     {
-        //
-
-//        $pirate = Pirate::find($id);
-
-//        return view('pirate')->withPirate($pirate);
-//        $pirate = Pirate::find($id);
-//
-//        return view('pirate')->withPirate($pirate);
-//        $seaport = Seaport::find($id);
-//
-//        return view('seaport')->withSeaport($seaport);
-
-        $seaports= Seaport::all();
-
-        return view('seaport')->withSeaports($seaports);
-
-//        return view('seaport');
+        $seaports = Seaport::all();
+        return view('seaport.seaport')->withSeaports($seaports);
     }
 
 
@@ -66,8 +51,7 @@ class SeaportController extends Controller
     public function show($id)
     {
         $seaport = Seaport::find($id);
-
-        return view('seaport')->withSeaport($seaport);
+        return view('seaport.seaport')->withSeaport($seaport);
     }
 //
 //    /**
