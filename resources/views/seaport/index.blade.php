@@ -17,8 +17,11 @@
                         @foreach ($seaports as $seaport)
                             <li class="list-group-item"><a href="/seaport/{{ $seaport->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                    {{ $seaport->rank }} {{ $seaport->name }}
-                                </a></li>
+
+                               <div> {{ $seaport->name }} </div>
+                                <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+                                </a>
+                            </li>
                         @endforeach
 
                     </div>

@@ -53,6 +53,7 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
 
         $seaport->name = $request->get('seaport_name');
+        $seaport->treasure_amount = $request->get('seaport_treasure_amount');
 //        $seaport->attributes = $request->get('attributes');
 //        $seaport->rank = $request->get('rank');
 
