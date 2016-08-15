@@ -17,6 +17,23 @@
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+
+                                    <?php
+//                                    $date = new DateTime('0000-00-00 0:0:0');
+//                                    $result = $date->format('Y-m-d H:i:s');
+//                                        echo $result;
+
+                                    echo 'before';
+
+//                                    echo($seaport -> attacked_at);
+//                                        echo(gettype($seaport -> attacked_at));
+//                                        echo('0000-00-00 0:0:0');
+
+                                    echo($seaport -> attacked_at == '0000-00-00 00:00:00');
+                                        echo 'after';
+                                    ?>
+
+
                                     <div>last attacked at: {{ $seaport -> attacked_at }}</div>
                                 </a>
 
