@@ -44,5 +44,17 @@ class ShipController extends Controller
         return view('ship.index')->withShips($ships);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $ship = Ship::find($id);
+        return view('ship.show')->withShip($ship);
+    }
+
 
 }
