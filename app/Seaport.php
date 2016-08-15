@@ -9,7 +9,7 @@ class Seaport extends Model
     //
 //    public $timestamps = false;
 
-    public $attacked_at;
+//    public $attacked_at;
 
     protected $fillable = [
         'name',

@@ -93,6 +93,9 @@ class SeaportController extends Controller
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
         $seaport->attacked_at = $formatted_time;
+////        $seaport->attacked_at = $original_time->toDateTimeString();
+//        $now = new \DateTime();
+//        $seaport->attacked_at = $now;
         $seaport->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
