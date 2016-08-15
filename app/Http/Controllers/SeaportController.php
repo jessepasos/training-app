@@ -77,7 +77,7 @@ class SeaportController extends Controller
     }
 
     /**
-     * Get attacked; set treasure_amount to 0 and update created_at with current time. 
+     * Get attacked; set treasure_amount to 0 and update created_at with current time.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
