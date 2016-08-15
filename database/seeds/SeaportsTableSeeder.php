@@ -23,6 +23,6 @@ class SeaportsTableSeeder extends Seeder
         DB::table('seaports')->insert([
             'name' => 'Dragon Bay',
         ]);
-        
+
     }
 }

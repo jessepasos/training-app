@@ -12,6 +12,15 @@
                             {{--<img src="images/the-black-perl.png" />--}}
                         {{--</div>--}}
                         List of seaports
+
+                        {{--@foreach($seaports as $seaport)'--}}
+                        @foreach ($seaports as $pirate)
+                            <li class="list-group-item"><a href="/pirate/{{ $pirate->id }}">
+                                    <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                    {{ $pirate->rank }} {{ $pirate->name }}
+                                </a></li>
+                        @endforeach
+
                     </div>
 
                     <div class="panel-footer">

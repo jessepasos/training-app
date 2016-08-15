@@ -21,6 +21,13 @@ class SeaportController extends Controller
 //        $pirate = Pirate::find($id);
 
 //        return view('pirate')->withPirate($pirate);
+//        $pirate = Pirate::find($id);
+//
+//        return view('pirate')->withPirate($pirate);
+//        $seaport = Seaport::find($id);
+//
+//        return view('seaport')->withSeaport($seaport);
+
 
         return view('seaport');
     }
