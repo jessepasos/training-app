@@ -51,3 +51,8 @@ Route::post('/ship/{id}', 'ShipController@update');
 //Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+    return "this page requires that you be logged in and an Admin";
+}]);

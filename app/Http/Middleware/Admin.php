@@ -1,28 +1,10 @@
+<?php
 
-
-//namespace App\Http\Middleware;
-//
-//use Closure;
-//
-//class Admin
-//{
-//    /**
-//     * Handle an incoming request.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @param  \Closure  $next
-//     * @return mixed
-//     */
-//    public function handle($request, Closure $next)
-//    {
-//        return $next($request);
-//    }
-//}
-
-
-<?php namespace App\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
+
+use Illuminate\Support\Facades\Auth;
 
 class Admin {
 
