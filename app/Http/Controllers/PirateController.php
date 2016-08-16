@@ -52,4 +52,13 @@ class PirateController extends Controller
         $pirate->save();
         return redirect()->back()->with('status', 'Pirate was removed from this ship');
     }
+
+    public function findFreeAgents(){
+//        $pirate = pirate::
+        $free_agents = Pirate::where('ship_id', '=', NULL);
+        return $free_agents;
+
+    }
+
+
 }
