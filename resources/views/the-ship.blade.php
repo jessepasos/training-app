@@ -17,6 +17,7 @@
                         <li class="list-group-item"><a href="/pirate/{{ $pirate->id }}">
                                 <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 {{ $pirate->rank }} {{ $pirate->name }}
+                                ship id: {{ $pirate->ship_id }}
                             </a></li>
                         @endforeach
                     </ul>

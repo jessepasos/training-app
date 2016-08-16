@@ -10,6 +10,9 @@ use App\Http\Requests;
 
 use Log;
 
+
+use App\Ship;
+
 class PirateController extends Controller
 {
     /**
@@ -30,7 +33,8 @@ class PirateController extends Controller
     public function index($id)
     {
         $pirate = Pirate::find($id);
-        return view('pirate')->withPirate($pirate);
+        $ships = Ship::All();
+        return view('pirate')->withPirate($pirate)->withShips($ships);
     }
 
     public function store($id, Request $request)
@@ -40,6 +44,7 @@ class PirateController extends Controller
         $pirate->name = $request->get('pirate_name');
         $pirate->attributes = $request->get('attributes');
         $pirate->rank = $request->get('rank');
+        $pirate->ship_id = $request->get('ship_id');
         $pirate->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }
