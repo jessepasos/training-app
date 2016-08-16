@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 
@@ -20,7 +19,7 @@
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ $ship->rank }} {{ $ship->name }}</div>
+                    <div class="panel-heading">{{ $ship->name }}</div>
 
                     <div class="panel-body">
 
@@ -42,12 +41,15 @@
                             ?>
 
                             @foreach($ship_attributes as $ship_attribute)
-                            <div class="form-group">
-                                <label for="{{$ship_attribute}}" class="col-sm-2 control-label">{{$ship_attribute}}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="length" name= "{{'ship_' . $ship_attribute}}" value="{{ $ship->{$ship_attribute} }}">
+                                <div class="form-group">
+                                    <label for="{{$ship_attribute}}"
+                                           class="col-sm-2 control-label">{{$ship_attribute}}</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="length"
+                                               name="{{'ship_' . $ship_attribute}}"
+                                               value="{{ $ship->{$ship_attribute} }}">
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                             <div class="form-group">
