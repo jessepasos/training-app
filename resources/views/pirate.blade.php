@@ -19,6 +19,10 @@
                             </div>
                         @endif
 
+                        Has this pirate been assigned a ship?:
+                        {{--//{{property_exists($pirate, 'ship') ? 'true' : 'false'}}--}}
+                        {{$pirate->ship != '' ? 'yes' : 'no'}}
+
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
                             <div class="form-group">
