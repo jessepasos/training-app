@@ -26,7 +26,7 @@
                                     @endif
                                 </a>
 
-                                @if($seaport -> id != 1)
+                                @if($seaport -> name != 'Port Royal')
                                 {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
                                 {{ csrf_field() }}
                                 <button type="submit" class="btn btn-primary">Attack this port!</button>

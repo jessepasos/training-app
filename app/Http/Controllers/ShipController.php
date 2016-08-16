@@ -55,6 +55,7 @@ class ShipController extends Controller
     {
         $ship = Ship::find($id);
 //        $pirates = Ship::find($id) -> pirates();
+
         $pirates = $ship->pirates()->get();
         return view('ship.show')->withShip($ship)->withPirates($pirates);
     }

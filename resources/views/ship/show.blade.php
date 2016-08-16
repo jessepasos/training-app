@@ -32,8 +32,9 @@
                             </div>
                         @endif
 
+                        <h2>Pirate Roster:</h2>
                         @foreach($pirates as $pirate)
-                            <li>{{$pirate -> name}}</li>
+                            <li>{{$pirate -> name}} {{$pirate -> id}}</li>
                         @endforeach
 
                         <form class="form-horizontal" role="form" method="POST" action="">

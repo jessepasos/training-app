@@ -75,7 +75,8 @@ class SeaportController extends Controller
         Log::info('in get attacked function');
         $seaport = Seaport::find($id);
 
-        $black_perl = Seaport::find(1);
+        $black_perl = Seaport::where('name', '=', 'Port Royal')->first();
+//        Log::info(var_dump($black_perl));
         $black_perl -> treasure_amount = $black_perl -> treasure_amount + $seaport -> treasure_amount;
 
         $seaport->treasure_amount = 0;
