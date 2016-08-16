@@ -71,3 +71,6 @@ Route::get('ship', [
     'middleware' => ['auth' , 'admin'],
     'uses' => 'ShipController@index'
 ]);
+
+
+Route::get('/user-not-admin', 'HomeController@userNotAdmin');

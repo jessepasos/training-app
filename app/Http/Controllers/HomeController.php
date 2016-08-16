@@ -26,4 +26,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    public function userNotAdmin()
+    {
+        return view('auth.user-not-admin');
+    }
+
 }

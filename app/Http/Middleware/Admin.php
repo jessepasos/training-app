@@ -16,7 +16,7 @@ class Admin {
             return $next($request);
         }
 
-        return redirect('home');
+        return redirect('user-not-admin');
 
     }
 
