@@ -32,6 +32,10 @@
                             </div>
                         @endif
 
+                        @foreach($pirates as $pirate)
+                            <li>{{$pirate -> name}}</li>
+                        @endforeach
+
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
 
@@ -50,7 +54,19 @@
                                                value="{{ $ship->{$ship_attribute} }}">
                                     </div>
                                 </div>
+
                             @endforeach
+
+
+
+
+
+
+
+
+
+
+
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
