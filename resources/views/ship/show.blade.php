@@ -44,6 +44,8 @@
 
                         @endforeach
 
+                        <h2>Free Agent Pirates</h2>
+
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
 
