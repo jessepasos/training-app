@@ -42,7 +42,9 @@ class ShipController extends Controller
     public function index()
     {
         $ships = Ship::all();
-        return view('ship.index')->withShips($ships);
+//        $pirates = $ship->pirates()->get();
+        $pirates = Pirate::all();
+        return view('ship.index')->withShips($ships)->withPirates($pirates);
     }
 
     /**
