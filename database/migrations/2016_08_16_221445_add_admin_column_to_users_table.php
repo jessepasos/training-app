@@ -14,6 +14,7 @@ class AddAdminColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+            $table->boolean('admin');
         });
     }
 
