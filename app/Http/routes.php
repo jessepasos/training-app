@@ -36,41 +36,27 @@ Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 
 
 //ships
-//Route::get('/ship',  'ShipController@index');
+Route::get('ship', [
+    'middleware' => ['auth' , 'admin'],
+    'uses' => 'ShipController@index'
+]);
 Route::get('/ship/{id}',  'ShipController@show');
 Route::post('/ship/{id}', 'ShipController@update');
 
 
 
-
-//users
-//Route::get('/register', 'User@create');
-
-
-
-//Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
 
+
+//Authorization
+Route::get('/user-not-admin', 'HomeController@userNotAdmin');
+
+
+//test routes
 Route::get('protected', [
     'middleware' => ['auth', 'admin'],
     function() {
-    return "this page requires that you be logged in and an Admin";
-}
+        return "this page requires that you be logged in and an Admin";
+    }
 ]);
-
-
-
-//Route::get('profile', [
-//    'middleware' => 'auth',
-//    'uses' => 'UserController@showProfile'
-//]);
-
-Route::get('ship', [
-    'middleware' => ['auth' , 'admin'],
-    'uses' => 'ShipController@index'
-]);
-
-
-Route::get('/user-not-admin', 'HomeController@userNotAdmin');
