@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Seaport;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+//use App\Http\Requests;
 
 use Log;
 use Carbon;
@@ -107,10 +107,6 @@ class SeaportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    public function update(Request $request, $id)
-//    {
-//        //
-//    }
     public function update(Request $request, $id)
     {
         Log::info($request);

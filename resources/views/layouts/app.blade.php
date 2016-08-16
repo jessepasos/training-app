@@ -45,6 +45,9 @@
                 <a class="navbar-brand" href="{{ url('/seaport') }}">
                     SEAPORTS
                 </a>
+                <a class="navbar-brand" href="{{ url('/ship') }}">
+                    SHIPS
+                </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

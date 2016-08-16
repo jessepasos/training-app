@@ -8,6 +8,7 @@ use App\Ship;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Log;
 
 class ShipController extends Controller
 {
@@ -54,6 +55,25 @@ class ShipController extends Controller
     {
         $ship = Ship::find($id);
         return view('ship.show')->withShip($ship);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        Log::info($request);
+        $ship = Ship::find($id);
+        $ship->name = $request->get('ship_name');
+        $ship->displacement = $request->get('ship_displacement');
+        $ship->length = $request->get('ship_length');
+//        $ship->treasure_amount = $request->get('ship_treasure_amount');
+        $ship->save();
+        return redirect()->back()->with('status', 'Profile saved!');
     }
 
 

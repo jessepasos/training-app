@@ -25,10 +25,10 @@
             </a>
 
 
-            {{ Form::open(array('url' => '/ship/' . $ship -> id . '/attack')) }}
-            {{ csrf_field() }}
-            <button type="submit" class="btn btn-primary">Attack this port!</button>
-            {{ Form::close() }}
+            {{--{{ Form::open(array('url' => '/ship/' . $ship -> id . '/attack')) }}--}}
+            {{--{{ csrf_field() }}--}}
+            {{--<button type="submit" class="btn btn-primary">Attack this port!</button>--}}
+            {{--{{ Form::close() }}--}}
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
@@ -53,13 +53,26 @@
                                     <input type="text" class="form-control" id="name" name="ship_name" value="{{ $ship->name }}">
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label for="treasure_amount" class="col-sm-2 control-label">treasure_amount</label>
+                                <label for="name" class="col-sm-2 control-label">displacement</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="treasure_amount" name="ship_treasure_amount" value="{{ $ship->treasure_amount }}">
+                                    <input type="text" class="form-control" id="displacement" name="ship_displacement" value="{{ $ship->displacement }}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="length" class="col-sm-2 control-label">length</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="length" name="ship_length" value="{{ $ship->length }}">
+                                </div>
+                            </div>
+                            
+
+                            {{--<div class="form-group">--}}
+                                {{--<label for="treasure_amount" class="col-sm-2 control-label">treasure_amount</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<input type="text" class="form-control" id="treasure_amount" name="ship_treasure_amount" value="{{ $ship->treasure_amount }}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
 
                             <div class="form-group">
