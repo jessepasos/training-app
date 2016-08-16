@@ -54,12 +54,12 @@
                                     {{--Create dropdown here--}}
                                     <select class="form-control" id="rank" name="ship_id" value="">
 
-                                        @foreach($ships as $ship)}}
+                                        @foreach($ships as $temp_ship)}}
                                                 {{--<option value="{{$ship->id}}">{{$ship->name}}</option>--}}
-                                            @if($ship -> id == $pirate ->ship-> id)
-                                                <option selected="selected" value="{{ $ship->id }}">{{ $ship->name }}</option>
+                                            @if($temp_ship -> id == $pirate -> ship -> id)
+                                                <option selected="selected" value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
                                             @else
-                                                <option value="{{ $ship->id }}">{{ $ship->name }}</option>
+                                                <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
                                             @endif
                                         @endforeach
                                     </select>
