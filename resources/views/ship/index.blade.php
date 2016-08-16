@@ -19,22 +19,24 @@
                                     <div>draft: {{ $ship->draft }} </div>
                                     <div>crew_saltiness: {{ $ship->crew_saltiness }} </div>
                                     <div>num_cannons: {{ $ship->num_cannons }} </div>
-                                    <div>
-                                    <?php $pirates =  $ship->pirates()->get(); ?>
-                                        @foreach($pirates as $pirate)
-                                            <li>{{$pirate -> name}} {{$pirate -> id}}</li>
-                                        @endforeach
-
-                                </div>
-
                                 </a>
-                            </li>
-                        @endforeach
+                                <div> Pirate Crew:
+                            <?php $pirates = $ship->pirates()->get(); ?>
+                            @foreach($pirates as $pirate)
+                                {{$pirate -> name}}{{$pirate -> id}} ,
+                                {{--{{$pirate -> name}}{{$pirate -> id}}--}}
+                            @endforeach
+
                     </div>
-                    <div class="panel-footer">
-                    </div>
+
+
+                    </li>
+                    @endforeach
+                </div>
+                <div class="panel-footer">
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
