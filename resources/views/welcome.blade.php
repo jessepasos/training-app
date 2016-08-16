@@ -17,6 +17,9 @@
                     <div class="text-center">
                         <a href="/login" class="btn btn-default">Continue</a>
                     </div>
+                    <div class="text-center">
+                        <a href="/register" class="btn btn-default">Register</a>
+                    </div>
                 </div>
             </div>
         </div>
