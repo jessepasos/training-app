@@ -35,6 +35,11 @@
                         <h2>Pirate Roster:</h2>
                         @foreach($pirates as $pirate)
                             <li>{{$pirate -> name}} {{$pirate -> id}}</li>
+                            {{ Form::open(array('url' => '/pirate-remove/' . $pirate -> id )) }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-primary">Remove this pirate!</button>
+                            {{ Form::close() }}
+
                         @endforeach
 
                         <form class="form-horizontal" role="form" method="POST" action="">

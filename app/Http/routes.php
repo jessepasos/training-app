@@ -21,6 +21,7 @@ Route::get('/the-black-perl', 'ShipController@theBlackPerl');
 //pirates
 Route::get('/pirate/{id}', 'PirateController@index');
 Route::post('/pirate/{id}', 'PirateController@store');
+Route::post('/pirate-remove/{id}', 'PirateController@removeFromShip');
 
 
 //seaports
@@ -38,3 +39,5 @@ Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 Route::get('/ship',  'ShipController@index');
 Route::get('/ship/{id}',  'ShipController@show');
 Route::post('/ship/{id}', 'ShipController@update');
+
+
