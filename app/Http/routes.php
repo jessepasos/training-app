@@ -44,6 +44,6 @@ Route::post('/ship/{id}', 'ShipController@update');
 
 
 //users
-Route::get('/register', 'User@create');
+//Route::get('/register', 'User@create');
 
 
