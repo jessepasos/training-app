@@ -47,3 +47,7 @@ Route::post('/ship/{id}', 'ShipController@update');
 //Route::get('/register', 'User@create');
 
 
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
