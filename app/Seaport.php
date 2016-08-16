@@ -1,8 +1,10 @@
 <?php
 
 namespace App;
-
+//use App\Http\Middleware;
 use Illuminate\Database\Eloquent\Model;
+
+//namespace App\Http\Middleware;
 
 class Seaport extends Model
 {
@@ -15,6 +17,23 @@ class Seaport extends Model
         'name',
         'treasure_amount',
     ];
+
+    public function __construct()
+    {
+
+//        $this->middleware('auth');
+
+
+//        $this->middleware('log', ['only' => [
+//            'fooAction',
+//            'barAction',
+//        ]]);
+//
+//        $this->middleware('subscribed', ['except' => [
+//            'fooAction',
+//            'barAction',
+//        ]]);
+    }
 
 //    public function breed()
 //    {
