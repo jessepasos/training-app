@@ -57,27 +57,41 @@
                                 <label for="rank" class="col-sm-2 control-label">Assigned Ship</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
-                                    <select class="form-control" id="rank" name="ship_id" value="">
-                                        @if($pirate->ship != '')
-                                            @foreach($ships as $temp_ship)}}
-                                            @if($temp_ship -> id == $pirate -> ship -> id)
-                                                <option selected="selected"
-                                                        value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
-                                            @else
-                                                <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
-                                            @endif
-                                            @endforeach
-                                        @else
-                                            @foreach($ships as $temp_ship)}}
+                                    {{--<select class="form-control" id="rank" name="ship_id" value="">--}}
+                                        {{--@if($pirate->ship != '')--}}
+                                            {{--@foreach($ships as $temp_ship)}}--}}
+                                            {{--@if($temp_ship -> id == $pirate -> ship -> id)--}}
+                                                {{--<option selected="selected"--}}
+                                                        {{--value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
+                                            {{--@else--}}
+                                                {{--<option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
+                                            {{--@endif--}}
+                                            {{--@endforeach--}}
+                                        {{--@else--}}
+                                            {{--@foreach($ships as $temp_ship)}}--}}
 {{--                                            @if($temp_ship -> id == $pirate -> ship -> id)--}}
                                                 {{--<option selected="selected"--}}
                                                         {{--value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
                                             {{--@else--}}
-                                                <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
+                                                {{--<option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
                                             {{--@endif--}}
+                                            {{--@endforeach--}}
+                                        {{--@endif--}}
+                                    {{--</select>--}}
+                                    <select class="form-control" id="rank" name="ship_id" value="">
+                                        @if($pirate -> ship == '')
+                                            @foreach($ships as $temp_ship)}}
+                                            <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
                                             @endforeach
-
-
+                                        @else
+                                            @foreach($ships as $temp_ship)}}
+                                                @if($temp_ship -> id == $pirate -> ship -> id)
+                                                    <option selected="selected"
+                                                    value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
+                                                @else
+                                                    <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
+                                                @endif
+                                            @endforeach
                                         @endif
                                     </select>
                                 </div>
