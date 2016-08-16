@@ -68,10 +68,24 @@ class ShipController extends Controller
     {
         Log::info($request);
         $ship = Ship::find($id);
-        $ship->name = $request->get('ship_name');
-        $ship->displacement = $request->get('ship_displacement');
-        $ship->length = $request->get('ship_length');
-//        $ship->treasure_amount = $request->get('ship_treasure_amount');
+//        $ship->name = $request->get('ship_name');
+//        $ship->displacement = $request->get('ship_displacement');
+//        $ship->length = $request->get('ship_length');
+//        $ship->draft = $request->get('ship_draft');
+//        $ship->crew_saltiness = $request->get('ship_crew_saltiness');
+//        $ship->num_cannons = $request->get('ship_num_cannons');
+
+        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons'];
+        foreach($ship_attributes as $ship_attribute){
+            $ship->{$ship_attribute} = $request ->get('ship_' . $ship_attribute);
+        }
+
+
+
+
+
+
+
         $ship->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }

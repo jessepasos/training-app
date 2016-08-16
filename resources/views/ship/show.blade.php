@@ -47,25 +47,44 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
+                            {{--<div class="form-group">--}}
+                                {{--<label for="name" class="col-sm-2 control-label">Name</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<input type="text" class="form-control" id="name" name="ship_name" value="{{ $ship->name }}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<label for="name" class="col-sm-2 control-label">displacement</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<input type="text" class="form-control" id="displacement" name="ship_displacement" value="{{ $ship->displacement }}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="form-group">--}}
+                                {{--<label for="length" class="col-sm-2 control-label">length</label>--}}
+                                {{--<div class="col-sm-10">--}}
+                                    {{--<input type="text" class="form-control" id="length" name="ship_length" value="{{ $ship->length }}">--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+
+
+
+
+                            <?php
+                            $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons'];
+                            ?>
+
+                            @foreach($ship_attributes as $ship_attribute)
                             <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name</label>
+                                <label for="{{$ship_attribute}}" class="col-sm-2 control-label">{{$ship_attribute}}</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="ship_name" value="{{ $ship->name }}">
+                                    <input type="text" class="form-control" id="length" name= "{{'ship_' . $ship_attribute}}" value="{{ $ship->{$ship_attribute} }}">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">displacement</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="displacement" name="ship_displacement" value="{{ $ship->displacement }}">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="length" class="col-sm-2 control-label">length</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="length" name="ship_length" value="{{ $ship->length }}">
-                                </div>
-                            </div>
-                            
+                            @endforeach
+
+
+
+
 
                             {{--<div class="form-group">--}}
                                 {{--<label for="treasure_amount" class="col-sm-2 control-label">treasure_amount</label>--}}
