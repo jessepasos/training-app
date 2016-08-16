@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -28,28 +27,30 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="pirate_name" value="{{ $pirate->name }}">
+                                    <input type="text" class="form-control" id="name" name="pirate_name"
+                                           value="{{ $pirate->name }}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
-                                        <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
-                                            <?php
-                                            $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
-                                            ?>
+                                    <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
+                                        <?php
+                                        $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];
+                                        ?>
 
-                                            @foreach($rank_names as $rank_name)
-                                                @if($rank_name == $pirate->rank)
-                                                    <option selected="selected" value="{{ $rank_name }}">{{ $rank_name }}</option>
-                                                @else
-                                                    <option value="{{ $rank_name }}">{{ $rank_name }}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        @foreach($rank_names as $rank_name)
+                                            @if($rank_name == $pirate->rank)
+                                                <option selected="selected"
+                                                        value="{{ $rank_name }}">{{ $rank_name }}</option>
+                                            @else
+                                                <option value="{{ $rank_name }}">{{ $rank_name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
+                            </div>
 
 
                             <div class="form-group">
@@ -57,14 +58,27 @@
                                 <div class="col-sm-10">
                                     {{--Create dropdown here--}}
                                     <select class="form-control" id="rank" name="ship_id" value="">
-
-                                        @foreach($ships as $temp_ship)}}
-                                            {{--@if($temp_ship -> id == $pirate -> ship -> id)--}}
-                                                {{--<option selected="selected" value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
+                                        @if($pirate->ship != '')
+                                            @foreach($ships as $temp_ship)}}
+                                            @if($temp_ship -> id == $pirate -> ship -> id)
+                                                <option selected="selected"
+                                                        value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
+                                            @else
+                                                <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
+                                            @endif
+                                            @endforeach
+                                        @else
+                                            @foreach($ships as $temp_ship)}}
+{{--                                            @if($temp_ship -> id == $pirate -> ship -> id)--}}
+                                                {{--<option selected="selected"--}}
+                                                        {{--value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>--}}
                                             {{--@else--}}
                                                 <option value="{{ $temp_ship->id }}">{{ $temp_ship->name }}</option>
                                             {{--@endif--}}
-                                        @endforeach
+                                            @endforeach
+
+
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -72,21 +86,22 @@
                             <div class="form-group">
                                 <label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="attributes" name="attributes" value="{{ $pirate->attributes }}">
+                                    <input type="text" class="form-control" id="attributes" name="attributes"
+                                           value="{{ $pirate->attributes }}">
                                 </div>
                             </div>
 
                             {{--<div class="form-group">--}}
-                                {{--<label for="attributes" class="col-sm-2 control-label">Ship ID</label>--}}
-                                {{--<div class="col-sm-10">--}}
-                                    {{--@if($pirate -> ship_id != NULL)--}}
-                                        {{--<input type="text" class="form-control" id="ship_id" name="ship_id" value="{{ $pirate->ship_id }}">--}}
-                                        {{--@else--}}
-                                        {{--<input type="text" class="form-control" id="ship_id" name="ship_id" value="1">--}}
-                                    {{--@endif--}}
+                            {{--<label for="attributes" class="col-sm-2 control-label">Ship ID</label>--}}
+                            {{--<div class="col-sm-10">--}}
+                            {{--@if($pirate -> ship_id != NULL)--}}
+                            {{--<input type="text" class="form-control" id="ship_id" name="ship_id" value="{{ $pirate->ship_id }}">--}}
+                            {{--@else--}}
+                            {{--<input type="text" class="form-control" id="ship_id" name="ship_id" value="1">--}}
+                            {{--@endif--}}
 
 
-                                {{--</div>--}}
+                            {{--</div>--}}
                             {{--</div>--}}
 
                             <div class="form-group">
