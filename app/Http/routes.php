@@ -48,6 +48,6 @@ Route::post('/ship/{id}', 'ShipController@update');
 
 
 
-Route::auth();
+//Route::auth();
 
 Route::get('/home', 'HomeController@index');
