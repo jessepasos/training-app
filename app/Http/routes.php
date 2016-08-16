@@ -36,7 +36,7 @@ Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 
 
 //ships
-Route::get('/ship',  'ShipController@index');
+//Route::get('/ship',  'ShipController@index');
 Route::get('/ship/{id}',  'ShipController@show');
 Route::post('/ship/{id}', 'ShipController@update');
 
@@ -53,6 +53,21 @@ Route::post('/ship/{id}', 'ShipController@update');
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('protected', ['middleware' => ['auth', 'admin'], function() {
+Route::get('protected', [
+    'middleware' => ['auth', 'admin'],
+    function() {
     return "this page requires that you be logged in and an Admin";
-}]);
+}
+]);
+
+
+
+//Route::get('profile', [
+//    'middleware' => 'auth',
+//    'uses' => 'UserController@showProfile'
+//]);
+
+Route::get('ship', [
+    'middleware' => ['auth' , 'admin'],
+    'uses' => 'ShipController@index'
+]);
