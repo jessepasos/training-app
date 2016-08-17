@@ -11,6 +11,15 @@
 |
 */
 
+//new routes for admin start
+
+
+
+
+//new routes for admin end
+
+
+
 Route::get('/', 'WelcomeController@index');
 
 Route::auth();
