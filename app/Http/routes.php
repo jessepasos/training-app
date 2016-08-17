@@ -56,10 +56,7 @@ Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 
 
 //ships
-Route::get('ship', [
-    'middleware' => ['auth' , 'admin'],
-    'uses' => 'ShipController@index'
-]);
+Route::get('ship', 'ShipController@index');
 Route::get('/ship/{id}',  'ShipController@show');
 Route::post('/ship/{id}', 'ShipController@update');
 
