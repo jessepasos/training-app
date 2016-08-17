@@ -12,7 +12,7 @@ class AddUsersToShipsTable extends Migration
      */
     public function up()
     {
-        Schema::table('ship', function (Blueprint $table) {
+        Schema::table('ships', function (Blueprint $table) {
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -25,7 +25,7 @@ class AddUsersToShipsTable extends Migration
      */
     public function down()
     {
-        Schema::table('ship', function (Blueprint $table) {
+        Schema::table('ships', function (Blueprint $table) {
             //
         });
     }
