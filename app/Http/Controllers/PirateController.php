@@ -24,13 +24,13 @@ class PirateController extends Controller
     public function __construct()
     {
         $this->middleware('web');
-//        if (Auth::guard('admin')->user()) {
-//            $pirates = Pirate::all();
-//        } elseif (Auth::guard('user')->user()) {
-//            $pirates = Auth::user()->pirates()->get();
-//        } else {
-//            $pirates = NULL;
-//        }
+        if (Auth::guard('admin')->user()) {
+            $this->pirates = Pirate::all();
+        } elseif (Auth::guard('user')->user()) {
+            $this->pirates = Auth::user()->pirates()->get();
+        } else {
+            $this->pirates = NULL;
+        }
     }
 
     /**
@@ -40,14 +40,14 @@ class PirateController extends Controller
      */
     public function index()
     {
-        if (Auth::guard('admin')->user()) {
-            $pirates = Pirate::all();
-        } elseif (Auth::guard('user')->user()) {
-            $pirates = Auth::user()->pirates()->get();
-        } else {
-            $pirates = NULL;
-        }
-        return view('the-ship')->withPirates($pirates);
+//        if (Auth::guard('admin')->user()) {
+//            $pirates = Pirate::all();
+//        } elseif (Auth::guard('user')->user()) {
+//            $pirates = Auth::user()->pirates()->get();
+//        } else {
+//            $pirates = NULL;
+//        }
+        return view('the-ship')->withPirates($this->pirates);
     }
 
 
