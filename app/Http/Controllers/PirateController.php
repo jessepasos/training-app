@@ -37,9 +37,11 @@ class PirateController extends Controller
         if (Auth::guard('admin')->user()) {
             $pirates = Pirate::all();
         } elseif (Auth::guard('user')->user()) {
-            $user_id = Auth::id();
-            Log::info($user_id);
-            $pirates = Pirate::where('user_id', '=', $user_id)->get();
+//            $user_id = Auth::id();
+//            Log::info($user_id);
+//            $pirates = Pirate::where('user_id', '=', $user_id)->get();
+//            $pirates = Auth::guard('user')->user()->pirates();
+            $pirates = Auth::user()->pirates()->get();
         }
 
 //        $pirates = Pirate::all();
