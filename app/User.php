@@ -12,6 +12,16 @@ class User extends Authenticatable
         return $this->admin; // this looks for an admin column in your users table
     }
 
+    public function pirates()
+    {
+        return $this->hasMany('App\Pirate');
+    }
+
+    public function ships()
+    {
+        return $this->hasMany('App\Ship');
+    }
+
 
     /**
      * The attributes that are mass assignable.
