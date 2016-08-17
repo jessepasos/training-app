@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -17,6 +18,8 @@ class PasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
+    protected $guard = 'admin'; //For guard
+    protected $broker = 'admins'; //For letting laravel know which config you're going to use for resetting password
 
     use ResetsPasswords;
 
