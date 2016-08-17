@@ -28,7 +28,21 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+//    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
+    protected $guard = 'admin';
+    public function showLoginForm()
+    {
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate');
+        }
+
+        return view('admin.auth.login');
+    }
+    public function showRegistrationForm()
+    {
+        return view('admin.auth.register');
+    }
 
     /**
      * Create a new authentication controller instance.
