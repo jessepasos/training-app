@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\AdminAuth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
-
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -18,10 +18,11 @@ class PasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
-    protected $guard = 'admin'; //For guard
-    protected $broker = 'admins'; //For letting laravel know which config you're going to use for resetting password
 
     use ResetsPasswords;
+
+    protected $guard = 'admin';
+    protected $broker = 'admins';
 
     /**
      * Create a new password controller instance.
@@ -30,6 +31,44 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:admin');
     }
+
+    public function getEmail()
+    {
+        return $this->showLinkRequestForm();
+    }
+
+    public function showLinkRequestForm()
+    {
+        if (property_exists($this, 'linkRequestView')) {
+            return view($this->linkRequestView);
+        }
+
+        if (view()->exists('admin.auth.passwords.email')) {
+            return view('admin.auth.passwords.email');
+        }
+
+        return view('admin.auth.password');
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+
+        if (is_null($token)) {
+            return $this->getEmail();
+        }
+        $email = $request->input('email');
+
+        if (property_exists($this, 'resetView')) {
+            return view($this->resetView)->with(compact('token', 'email'));
+        }
+
+        if (view()->exists('admin.auth.passwords.reset')) {
+            return view('admin.auth.passwords.reset')->with(compact('token', 'email'));
+        }
+
+        return view('admin.passwords.auth.reset')->with(compact('token', 'email'));
+    }
+
 }
