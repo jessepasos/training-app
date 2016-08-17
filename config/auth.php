@@ -34,6 +34,7 @@ return [
     | Supported: "session", "token"
     |
     */
+
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -54,33 +55,6 @@ return [
         ],
     ],
 
-
-    //Authenticating guards
-//    'guards' => [
-//        'user' =>[
-//            'driver' => 'session',
-//            'provider' => 'user',
-//        ],
-//        'admin' => [
-//            'driver' => 'session',
-//            'provider' => 'admin',
-//        ],
-//    ],
-
-//    'guards' => [
-//        'web' => [
-//            'driver' => 'session',
-//            'provider' => 'users',
-//        ],
-//
-//        'api' => [
-//            'driver' => 'token',
-//            'provider' => 'users',
-//        ],
-//    ],
-
-
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -97,6 +71,7 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
@@ -112,47 +87,6 @@ return [
         //     'table' => 'users',
         // ],
     ],
-
-
-    //User Providers
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ]
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-    ],
-//    'providers' => [
-//        'user' => [
-//            'driver' => 'eloquent',
-//            'model' => App\User::class,
-//        ],
-//        'admin' => [
-//            'driver' => 'eloquent',
-//            'model' => App\Admin::class,
-//        ]
-//    ],
-
-
-//    'providers' => [
-//        'users' => [
-//            'driver' => 'eloquent',
-//            'model' => App\User::class,
-//        ],
-//
-//        // 'users' => [
-//        //     'driver' => 'database',
-//        //     'table' => 'users',
-//        // ],
-//    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -173,22 +107,6 @@ return [
     |
     */
 
-    //Resetting Password
-//    'passwords' => [
-//        'clients' => [
-//            'provider' => 'client',
-//            'email' => 'auth.emails.password',
-//            'table' => 'password_resets',
-//            'expire' => 60,
-//        ],
-//        'admins' => [
-//            'provider' => 'admin',
-//            'email' => 'admin.auth.emails.password',
-//            'table' => 'password_resets',
-//            'expire' => 60,
-//        ],
-//    ],
-
     'passwords' => [
         'users' => [
             'provider' => 'users',
@@ -203,15 +121,5 @@ return [
             'expire' => 60,
         ],
     ],
-
-
-//    'passwords' => [
-//        'users' => [
-//            'provider' => 'users',
-//            'email' => 'auth.emails.password',
-//            'table' => 'password_resets',
-//            'expire' => 60,
-//        ],
-//    ],
 
 ];
