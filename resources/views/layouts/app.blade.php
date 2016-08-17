@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @if(Auth::guard('admin')->user())
+            {{--@if(Auth::guard('admin')->user())--}}
             <!-- Branding Image -->
             {{--menus below intended for admins only--}}
             <a class="navbar-brand" href="{{ url('/pirate') }}">
@@ -50,7 +50,7 @@
                 SHIPS
             </a>
 
-            @endif
+            {{--@endif--}}
 
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->

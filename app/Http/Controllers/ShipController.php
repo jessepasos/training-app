@@ -19,20 +19,21 @@ class ShipController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('web');
+//        $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function theBlackPerl()
-    {
-        $pirates = Pirate::all();
-
-        return view('the-ship')->withPirates($pirates);
-    }
+//    /**
+//     * Show the application dashboard.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function theBlackPerl()
+//    {
+//        $pirates = Pirate::all();
+//
+//        return view('the-ship')->withPirates($pirates);
+//    }
 
     /**
      * Display a listing of the resource.
