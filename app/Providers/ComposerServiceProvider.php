@@ -15,7 +15,8 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         view()->composer(
-            ['the-ship', 'pirate'],
+            ['pirate.index', 'pirate.show'],
+//            ['the-ship', 'pirate'],
             'App\Http\ViewComposers\PirateComposer'
         );
     }

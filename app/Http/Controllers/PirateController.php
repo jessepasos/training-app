@@ -43,7 +43,7 @@ class PirateController extends Controller
      */
     public function index()
     {
-        return view('the-ship')->withPirates($this->pirates);
+        return view('pirate.index')->withPirates($this->pirates);
     }
 
 
@@ -56,7 +56,7 @@ class PirateController extends Controller
     {
         $pirate = Pirate::find($id);
         $ships = Ship::All();
-        return view('pirate')->withPirate($pirate)->withShips($this->ships);
+        return view('pirate.show')->withPirate($pirate)->withShips($this->ships);
     }
 
     public function store($id, Request $request)
