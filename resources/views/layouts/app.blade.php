@@ -37,8 +37,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
+            @if(Auth::guard('admin')->user())
             <!-- Branding Image -->
+            {{--menus below intended for admins only--}}
             <a class="navbar-brand" href="{{ url('/pirate') }}">
                 PIRATES
             </a>
@@ -48,6 +49,8 @@
             <a class="navbar-brand" href="{{ url('/ship') }}">
                 SHIPS
             </a>
+
+            @endif
 
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
