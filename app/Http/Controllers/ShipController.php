@@ -43,14 +43,12 @@ class ShipController extends Controller
      */
     public function index()
     {
-        if(Auth::guard('admin')->user()) {
+        if (Auth::guard('admin')->user()) {
             $ships = Ship::all();
         } elseif (Auth::guard('user')->user()) {
-                $user_id = Auth::id();
+            $user_id = Auth::id();
             Log::info($user_id);
-
-//            $ships = Ship::find([1]);
-            $ships = Ship::where('user_id', '=', $user_id)->get(); //->firstOrFail();
+            $ships = Ship::where('user_id', '=', $user_id)->get();
         }
         $pirates = Pirate::all();
         return view('ship.index')->withShips($ships)->withPirates($pirates);
@@ -59,7 +57,7 @@ class ShipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -74,8 +72,8 @@ class ShipController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -84,8 +82,8 @@ class ShipController extends Controller
         $ship = Ship::find($id);
 
         $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons'];
-        foreach($ship_attributes as $ship_attribute){
-            $ship->{$ship_attribute} = $request ->get('ship_' . $ship_attribute);
+        foreach ($ship_attributes as $ship_attribute) {
+            $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
 
         $ship->save();
