@@ -10,8 +10,10 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/register') }}">
                         {{ csrf_field() }}
 
+                        admin
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+                            <label class="col-md-4 control-label">Admin Name</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
