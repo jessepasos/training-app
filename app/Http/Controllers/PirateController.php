@@ -22,7 +22,7 @@ class PirateController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     /**
@@ -30,7 +30,20 @@ class PirateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
+    {
+        $pirates = Pirate::all();
+
+        return view('the-ship')->withPirates($pirates);
+    }
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         $pirate = Pirate::find($id);
         $ships = Ship::All();

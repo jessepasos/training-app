@@ -35,11 +35,12 @@ Route::get('/', 'WelcomeController@index');
 
 
 
-Route::get('/the-black-perl', 'ShipController@theBlackPerl');
+//Route::get('/the-black-perl', 'ShipController@theBlackPerl');
 
 
 //pirates
-Route::get('/pirate/{id}', 'PirateController@index');
+Route::get('/pirate', 'PirateController@index');
+Route::get('/pirate/{id}', 'PirateController@show');
 Route::post('/pirate/{id}', 'PirateController@store');
 Route::post('/pirate-remove/{id}', 'PirateController@removeFromShip');
 

@@ -39,8 +39,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                THE BLACK PERL
+            <a class="navbar-brand" href="{{ url('/pirate') }}">
+                PIRATES
             </a>
             <a class="navbar-brand" href="{{ url('/seaport') }}">
                 SEAPORTS
