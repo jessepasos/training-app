@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -34,18 +34,38 @@ return [
     | Supported: "session", "token"
     |
     */
-
-    //Authenticating guards
     'guards' => [
-        'user' =>[
+        'web' => [
             'driver' => 'session',
-            'provider' => 'user',
+            'provider' => 'users',
+        ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users'
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admins'
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
         ],
     ],
+
+
+    //Authenticating guards
+//    'guards' => [
+//        'user' =>[
+//            'driver' => 'session',
+//            'provider' => 'user',
+//        ],
+//        'admin' => [
+//            'driver' => 'session',
+//            'provider' => 'admin',
+//        ],
+//    ],
 
 //    'guards' => [
 //        'web' => [
@@ -77,18 +97,49 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
-    //User Providers
     'providers' => [
-        'user' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'admin' => [
+
+        'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ]
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
+
+
+    //User Providers
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ]
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
+//    'providers' => [
+//        'user' => [
+//            'driver' => 'eloquent',
+//            'model' => App\User::class,
+//        ],
+//        'admin' => [
+//            'driver' => 'eloquent',
+//            'model' => App\Admin::class,
+//        ]
+//    ],
 
 
 //    'providers' => [
@@ -123,20 +174,36 @@ return [
     */
 
     //Resetting Password
+//    'passwords' => [
+//        'clients' => [
+//            'provider' => 'client',
+//            'email' => 'auth.emails.password',
+//            'table' => 'password_resets',
+//            'expire' => 60,
+//        ],
+//        'admins' => [
+//            'provider' => 'admin',
+//            'email' => 'admin.auth.emails.password',
+//            'table' => 'password_resets',
+//            'expire' => 60,
+//        ],
+//    ],
+
     'passwords' => [
-        'clients' => [
-            'provider' => 'client',
+        'users' => [
+            'provider' => 'users',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'admins' => [
-            'provider' => 'admin',
+            'provider' => 'admins',
             'email' => 'admin.auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,
         ],
     ],
+
 
 //    'passwords' => [
 //        'users' => [
