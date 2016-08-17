@@ -44,11 +44,13 @@ class ShipController extends Controller
     public function index()
     {
         if(Auth::guard('admin')->user()) {
-//            $ships = Ship::find(1);
-//            $ships = Ship::all();
-            $ships = Ship::find([1,2]);
-        } else {
-//            $ships = Ship::all();
+            $ships = Ship::all();
+        } elseif (Auth::guard('user')->user()) {
+                $user_id = Auth::id();
+            Log::info($user_id);
+
+//            $ships = Ship::find([1]);
+            $ships = Ship::where('user_id', '=', $user_id)->get(); //->firstOrFail();
         }
         $pirates = Pirate::all();
         return view('ship.index')->withShips($ships)->withPirates($pirates);
