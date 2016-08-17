@@ -14,6 +14,8 @@ class AddUsersToPiratesTable extends Migration
     {
         Schema::table('pirates', function (Blueprint $table) {
             //
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

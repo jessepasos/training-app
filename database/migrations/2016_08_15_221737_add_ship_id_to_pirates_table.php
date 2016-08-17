@@ -14,10 +14,8 @@ class AddShipIdToPiratesTable extends Migration
     {
         //
         Schema::table('pirates', function ($table) {
-//            $table->string('email');
             $table->integer('ship_id')->unsigned()->nullable();
             $table->foreign('ship_id')->references('id')->on('ships');
-
         });
     }
 
