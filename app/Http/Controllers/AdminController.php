@@ -8,16 +8,23 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-        return 'admin page';
+    public function __construct(){
+        $this->middleware('admin');
     }
+    public function index(){
+        return view('admin.dashboard');
+    }
+
+//    /**
+//     * Display a listing of the resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function index()
+//    {
+//        //
+//        return 'admin page';
+//    }
 
     /**
      * Show the form for creating a new resource.
