@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Log;
+use Auth;
 
 class ShipController extends Controller
 {
@@ -42,7 +43,13 @@ class ShipController extends Controller
      */
     public function index()
     {
-        $ships = Ship::all();
+        if(Auth::guard('admin')->user()) {
+//            $ships = Ship::find(1);
+//            $ships = Ship::all();
+            $ships = Ship::find([1,2]);
+        } else {
+//            $ships = Ship::all();
+        }
         $pirates = Pirate::all();
         return view('ship.index')->withShips($ships)->withPirates($pirates);
     }
