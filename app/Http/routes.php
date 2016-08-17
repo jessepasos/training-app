@@ -13,6 +13,8 @@
 
 //new routes for admin start
 Route::group(['middleware' => ['web']], function () {
+    Route::auth();
+
     //Login Routes...
     Route::get('/admin/login','AdminAuth\AuthController@showLoginForm');
     Route::post('/admin/login','AdminAuth\AuthController@login');
@@ -31,7 +33,7 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::get('/', 'WelcomeController@index');
 
-Route::auth();
+
 
 Route::get('/the-black-perl', 'ShipController@theBlackPerl');
 
