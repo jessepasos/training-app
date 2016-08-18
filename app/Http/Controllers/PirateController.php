@@ -3,15 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Pirate;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
-
-use Log;
-
-
 use App\Ship;
+use App\User;
+use Illuminate\Http\Request;
+use Log;
 use Auth;
 
 class PirateController extends Controller
@@ -56,7 +51,8 @@ class PirateController extends Controller
     {
         $pirate = Pirate::find($id);
         $ships = Ship::All();
-        return view('pirate.show')->withPirate($pirate)->withShips($this->ships);
+        $users = User::All();
+        return view('pirate.show')->withPirate($pirate)->withShips($this->ships)->withUsers($users);
     }
 
     public function update($id, Request $request)
@@ -67,6 +63,9 @@ class PirateController extends Controller
         $pirate->attributes = $request->get('attributes');
         $pirate->rank = $request->get('rank');
         $pirate->ship_id = $request->get('ship_id');
+
+        $pirate->user_id = $request->get('user_id');
+
         $pirate->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }

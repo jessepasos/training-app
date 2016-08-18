@@ -72,6 +72,28 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="rank" class="col-sm-2 control-label">Assigned User</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="rank" name="user_id" value="">
+                                        @if($pirate -> user == '')
+                                            @foreach($users as $temp_user)}}
+                                            <option value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @endforeach
+                                        @else
+                                            @foreach($users as $temp_user)}}
+                                            @if($temp_user -> id == $pirate -> user -> id)
+                                                <option selected="selected"
+                                                        value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @else
+                                                <option value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="attributes" class="col-sm-2 control-label">Physical Attributes</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="attributes" name="attributes"
