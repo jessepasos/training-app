@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pirate;
 use App\Ship;
+use App\Seaport;
 
 use Illuminate\Http\Request;
 
@@ -64,9 +65,9 @@ class ShipController extends Controller
     {
         $ship = Ship::find($id);
 //        $pirates = Ship::find($id) -> pirates();
-
+        $seaports = Seaport::all();
         $pirates = $ship->pirates()->get();
-        return view('ship.show')->withShip($ship)->withPirates($pirates);
+        return view('ship.show')->withShip($ship)->withPirates($pirates)->withSeaports($seaports);
     }
 
     /**
@@ -81,10 +82,12 @@ class ShipController extends Controller
         Log::info($request);
         $ship = Ship::find($id);
 
-        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons'];
+        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id'];
         foreach ($ship_attributes as $ship_attribute) {
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
+
+
 
         $ship->save();
         return redirect()->back()->with('status', 'Profile saved!');

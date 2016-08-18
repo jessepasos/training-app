@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Seaport;
+use App\Ship;
 use App\User;
+
 use Illuminate\Http\Request;
 
 //use App\Http\Requests;
@@ -85,22 +87,20 @@ class SeaportController extends Controller
      */
     public function getAttacked($id, Request $request)
     {
-        Log::info('in get attacked function');
-        Log::info($request);
+        Log::info('ship_id is:');
+        Log::info($request->get('ship_id'));
 
+        $attack_ship_id = $request->get('ship_id');
         $seaport = Seaport::find($id);
+        $attack_ship = Ship::find($attack_ship_id);
 
-        $black_perl = Seaport::where('name', '=', 'Port Royal')->first();
-//        Log::info(var_dump($black_perl));
-        $black_perl -> treasure_amount = $black_perl -> treasure_amount + $seaport -> treasure_amount;
-
+        $attack_ship -> treasure_amount = $attack_ship -> treasure_amount + $seaport -> treasure_amount;
         $seaport->treasure_amount = 0;
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
         $seaport->attacked_at = $formatted_time;
-
         $seaport->save();
-        $black_perl->save();
+        $attack_ship->save();
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
@@ -126,6 +126,7 @@ class SeaportController extends Controller
     public function update(Request $request, $id)
     {
         Log::info($request);
+
         $seaport = Seaport::find($id);
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
