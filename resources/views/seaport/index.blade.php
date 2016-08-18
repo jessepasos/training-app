@@ -18,11 +18,30 @@
                                     <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
                                     <div>user owner: {{$seaport->user['name']}}</div>
+
                                     @if($seaport -> attacked_at == '0000-00-00 00:00:00')
                                         <div> never attacked before</div>
                                     @else
                                         <div>last attacked at: {{ $seaport -> attacked_at }}</div>
                                     @endif
+
+
+                                    <?php $ships_in_this_port = $seaport->ships()->get();?>
+                                    <div>ships stationed here:
+                                        <ul>
+                                        @if($ships_in_this_port != [])
+
+                                            @foreach($ships_in_this_port as $ship_in_this_port)
+
+                                                <li>{{$ship_in_this_port->name}}</li>
+                                            @endforeach
+                                        @else
+                                            <div>no ships here</div>
+                                        @endif
+                                        </ul>
+                                    </div>
+
+
                                 </a>
 
                                 @if($seaport -> user_id != Auth::user()->id)
@@ -31,8 +50,10 @@
                                     <button type="submit" class="btn btn-danger">Attack this port!</button>
                                     {{ Form::close() }}
 
-                                    @else
-                                    <button type="submit" class="btn btn-success" color="green">Deposit money in your port!</button>
+                                @else
+                                    <button type="submit" class="btn btn-success" color="green">Deposit money in your
+                                        port!
+                                    </button>
 
                                 @endif
                             </li>

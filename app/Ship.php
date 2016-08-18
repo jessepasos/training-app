@@ -22,4 +22,10 @@ class Ship extends Model
         return $this->belongsTo('App\Seaport');
     }
 
+    public function name()
+    {
+        return $this->name;
+
+    }
+
 }
