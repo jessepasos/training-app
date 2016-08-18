@@ -27,6 +27,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Seaport');
     }
 
+    public function name()
+    {
+        return $this->name;
+    }
+
 
     /**
      * The attributes that are mass assignable.

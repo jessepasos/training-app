@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Seaport;
+use App\User;
 use Illuminate\Http\Request;
 
 //use App\Http\Requests;
@@ -31,7 +32,8 @@ class SeaportController extends Controller
     public function index()
     {
         $seaports = Seaport::all();
-        return view('seaport.index')->withSeaports($seaports);
+        $users = User::all();
+        return view('seaport.index')->withSeaports($seaports)->withUsers($users);
     }
 
 

@@ -19,6 +19,7 @@
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
 
 
+
                                     @if($seaport -> attacked_at == '0000-00-00 00:00:00')
                                         <div> never attacked before</div>
                                     @else
@@ -35,6 +36,13 @@
 
                             </li>
                         @endforeach
+
+
+                                    @foreach ($users as $user)
+                                        {{$user->name}}
+
+
+                                        @endforeach
 
                     </div>
 
