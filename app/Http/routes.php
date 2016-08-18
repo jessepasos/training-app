@@ -39,9 +39,11 @@ Route::get('/', 'WelcomeController@index');
 
 
 //pirates
+Route::get('/pirate-new', 'PirateController@create');
+Route::post('/pirate-new', 'PirateController@store');
 Route::get('/pirate', 'PirateController@index');
 Route::get('/pirate/{id}', 'PirateController@show');
-Route::post('/pirate/{id}', 'PirateController@store');
+Route::post('/pirate/{id}', 'PirateController@update');
 Route::post('/pirate-remove/{id}', 'PirateController@removeFromShip');
 
 

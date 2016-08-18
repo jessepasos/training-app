@@ -8,7 +8,9 @@
                 <div class="panel-heading">Welcome aboard, matey!</div>
 
                 <div class="panel-body">
+
                     A message from your Captain: <b>"{{ $captains_message }}"</b>
+                    <div><a href="{{url('/pirate-new')}}"> Add new pirate </a></div>
 
                     <h3>The Roster</h3>
 

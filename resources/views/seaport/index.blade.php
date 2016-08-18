@@ -29,31 +29,34 @@
                                     <?php $ships_in_this_port = $seaport->ships()->get();?>
                                     <div>ships stationed here:
                                         <ul>
-                                        @if($ships_in_this_port != [])
+                                            @if($ships_in_this_port != [])
 
-                                            @foreach($ships_in_this_port as $ship_in_this_port)
+                                                @foreach($ships_in_this_port as $ship_in_this_port)
 
-                                                <li>{{$ship_in_this_port->name}}</li>
-                                            @endforeach
-                                        @else
-                                            <div>no ships here</div>
-                                        @endif
+                                                    <li>{{$ship_in_this_port->name}}</li>
+                                                @endforeach
+                                            @else
+                                                <div>no ships here</div>
+                                            @endif
                                         </ul>
                                     </div>
 
 
                                 </a>
+                                @if(Auth::guard('user')->user())
+                                {{--@else--}}
+                                    @if($seaport -> user_id != Auth::user()->id)
+                                        {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-danger">Attack this port!</button>
+                                        {{ Form::close() }}
 
-                                @if($seaport -> user_id != Auth::user()->id)
-                                    {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-danger">Attack this port!</button>
-                                    {{ Form::close() }}
-
-                                @else
-                                    <button type="submit" class="btn btn-success" color="green">Deposit money in your
-                                        port!
-                                    </button>
+                                    @else
+                                        <button type="submit" class="btn btn-success" color="green">Deposit money in
+                                            your
+                                            port!
+                                        </button>
+                                    @endif
 
                                 @endif
                             </li>

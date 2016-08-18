@@ -1,29 +1,10 @@
-
 @extends('layouts.app')
-
-{{--<a class="navbar-brand" href="{{ url('/seaport') }}">--}}
-    {{--SEAPORT INDEX--}}
-{{--</a>--}}
-
-
-
 @section('content')
-
-
-
-
     <div class="container">
-
-        {{--<a class="navbar-brand" href="{{ url('/seaport') }}">--}}
-            {{--SEAPORT INDEX--}}
-        {{--</a>--}}
-
         <div class="row">
-
             <a class="navbar-brand" href="{{ url('/seaport') }}">
                 SEAPORT INDEX
             </a>
-
 
             {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
             {{ csrf_field() }}
@@ -50,14 +31,16 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="name" name="seaport_name" value="{{ $seaport->name }}">
+                                    <input type="text" class="form-control" id="name" name="seaport_name"
+                                           value="{{ $seaport->name }}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="treasure_amount" class="col-sm-2 control-label">treasure_amount</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="treasure_amount" name="seaport_treasure_amount" value="{{ $seaport->treasure_amount }}">
+                                    <input type="text" class="form-control" id="treasure_amount"
+                                           name="seaport_treasure_amount" value="{{ $seaport->treasure_amount }}">
                                 </div>
                             </div>
 
