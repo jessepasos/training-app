@@ -23,7 +23,7 @@ class PirateController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('web');
+        $this->middleware(['web']);
         if (Auth::guard('admin')->user()) {
             $this->pirates = Pirate::all();
             $this->ships = Ship::all();

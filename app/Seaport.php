@@ -12,8 +12,8 @@ class Seaport extends Model
         'treasure_amount',
     ];
 
-//    public function __construct()
-//    {
-//
-//    }
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
