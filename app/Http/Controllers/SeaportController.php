@@ -104,6 +104,36 @@ class SeaportController extends Controller
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
+
+    /**
+     * Get attacked; set treasure_amount to 0 and update created_at with current time.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getDeposit($id, Request $request)
+    {
+        Log::info('ship_id is:');
+        Log::info($request->get('ship_id'));
+
+        $deposit_ship_id = $request->get('ship_id');
+        $seaport = Seaport::find($id);
+        $deposit_ship = Ship::find($deposit_ship_id);
+
+//        $deposit_ship -> treasure_amount = $deposit_ship -> treasure_amount + $seaport -> treasure_amount;
+//        $seaport->treasure_amount = 0;
+        $seaport->treasure_amount = $seaport->treasure_amount + $deposit_ship->treasure_amount;
+        $deposit_ship->treasure_amount = 0;
+
+
+        $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
+        Log::info($formatted_time);
+        $seaport->attacked_at = $formatted_time;
+        $seaport->save();
+        $deposit_ship->save();
+        return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
+    }
+
 //
 //    /**
 //     * Show the form for editing the specified resource.

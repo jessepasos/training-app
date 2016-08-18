@@ -74,12 +74,15 @@
                                             {{ Form::close() }}
 
                                         @else
+                                            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
+                                            {{ csrf_field() }}
 
                                             {{Form::select('ship_id', $current_user_ships)}}
                                             <button type="submit" class="btn btn-success" color="green">Deposit money in
                                                 your
                                                 port!
                                             </button>
+                                            {{ Form::close() }}
                                         @endif
                                     @endif
                                 @endif

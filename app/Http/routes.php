@@ -56,7 +56,7 @@ Route::get('/seaport',  'SeaportController@index');
 Route::get('/seaport/{id}',  'SeaportController@show');
 Route::post('/seaport/{id}', 'SeaportController@update');
 Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
-
+Route::post('/seaport/{id}/deposit', 'SeaportController@getDeposit');
 
 //ships
 Route::get('ship', 'ShipController@index');
