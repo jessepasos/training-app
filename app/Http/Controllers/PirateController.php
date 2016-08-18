@@ -85,6 +85,9 @@ class PirateController extends Controller
         $pirate->attributes = $request->get('attributes');
         $pirate->rank = $request->get('rank');
         $pirate->ship_id = $request->get('ship_id');
+
+        $pirate->user_id = $request->get('user_id');
+        
         $pirate->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }
@@ -113,7 +116,9 @@ class PirateController extends Controller
     public function create()
     {
         $pirate = new Pirate();
-        return view('pirate.new')->withPirate($pirate);
+        $ships = Ship::All();
+        $users = User::All();
+        return view('pirate.new')->withPirate($pirate)->withShips($ships)->withUsers($users);
     }
 
 
