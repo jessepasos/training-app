@@ -17,6 +17,7 @@
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+                                    <div>user owner: {{$seaport->user['name']}}</div>
 
 
 
@@ -38,11 +39,11 @@
                         @endforeach
 
 
-                                    @foreach ($users as $user)
-                                        {{$user->name}}
+                                    {{--@foreach ($users as $user)--}}
+                                        {{--{{$user->name}}--}}
 
 
-                                        @endforeach
+                                        {{--@endforeach--}}
 
                     </div>
 
