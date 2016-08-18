@@ -18,9 +18,6 @@
                                     <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
                                     <div>user owner: {{$seaport->user['name']}}</div>
-
-
-
                                     @if($seaport -> attacked_at == '0000-00-00 00:00:00')
                                         <div> never attacked before</div>
                                     @else
@@ -29,29 +26,18 @@
                                 </a>
 
                                 @if($seaport -> name != 'Port Royal')
-                                {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-primary">Attack this port!</button>
-                                {{ Form::close() }}
-                                    @endif
-
+                                    {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">Attack this port!</button>
+                                    {{ Form::close() }}
+                                @endif
                             </li>
                         @endforeach
 
-
-                                    {{--@foreach ($users as $user)--}}
-                                        {{--{{$user->name}}--}}
-
-
-                                        {{--@endforeach--}}
-
                     </div>
 
-                    <div class="panel-footer">
-                        {{--<div class="text-center">--}}
-                        {{--<a href="/login" class="btn btn-default">Continue</a>--}}
-                        {{--</div>--}}
-                    </div>
+                    {{--<div class="panel-footer">--}}
+                    {{--</div>--}}
                 </div>
             </div>
         </div>
