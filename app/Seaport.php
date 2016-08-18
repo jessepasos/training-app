@@ -24,5 +24,10 @@ class Seaport extends Model
         return $this->hasMany('App\Ship');
     }
 
+    public function name()
+    {
+        return $this->name;
+    }
+
 
 }

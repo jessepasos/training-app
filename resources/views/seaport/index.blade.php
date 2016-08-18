@@ -15,6 +15,7 @@
                             <li class="list-group-item">
                                 <a href="/seaport/{{ $seaport->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                </a>
                                     <div>name: {{ $seaport->name }} </div>
                                     <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
                                     <div>user owner: {{$seaport->user['name']}}</div>
@@ -26,14 +27,21 @@
                                     @endif
 
 
-                                    <?php $ships_in_this_port = $seaport->ships()->get();?>
+                                    <?php $ships_in_this_port = $seaport->ships()->get();
+                                $user_ships_in_this_port = $seaport->ships()->where('user_id', '=', Auth::user()->id);
+                                    $ship_name_array = array();
+                                ?>
                                     <div>ships stationed here:
                                         <ul>
                                             @if($ships_in_this_port != [])
-
                                                 @foreach($ships_in_this_port as $ship_in_this_port)
 
-                                                    <li>{{$ship_in_this_port->name}}</li>
+                                                    @if($ship_in_this_port->user_id == Auth::user()->id)
+                                                        <?php $ship_name_array[$ship_in_this_port->id] = $ship_in_this_port->name; ?>
+                                                            <li>{{$ship_in_this_port->name}} (your ship)</li>
+                                                        @else
+                                                            <li>{{$ship_in_this_port->name}} (other's ship) </li>
+                                                    @endif
                                                 @endforeach
                                             @else
                                                 <div>no ships here</div>
@@ -42,12 +50,18 @@
                                     </div>
 
 
-                                </a>
+
+
+                                @foreach($ship_name_array as $temp_ship_name)
+                                            {{$temp_ship_name}}
+                                @endforeach
+
                                 @if(Auth::guard('user')->user())
-                                {{--@else--}}
                                     @if($seaport -> user_id != Auth::user()->id)
                                         {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
                                         {{ csrf_field() }}
+                                        {{Form::select('ship_name', $ship_name_array)}}
+
                                         <button type="submit" class="btn btn-danger">Attack this port!</button>
                                         {{ Form::close() }}
 

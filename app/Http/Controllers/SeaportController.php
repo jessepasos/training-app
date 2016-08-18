@@ -83,9 +83,11 @@ class SeaportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getAttacked($id)
+    public function getAttacked($id, Request $request)
     {
         Log::info('in get attacked function');
+        Log::info($request);
+
         $seaport = Seaport::find($id);
 
         $black_perl = Seaport::where('name', '=', 'Port Royal')->first();
