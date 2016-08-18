@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         A message from your Captain: <b>"{{ $captains_message }}"</b>
 
-                        <h1>Edit Pirate</h1>
+                        <h1>New Pirate</h1>
 
                         @if (session('status'))
                             <div class="alert alert-success">

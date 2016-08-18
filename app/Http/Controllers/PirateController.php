@@ -87,7 +87,7 @@ class PirateController extends Controller
         $pirate->ship_id = $request->get('ship_id');
 
         $pirate->user_id = $request->get('user_id');
-        
+
         $pirate->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }
