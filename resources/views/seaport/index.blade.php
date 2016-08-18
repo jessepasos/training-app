@@ -28,8 +28,11 @@
                                 @if($seaport -> user_id != Auth::user()->id)
                                     {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
                                     {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-primary">Attack this port!</button>
+                                    <button type="submit" class="btn btn-danger">Attack this port!</button>
                                     {{ Form::close() }}
+
+                                    @else
+                                    <button type="submit" class="btn btn-success" color="green">Deposit money in your port!</button>
 
                                 @endif
                             </li>

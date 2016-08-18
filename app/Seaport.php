@@ -1,20 +1,12 @@
 <?php
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 
 
 class Seaport extends Model
 {
-
-//    public function __construct()
-//    {
-////        $this->middleware('web');
-////        $this->middleware('auth');
-////        $this->user = User::all();
-//
-//    }
-
 
 
     protected $fillable = [
@@ -26,4 +18,11 @@ class Seaport extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function ships()
+    {
+        return $this->hasMany('App\Ship');
+    }
+
+
 }

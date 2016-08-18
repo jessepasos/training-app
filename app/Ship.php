@@ -12,4 +12,14 @@ class Ship extends Model
         return $this->hasMany('App\Pirate');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function seaport()
+    {
+        return $this->belongsTo('App\Seaport');
+    }
+
 }
