@@ -46,6 +46,29 @@
                             @endforeach
 
                             <div class="form-group">
+                                <label for="rank" class="col-sm-2 control-label">Assigned User</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="rank" name="ship_user_id" value="">
+                                        @if($ship -> user == '')
+                                            @foreach($users as $temp_user)}}
+                                            <option value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @endforeach
+                                        @else
+                                            @foreach($users as $temp_user)}}
+                                            @if($temp_user -> id == $ship -> user -> id)
+                                                <option selected="selected"
+                                                        value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @else
+                                                <option value="{{ $temp_user->id }}">{{ $temp_user->name }}</option>
+                                            @endif
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Assigned Seaport</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="rank" name="ship_seaport_id" value="">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pirate;
 use App\Ship;
 use App\Seaport;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -53,8 +54,10 @@ class ShipController extends Controller
     {
         $ship = Ship::find($id);
         $seaports = Seaport::all();
-        $pirates = $ship->pirates()->get();
-        return view('ship.show')->withShip($ship)->withPirates($pirates)->withSeaports($seaports);
+        $users = User::all();
+//        $pirates = $ship->pirates()->get();
+//        return view('ship.show')->withShip($ship)->withPirates($pirates)->withSeaports($seaports);
+        return view('ship.new')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship]);
     }
 
     /**
@@ -66,7 +69,10 @@ class ShipController extends Controller
     {
         $ship = new Ship();
         $seaports = Seaport::all();
-        return view('ship.new')->withShip($ship)->withSeaports($seaports);
+        $users = User::all();
+
+//        return view('ship.new')->withShip($ship)->withSeaports($seaports);
+        return view('ship.new')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship]);
     }
 
 
@@ -83,7 +89,7 @@ class ShipController extends Controller
         Log::info($request);
 //        $ship->name = $request->get('ship_name');
 //        $ship->treasure_amount = $request->get('ship_treasure_amount');
-        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id'];
+        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id', 'user_id'];
         foreach ($ship_attributes as $ship_attribute) {
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
@@ -103,7 +109,7 @@ class ShipController extends Controller
     {
         Log::info($request);
         $ship = Ship::find($id);
-        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id'];
+        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id', 'user_id'];
         foreach ($ship_attributes as $ship_attribute) {
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
