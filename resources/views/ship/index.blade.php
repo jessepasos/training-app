@@ -22,22 +22,18 @@
                                     <div>treasure_amount: {{ $ship->treasure_amount }} </div>
                                 </a>
                                 <div> Pirate Crew:
-                            <?php $pirates = $ship->pirates()->get(); ?>
-                            @foreach($pirates as $pirate)
-                                {{$pirate -> name}}{{$pirate -> id}} ,
-                                {{--{{$pirate -> name}}{{$pirate -> id}}--}}
-                            @endforeach
-
+                                    <?php $pirates = $ship->pirates()->get(); ?>
+                                    @foreach($pirates as $pirate)
+                                        {{$pirate -> name}}{{$pirate -> id}} ,
+                                    @endforeach
+                                </div>
+                            </li>
+                        @endforeach
                     </div>
-
-
-                    </li>
-                    @endforeach
-                </div>
-                <div class="panel-footer">
+                    <div class="panel-footer">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
