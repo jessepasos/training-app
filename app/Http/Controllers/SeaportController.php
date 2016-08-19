@@ -45,19 +45,19 @@ class SeaportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-        public function create()
-        {
-            $seaport = new Seaport();
-            $users = User::all();
+    public function create()
+    {
+        $seaport = new Seaport();
+        $users = User::all();
 
-            return view('seaport.new')->with(['seaport' => $seaport, 'users' => $users]);
-        }
+        return view('seaport.new')->with(['seaport' => $seaport, 'users' => $users]);
+    }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -69,26 +69,28 @@ class SeaportController extends Controller
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
         $seaport->user_id = $request->get('user_id');
         $seaport->save();
+
         return redirect()->back()->with('status', 'New seaport created!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $seaport = Seaport::find($id);
         $users = User::all();
+
         return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users]);
     }
 
     /**
      * Get attacked; set treasure_amount to 0 and update created_at with current time.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function getAttacked($id, Request $request)
@@ -100,13 +102,14 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $attack_ship = Ship::find($attack_ship_id);
 
-        $attack_ship -> treasure_amount = $attack_ship -> treasure_amount + $seaport -> treasure_amount;
+        $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->treasure_amount;
         $seaport->treasure_amount = 0;
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
         $seaport->attacked_at = $formatted_time;
         $seaport->save();
         $attack_ship->save();
+
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
@@ -114,7 +117,7 @@ class SeaportController extends Controller
     /**
      * Get attacked; set treasure_amount to 0 and update created_at with current time.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function getDeposit($id, Request $request)
@@ -137,6 +140,7 @@ class SeaportController extends Controller
 //        $seaport->attacked_at = $formatted_time;
         $seaport->save();
         $deposit_ship->save();
+
         return redirect()->back()->with('status', 'Deposited money into this port.');
     }
 
@@ -155,8 +159,8 @@ class SeaportController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -164,10 +168,13 @@ class SeaportController extends Controller
         Log::info($request);
 
         $seaport = Seaport::find($id);
+
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
         $seaport->user_id = $request->get('user_id');
+
         $seaport->save();
+
         return redirect()->back()->with('status', 'Profile saved!');
     }
 //
