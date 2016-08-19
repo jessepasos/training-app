@@ -27,5 +27,4 @@ class Ship extends Model
         return $this->name;
 
     }
-
 }

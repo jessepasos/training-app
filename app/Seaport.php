@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seaport extends Model
 {
-
-
     protected $fillable = [
         'name',
         'treasure_amount',
@@ -28,6 +26,4 @@ class Seaport extends Model
     {
         return $this->name;
     }
-
-
 }

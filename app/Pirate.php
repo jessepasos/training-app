@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pirate extends Model
 {
-
     protected $attributes = [
         'name' => 'Default',
         'rank' => 'Cook',
         'attributes' => 'totally average',
         'ship_id' => 1,
-
-
     ];
 
     public function ship()
@@ -25,9 +22,4 @@ class Pirate extends Model
     {
         return $this->belongsTo('App\User');
     }
-
-
-
-
-
 }

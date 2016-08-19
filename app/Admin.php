@@ -7,10 +7,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable
 {
 
-    public function isAdmin()
-    {
-        return $this->admin; // this looks for an admin column in your users table
-    }
+//    public function isAdmin()
+//    {
+//        return $this->admin; // this looks for an admin column in your users table
+//    }
 
 
     /**
