@@ -55,8 +55,9 @@ class ShipController extends Controller
         $ship = Ship::find($id);
         $seaports = Seaport::all();
         $users = User::all();
+        $pirates = $ship->pirates()->get();
 
-        return view('ship.new')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship]);
+        return view('ship.show')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship, 'pirates' => $pirates ]);
     }
 
     /**
