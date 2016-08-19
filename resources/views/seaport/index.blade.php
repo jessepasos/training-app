@@ -10,13 +10,17 @@
                         <div>
                             <a href="{{url('/seaport-new')}}">
                             <span class="glyphicon glyphicon glyphicon-pencil"
-                                  aria-hidden="true" >
+                                  aria-hidden="true">
                             </span> Add new seaport
                             </a>
                         </div>
                     </div>
 
+
                     <div class="panel-body">
+
+                        THE SEAPORTS:
+
 
                         @foreach ($seaports as $seaport)
                             <li class="list-group-item">
@@ -99,6 +103,9 @@
 
                         @endforeach
                     </div>
+
+
+                    {{--end of panel body--}}
                 </div>
             </div>
         </div>

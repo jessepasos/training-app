@@ -47,7 +47,10 @@ class SeaportController extends Controller
      */
         public function create()
         {
-            return view('seaport.new');
+            $seaport = new Seaport();
+            $users = User::all();
+
+            return view('seaport.new')->with(['seaport' => $seaport, 'users' => $users]);
         }
 
 
@@ -64,6 +67,7 @@ class SeaportController extends Controller
         Log::info($request);
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
+        $seaport->user_id = $request->get('user_id');
         $seaport->save();
         return redirect()->back()->with('status', 'New seaport created!');
     }
@@ -77,7 +81,8 @@ class SeaportController extends Controller
     public function show($id)
     {
         $seaport = Seaport::find($id);
-        return view('seaport.show')->withSeaport($seaport);
+        $users = User::all();
+        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users]);
     }
 
     /**
@@ -161,6 +166,7 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
+        $seaport->user_id = $request->get('user_id');
         $seaport->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }
