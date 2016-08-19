@@ -9,7 +9,6 @@ use App\User;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use Log;
 use Auth;
 
@@ -23,7 +22,6 @@ class ShipController extends Controller
     public function __construct()
     {
         $this->middleware('web');
-//        $this->middleware('auth');
     }
 
     /**
@@ -57,8 +55,6 @@ class ShipController extends Controller
         $ship = Ship::find($id);
         $seaports = Seaport::all();
         $users = User::all();
-//        $pirates = $ship->pirates()->get();
-//        return view('ship.show')->withShip($ship)->withPirates($pirates)->withSeaports($seaports);
 
         return view('ship.new')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship]);
     }
@@ -74,7 +70,6 @@ class ShipController extends Controller
         $seaports = Seaport::all();
         $users = User::all();
 
-//        return view('ship.new')->withShip($ship)->withSeaports($seaports);
         return view('ship.new')->with(['seaports' => $seaports, 'users' => $users, 'ship' => $ship]);
     }
 
@@ -87,13 +82,9 @@ class ShipController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $ship = new Ship();
 
         Log::info($request);
-
-//        $ship->name = $request->get('ship_name');
-//        $ship->treasure_amount = $request->get('ship_treasure_amount');
 
         $ship_attributes = [
             'name',
@@ -146,6 +137,6 @@ class ShipController extends Controller
 
         $ship->save();
 
-        return redirect()->back()->with('status', 'Profile saved!');
+        return redirect()->back()->with('status', 'ship updated!');
     }
 }
