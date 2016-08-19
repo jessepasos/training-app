@@ -2,21 +2,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            {{--<a class="navbar-brand" href="{{ url('/seaport') }}">--}}
-            {{--SEAPORT INDEX--}}
-            {{--</a>--}}
-
-            {{--{{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}--}}
-            {{--{{ csrf_field() }}--}}
-            {{--<button type="submit" class="btn btn-primary">Attack this port!</button>--}}
-            {{--{{ Form::close() }}--}}
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $seaport->rank }} {{ $seaport->name }}</div>
-
                     <div class="panel-body">
-
 
                         <h1>Edit seaport</h1>
 
@@ -28,30 +18,11 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
-                            {{--<div class="form-group">--}}
-                                {{--<label for="name" class="col-sm-2 control-label">Name</label>--}}
-                                {{--<div class="col-sm-10">--}}
-                                    {{--<input type="text" class="form-control" id="name" name="seaport_name"--}}
-                                           {{--value="{{ $seaport->name }}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-
-                            {{--<div class="form-group">--}}
-                                {{--<label for="treasure_amount" class="col-sm-2 control-label">treasure_amount</label>--}}
-                                {{--<div class="col-sm-10">--}}
-                                    {{--<input type="text" class="form-control" id="treasure_amount"--}}
-                                           {{--name="seaport_treasure_amount" value="{{ $seaport->treasure_amount }}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
 
                             <?php
                             $seaport_attributes = [
                                     'name',
                                     'treasure_amount',
-//                                    'length',
-//                                    'draft',
-//                                    'crew_saltiness',
-//                                    'num_cannons'
                             ];
                             ?>
 
@@ -88,7 +59,6 @@
                                     </select>
                                 </div>
                             </div>
-
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">

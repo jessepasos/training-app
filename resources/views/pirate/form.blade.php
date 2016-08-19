@@ -30,7 +30,6 @@
                             <div class="form-group">
                                 <label for="rank" class="col-sm-2 control-label">Rank</label>
                                 <div class="col-sm-10">
-                                    {{--Create dropdown here--}}
                                     <select class="form-control" id="rank" name="rank" value="{{ $pirate->rank }}">
                                         <?php
                                         $rank_names = ['Captain', 'First mate', 'Boatswain', 'Second mate', 'Sergeant-at-arms', 'Seaman', 'Cook',];

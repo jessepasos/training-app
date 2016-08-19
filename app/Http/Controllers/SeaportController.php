@@ -8,8 +8,6 @@ use App\User;
 
 use Illuminate\Http\Request;
 
-//use App\Http\Requests;
-
 use Log;
 use Carbon;
 
@@ -34,8 +32,6 @@ class SeaportController extends Controller
     public function index()
     {
         $seaports = Seaport::all();
-//        $users = User::all();
-//        return view('seaport.index')->withSeaports($seaports);
         return view('seaport.index', ['seaports' => $seaports]);
     }
 
