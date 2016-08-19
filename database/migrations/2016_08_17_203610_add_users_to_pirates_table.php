@@ -26,7 +26,7 @@ class AddUsersToPiratesTable extends Migration
     public function down()
     {
         Schema::table('pirates', function (Blueprint $table) {
-            //
+            $table->dropColumn('user_id');
         });
     }
 }
