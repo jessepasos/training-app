@@ -63,6 +63,8 @@ Route::get('ship', 'ShipController@index');
 Route::get('/ship/{id}',  'ShipController@show');
 Route::post('/ship/{id}', 'ShipController@update');
 
+Route::get('/ship-new', 'ShipController@create');
+Route::post('/ship-new', 'ShipController@store');
 
 
 Route::get('/home', 'HomeController@index');

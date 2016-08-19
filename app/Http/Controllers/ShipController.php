@@ -25,18 +25,6 @@ class ShipController extends Controller
 //        $this->middleware('auth');
     }
 
-//    /**
-//     * Show the application dashboard.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function theBlackPerl()
-//    {
-//        $pirates = Pirate::all();
-//
-//        return view('the-ship')->withPirates($pirates);
-//    }
-
     /**
      * Display a listing of the resource.
      *
@@ -64,11 +52,45 @@ class ShipController extends Controller
     public function show($id)
     {
         $ship = Ship::find($id);
-//        $pirates = Ship::find($id) -> pirates();
         $seaports = Seaport::all();
         $pirates = $ship->pirates()->get();
         return view('ship.show')->withShip($ship)->withPirates($pirates)->withSeaports($seaports);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $ship = new Ship();
+        $seaports = Seaport::all();
+        return view('ship.new')->withShip($ship)->withSeaports($seaports);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        $ship = new Ship();
+        Log::info($request);
+//        $ship->name = $request->get('ship_name');
+//        $ship->treasure_amount = $request->get('ship_treasure_amount');
+        $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id'];
+        foreach ($ship_attributes as $ship_attribute) {
+            $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
+        }
+        $ship->save();
+        return redirect()->back()->with('status', 'New ship created!');
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -81,17 +103,11 @@ class ShipController extends Controller
     {
         Log::info($request);
         $ship = Ship::find($id);
-
         $ship_attributes = ['name', 'displacement', 'length', 'draft', 'crew_saltiness', 'num_cannons', 'seaport_id'];
         foreach ($ship_attributes as $ship_attribute) {
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
-
-
-
         $ship->save();
         return redirect()->back()->with('status', 'Profile saved!');
     }
-
-
 }

@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Ship extends Model
 {
 
+    protected $attributes = [
+        'name' => 'Default Ship Name',
+//        'pirates' => NULL,
+    ];
+
     public function pirates()
     {
         return $this->hasMany('App\Pirate');
