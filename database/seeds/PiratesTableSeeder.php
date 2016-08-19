@@ -40,5 +40,9 @@ class PiratesTableSeeder extends Seeder
         DB::table('pirates')->insert([
             'name' => 'Jade Falcon',
         ]);
+
+        factory(App\Pirate::class, 50)->create()->each(function($u) {
+//            $u->posts()->save(factory(App\Post::class)->make());
+        });
     }
 }

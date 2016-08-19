@@ -24,5 +24,10 @@ class SeaportsTableSeeder extends Seeder
             'name' => 'Dragon Bay',
         ]);
 
+        factory(App\Seaport::class, 50)->create()->each(function($u) {
+//            $u->posts()->save(factory(App\Post::class)->make());
+//            $u->pirates()->save(factory(App\Pirate::class)->make());
+        });
+
     }
 }
