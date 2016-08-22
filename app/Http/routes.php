@@ -57,6 +57,7 @@ Route::get('/seaport/{id}',  'SeaportController@show');
 Route::post('/seaport/{id}', 'SeaportController@update');
 Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 Route::post('/seaport/{id}/deposit', 'SeaportController@getDeposit');
+Route::get('/seaport/timeSinceLastActionTaken/{id}', 'SeaportController@findTimeSinceLastActionJSON');
 
 //ships
 Route::get('ship', 'ShipController@index');
@@ -83,11 +84,6 @@ Route::get('protected', [
     }
 ]);
 
-use App\Seaport;
-Route::get('/seaport/time/{task_id?}',function($task_id){
 
-    $task = Seaport::find($task_id);
-    $task->timeSinceLastAction = $task->findTimeSinceLastAction();
 
-    return Response::json($task);
-});
+

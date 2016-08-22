@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use Log;
 use Carbon;
+use Response;
 
 class SeaportController extends Controller
 {
@@ -195,4 +196,12 @@ class SeaportController extends Controller
 //    {
 //        //
 //    }
+
+    public function findTimeSinceLastActionJSON($id)
+    {
+        $seaport = Seaport::find($id);
+        $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
+
+        return Response::json($seaport);
+    }
 }

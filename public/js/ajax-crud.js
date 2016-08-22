@@ -5,7 +5,7 @@ $(document).ready(function() {
 function ajaxd(seaport_id) {
     $.ajax({
         type: "GET",
-        url: "time/" + seaport_id,
+        url: "timeSinceLastActionTaken/" + seaport_id,
         success: function(result){
             $("#timeSinceLastAction").empty().append(result['timeSinceLastAction']);
         }
