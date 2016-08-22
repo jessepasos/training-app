@@ -201,7 +201,14 @@ class SeaportController extends Controller
     {
         $seaport = Seaport::find($id);
         $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
-
+        $seaport->totalTreasure = $seaport->getTotalTreasure();
         return Response::json($seaport);
     }
+
+//    public function getTotalTreasureJSON($id)
+//    {
+//        $seaport = Seaport::find($id);
+//        $seaport->totalTreasure = $seaport->getTotalTreasure();
+//        return Response::json($seaport);
+//    }
 }
