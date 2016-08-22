@@ -1,8 +1,6 @@
-$(document).ready(function() {
-    setInterval("ajaxd(seaport_id)",100);
-});
 
-function ajaxd(seaport_id) {
+
+function getValuesSinceLastAction(seaport_id) {
     $.ajax({
         type: "GET",
         url: "valuesSinceLastActionTaken/" + seaport_id,

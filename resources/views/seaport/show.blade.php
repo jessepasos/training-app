@@ -4,8 +4,11 @@
     Seaport id: {{$seaport->id}}
 
     <script>
-        var seaport_id = "<?php echo $seaport->id; ?>";
+        var seaport_id = "{{$seaport->id}}";
         console.log(seaport_id);
+        $(document).ready(function() {
+            setInterval("getValuesSinceLastAction(seaport_id)",100);
+        });
 
     </script>
 
@@ -13,9 +16,9 @@
     <div id="timeSinceLastAction"></div>
     <div>total treasure: </div>
     <div id="totalTreasure"></div>
-    <div>num 15 second intervals since last action: {{$numTimeIntervals}}</div>
-    <div>num gold since last action: {{$treasureRegenerated}}</div>
-    <div>total gold : {{$totalTreasure}}</div>
+    {{--<div>num 15 second intervals since last action: {{$numTimeIntervals}}</div>--}}
+    {{--<div>num gold since last action: {{$treasureRegenerated}}</div>--}}
+    {{--<div>total gold : {{$totalTreasure}}</div>--}}
 @endsection
 
 
