@@ -82,3 +82,12 @@ Route::get('protected', [
         return "this page requires that you be logged in and an Admin";
     }
 ]);
+
+use App\Seaport;
+Route::get('/seaport/time/{task_id?}',function($task_id){
+
+    $task = Seaport::find($task_id);
+    $task->timeSinceLastAction = $task->findTimeSinceLastAction();
+
+    return Response::json($task);
+});
