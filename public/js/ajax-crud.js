@@ -2,15 +2,12 @@ $(document).ready(function() {
     setInterval("ajaxd(seaport_id)",100);
 });
 
-function ajaxd() {
+function ajaxd(seaport_id) {
     $.ajax({
         type: "GET",
         url: "time/" + seaport_id,
-        // data: "user=success",
         success: function(result){
-            $("#div1").empty().append(result['timeSinceLastAction']);
-            // console.log(result['updated_at']);
-            // console.log(result['timeSinceLastAction']);
+            $("#timeSinceLastAction").empty().append(result['timeSinceLastAction']);
         }
     });
 
