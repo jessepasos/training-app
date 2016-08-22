@@ -80,8 +80,9 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $users = User::all();
         $time_since_last_action =  $seaport->findTimeSinceLastAction();
+        $numTimeIntervals = $seaport->findNumTimeIntervals($time_since_last_action);
 
-        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action]);
+        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals]);
     }
 
     /**
