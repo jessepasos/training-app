@@ -31,9 +31,22 @@ class Seaport extends Model
 
     public function findNumTimeIntervals($seconds)
     {
-//        (int)(10/3)
         $numTimeIntervals = (int)($seconds/15);
         return $numTimeIntervals;
+    }
+
+    public function findTreasureRegeneratedSinceLastAction($numTimeIntervals)
+    {
+        return $numTimeIntervals;
+    }
+
+    public function getTreasureRegeneratedSinceLastAction()
+    {
+        $time_since_last_action =  $this->findTimeSinceLastAction();
+        $numTimeIntervals = $this->findNumTimeIntervals($time_since_last_action);
+        $treasureRegenerated = $this-> findTreasureRegeneratedSinceLastAction($numTimeIntervals);
+        return $treasureRegenerated;
+
     }
 
 

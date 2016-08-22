@@ -6,5 +6,6 @@
 <div>time since last action: {{$time_since_last_action}}</div>
 
 <div>num 15 second intervals since last action: {{$numTimeIntervals}}</div>
+    <div>num gold since last action: {{$treasureRegenerated}}</div>
 @endsection
 {{--@endsection--}}

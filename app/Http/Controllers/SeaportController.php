@@ -81,8 +81,9 @@ class SeaportController extends Controller
         $users = User::all();
         $time_since_last_action =  $seaport->findTimeSinceLastAction();
         $numTimeIntervals = $seaport->findNumTimeIntervals($time_since_last_action);
+        $treasureRegenerated = $seaport-> getTreasureRegeneratedSinceLastAction();
 
-        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals]);
+        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals, 'treasureRegenerated' => $treasureRegenerated]);
     }
 
     /**
@@ -90,6 +91,7 @@ class SeaportController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
+     *
      */
     public function getAttacked($id, Request $request)
     {
