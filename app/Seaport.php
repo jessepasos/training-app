@@ -22,16 +22,20 @@ class Seaport extends Model
 
     public function findTimeSinceLastAction()
     {
-        Log::info('in function findTimeSinceLastAction');
+//        Log::info('in function findTimeSinceLastAction');
         $now = Carbon::now();
+//        Log::info($this->attacked_at == '0000-00-00 00:00:00');
         $parsedDate = $this->parseDate($this->attacked_at);
+//        Log::info($parsedDate);
         $totalDuration = $now->diffInSeconds($parsedDate);
+
         return $totalDuration;
     }
 
     public function findNumTimeIntervals($seconds)
     {
-        $numTimeIntervals = (int)($seconds/15);
+        $numTimeIntervals = (int)($seconds / 15);
+
         return $numTimeIntervals;
     }
 
@@ -42,9 +46,17 @@ class Seaport extends Model
 
     public function getTreasureRegeneratedSinceLastAction()
     {
-        $time_since_last_action =  $this->findTimeSinceLastAction();
-        $numTimeIntervals = $this->findNumTimeIntervals($time_since_last_action);
-        $treasureRegenerated = $this-> findTreasureRegeneratedSinceLastAction($numTimeIntervals);
+        if ($this->attacked_at == '0000-00-00 00:00:00') {
+            $treasureRegenerated = 0;
+        } else {
+            $time_since_last_action = $this->findTimeSinceLastAction();
+            $numTimeIntervals = $this->findNumTimeIntervals($time_since_last_action);
+            $treasureRegenerated = $this->findTreasureRegeneratedSinceLastAction($numTimeIntervals);
+//            if ($treasureRegenerated > 4242791145) {
+//                $treasureRegenerated = 0;
+//            }
+        }
+
         return $treasureRegenerated;
 
     }

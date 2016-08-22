@@ -32,6 +32,11 @@ class SeaportController extends Controller
     public function index()
     {
         $seaports = Seaport::all();
+        foreach($seaports as $seaport){
+            $seaport->treasure_regenerated = $seaport->getTreasureRegeneratedSinceLastAction();
+        }
+
+
         return view('seaport.index', ['seaports' => $seaports]);
     }
 

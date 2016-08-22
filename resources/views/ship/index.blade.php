@@ -20,6 +20,7 @@
                                     <div>crew_saltiness: {{ $ship->crew_saltiness }} </div>
                                     <div>num_cannons: {{ $ship->num_cannons }} </div>
                                     <div>treasure_amount: {{ $ship->treasure_amount }} </div>
+                                    {{--<div>treasure_regenerated: {{ $ship->treasure_regenerated }} </div>--}}
                                 </a>
                                 <div> Pirate Crew:
                                     <?php $pirates = $ship->pirates()->get(); ?>
