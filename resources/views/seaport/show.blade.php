@@ -1,17 +1,10 @@
 @extends('seaport.form')
 
-{{--@yield('time_since_last_action')--}}
-<?php  $thing = 10; ?>
-
-
-
 @section('time_since_last_action')
-    {{$seaport->id}}
-    <script>
+    Seaport id: {{$seaport->id}}
 
-    var myvar = "<?php echo $thing; ?>";
+    <script>
     var seaport_id = "<?php echo $seaport->id; ?>";
-    //    console.log(myvar);
     console.log(seaport_id);
 
     </script>
@@ -22,7 +15,6 @@
     <div>num gold since last action: {{$treasureRegenerated}}</div>
 <div>total gold : {{$totalTreasure}}</div>
 @endsection
-{{--@endsection--}}
 
 
 <meta name="_token" content="{!! csrf_token() !!}" />
