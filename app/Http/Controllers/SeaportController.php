@@ -185,6 +185,14 @@ class SeaportController extends Controller
 
         return redirect()->back()->with('status', 'Profile saved!');
     }
+
+    public function findValuesSinceLastActionJSON($id)
+    {
+        $seaport = Seaport::find($id);
+        $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
+        $seaport->totalTreasure = $seaport->getTotalTreasure();
+        return Response::json($seaport);
+    }
 //
 //    /**
 //     * Remove the specified resource from storage.
@@ -197,18 +205,4 @@ class SeaportController extends Controller
 //        //
 //    }
 
-    public function findTimeSinceLastActionJSON($id)
-    {
-        $seaport = Seaport::find($id);
-        $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
-        $seaport->totalTreasure = $seaport->getTotalTreasure();
-        return Response::json($seaport);
-    }
-
-//    public function getTotalTreasureJSON($id)
-//    {
-//        $seaport = Seaport::find($id);
-//        $seaport->totalTreasure = $seaport->getTotalTreasure();
-//        return Response::json($seaport);
-//    }
 }
