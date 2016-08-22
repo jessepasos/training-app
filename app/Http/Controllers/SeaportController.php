@@ -34,6 +34,7 @@ class SeaportController extends Controller
         $seaports = Seaport::all();
         foreach($seaports as $seaport){
             $seaport->treasure_regenerated = $seaport->getTreasureRegeneratedSinceLastAction();
+            $seaport->total_treasure = $seaport->getTotalTreasure();
         }
 
 
@@ -87,8 +88,9 @@ class SeaportController extends Controller
         $time_since_last_action =  $seaport->findTimeSinceLastAction();
         $numTimeIntervals = $seaport->findNumTimeIntervals($time_since_last_action);
         $treasureRegenerated = $seaport-> getTreasureRegeneratedSinceLastAction();
+        $totalTreasure = $seaport -> getTotalTreasure();
 
-        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals, 'treasureRegenerated' => $treasureRegenerated]);
+        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals, 'treasureRegenerated' => $treasureRegenerated, 'totalTreasure' => $totalTreasure]);
     }
 
     /**
