@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+
+
+
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -15,6 +20,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+
+                        @yield('time_since_last_action')
 
                         <form class="form-horizontal" role="form" method="POST" action="">
                             {{ csrf_field() }}
