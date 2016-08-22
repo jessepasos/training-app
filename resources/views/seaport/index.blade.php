@@ -19,6 +19,13 @@
 
                     <div class="panel-body">
 
+
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
                         THE SEAPORTS:
 
 
@@ -38,7 +45,6 @@
 
 
                                 <?php $ships_in_this_port = $seaport->ships()->get();
-                                //                                $user_ships_in_this_port = $seaport->ships()->where('user_id', '=', Auth::user()->id);
                                 $current_user_ships = array();
                                 ?>
 

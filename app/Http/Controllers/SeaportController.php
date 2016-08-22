@@ -110,7 +110,7 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $attack_ship = Ship::find($attack_ship_id);
 
-        $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->treasure_amount;
+        $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
         $seaport->treasure_amount = 0;
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
         Log::info($formatted_time);
