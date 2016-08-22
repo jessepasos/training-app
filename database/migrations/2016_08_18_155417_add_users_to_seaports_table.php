@@ -25,8 +25,6 @@ class AddUsersToSeaportsTable extends Migration
      */
     public function down()
     {
-        Schema::table('seaports', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('seaports');
     }
 }
