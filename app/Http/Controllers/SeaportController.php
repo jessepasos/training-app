@@ -120,8 +120,8 @@ class SeaportController extends Controller
 
         if (rand(0, 1)) {
 //        require the below if attack succeeds
-            $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
-            $seaport->treasure_amount = 0;
+            $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure()/2.0;
+            $seaport->treasure_amount = $seaport->getTotalTreasure()/2.0;
             $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
             Log::info($formatted_time);
             $seaport->attacked_at = $formatted_time;

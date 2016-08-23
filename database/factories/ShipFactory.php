@@ -12,10 +12,15 @@
 */
 
 $factory->define(App\Ship::class, function (Faker\Generator $faker) {
+    $max_hit_points = 10;
+
     return [
         'name' => $faker->company,
         'treasure_amount' => rand(1, 5) * 10,
         'num_cannons' => rand(5,10),
+        'max_hit_points' => $max_hit_points,
+        'current_hit_points' => $max_hit_points,
+
 //        'email' => $faker->safeEmail,
 //        'password' => bcrypt(str_random(10)),
 //        'remember_token' => str_random(10),
