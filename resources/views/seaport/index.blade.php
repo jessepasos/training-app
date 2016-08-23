@@ -33,10 +33,10 @@
                             <li class="list-group-item">
 
                                 <div>name: {{ $seaport->name }} </div>
-                                <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
+                                {{--<div>treasure amount: {{ $seaport -> treasure_amount }}</div>--}}
                                 <div>user owner: {{$seaport->user['name']}}</div>
-                                <div>treasure_regenerated since last attack
-                                    : {{ $seaport->treasure_regenerated }} </div>
+                                {{--<div>treasure_regenerated since last attack--}}
+                                    {{--: {{ $seaport->treasure_regenerated }} </div>--}}
 
                                 @if($seaport -> attacked_at == '0000-00-00 00:00:00')
                                     <div> never attacked before</div>
@@ -82,26 +82,26 @@
                                         </ul>
                                     </div>
 
-                                    @if($current_user_ships != [])
-                                        @if($seaport -> user_id != Auth::user()->id)
-                                            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
-                                            {{ csrf_field() }}
-                                            {{Form::select('ship_id', $current_user_ships)}}
-                                            <button type="submit" class="btn btn-danger">Attack this port!</button>
-                                            {{ Form::close() }}
+                                    {{--@if($current_user_ships != [])--}}
+                                        {{--@if($seaport -> user_id != Auth::user()->id)--}}
+                                            {{--{{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}--}}
+                                            {{--{{ csrf_field() }}--}}
+                                            {{--{{Form::select('ship_id', $current_user_ships)}}--}}
+                                            {{--<button type="submit" class="btn btn-danger">Attack this port!</button>--}}
+                                            {{--{{ Form::close() }}--}}
 
-                                        @else
-                                            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
-                                            {{ csrf_field() }}
+                                        {{--@else--}}
+                                            {{--{{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}--}}
+                                            {{--{{ csrf_field() }}--}}
 
-                                            {{Form::select('ship_id', $current_user_ships)}}
-                                            <button type="submit" class="btn btn-success" color="green">Deposit money in
-                                                your
-                                                port!
-                                            </button>
-                                            {{ Form::close() }}
-                                        @endif
-                                    @endif
+                                            {{--{{Form::select('ship_id', $current_user_ships)}}--}}
+                                            {{--<button type="submit" class="btn btn-success" color="green">Deposit money in--}}
+                                                {{--your--}}
+                                                {{--port!--}}
+                                            {{--</button>--}}
+                                            {{--{{ Form::close() }}--}}
+                                        {{--@endif--}}
+                                    {{--@endif--}}
                                 @endif
                                 <a href="/seaport/{{ $seaport->id }}">
                                     <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit

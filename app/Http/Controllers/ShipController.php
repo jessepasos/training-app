@@ -138,15 +138,18 @@ class ShipController extends Controller
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
         }
 
-//        if seaport was changed
+//        if seaport was changed then reset the number of attacks that the ship has at this port
         if($previous_seaport_id != $request->get('ship_seaport_id')){
             $seaport = Seaport::find($ship->seaport_id);
             $num_attacks = $ship -> num_cannons - $seaport -> defensive_rating;
             $ship -> num_attacks = $num_attacks;
+            $status_message = 'the port has changed so the number of attacks has been recalculated';
+        } else {
+            $status_message = 'ship was updated and port was not changed';
         }
 
         $ship->save();
 
-        return redirect()->back()->with('status', 'ship updated!');
+        return redirect()->back()->with('status', $status_message);
     }
 }

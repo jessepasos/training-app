@@ -1,8 +1,8 @@
 @extends('seaport.form')
 
 @section('time_since_last_action')
-    Seaport id: {{$seaport->id}}
-    defensive rating: {{$seaport->defensive_rating}}
+    <div>seaport id: {{$seaport->id}}</div>
+    <div>defensive rating: {{$seaport->defensive_rating}}</div>
 
     <script>
         var seaport_id = "{{$seaport->id}}";
