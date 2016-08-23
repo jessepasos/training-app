@@ -49,7 +49,7 @@
                             }
                             ?>
                             <li>* {{$ship_in_this_port->name}} (your ship) hp: {{$ship_in_this_port->current_hit_points}} / {{$ship_in_this_port->max_hit_points}}</li>
-                            <li>num attacks left:</li>
+                            <li>num attacks left out of {{$ship_in_this_port->max_num_attacks}}:</li>
                             <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
                         @else
                             <li>{{$ship_in_this_port->name}} (other's ship)</li>

@@ -112,25 +112,35 @@ class SeaportController extends Controller
         Log::info('ship_id is:');
         Log::info($request->get('ship_id'));
 
+
 //        require the following regardless of whether attack succeeds or not
         $attack_ship_id = $request->get('ship_id');
         $seaport = Seaport::find($id);
         $attack_ship = Ship::find($attack_ship_id);
         $attack_ship->num_attacks = $attack_ship->num_attacks - 1;
 
-        if (rand(0, 1)) {
+
+        $rand = rand(1, 10);
+        if ($rand > 8) {
 //        require the below if attack succeeds
-            $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure()/2.0;
-            $seaport->treasure_amount = $seaport->getTotalTreasure()/2.0;
+            $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure() / 2.0;
+            $seaport->treasure_amount = $seaport->getTotalTreasure() / 2.0;
             $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
             Log::info($formatted_time);
             $seaport->attacked_at = $formatted_time;
-            $attack_ship->num_attacks = 0;
-            $status_message = 'Got Attacked, treasure amount reset to 0';
-        } elseif($attack_ship->num_attacks == 0) {
+//            $attack_ship->num_attacks = 0;
+            $attack_ship->num_attacks = $attack_ship->max_num_attacks;
+            $status_message = 'Attacked this seaport, your ship takes half the seaports treasure and num_chances was reset';
+        } elseif ($attack_ship->num_attacks == 0) {
 //        if attack does not succeed
-            $attack_ship->current_hit_points =  $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
-//            $attack_ship->num_attacks = $attack_ship->max_num_attacks;
+
+            $attack_ship->current_hit_points = $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
+            
+            if ($attack_ship->current_hit_points <= 0) {
+                return redirect()->back()->with('status', 'ship had no hp and was destroyed');
+            }
+
+            $attack_ship->num_attacks = $attack_ship->max_num_attacks;
             $status_message = 'attack failed and you were on your last chance. hit points was reduced by 20 percent but num attacks has been reset';
         } else {
             $status_message = 'attack failed';

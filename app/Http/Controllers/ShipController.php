@@ -141,8 +141,11 @@ class ShipController extends Controller
 //        if seaport was changed then reset the number of attacks that the ship has at this port
         if($previous_seaport_id != $request->get('ship_seaport_id')){
             $seaport = Seaport::find($ship->seaport_id);
-            $num_attacks = $ship -> num_cannons - $seaport -> defensive_rating;
-            $ship -> num_attacks = $num_attacks;
+            $max_num_attacks = $ship -> num_cannons - $seaport -> defensive_rating;
+
+            $ship -> max_num_attacks = $max_num_attacks;
+            $ship ->num_attacks = $max_num_attacks;
+
             $status_message = 'the port has changed so the number of attacks has been recalculated';
         } else {
             $status_message = 'ship was updated and port was not changed';
@@ -151,5 +154,18 @@ class ShipController extends Controller
         $ship->save();
 
         return redirect()->back()->with('status', $status_message);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removeShip()
+    {
+        //
+//        $this->destroy($id);
     }
 }
