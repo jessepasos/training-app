@@ -48,7 +48,7 @@
                                 {{--<div>total treasure:</div>--}}
                             <li>num attacks left: </li>
                                 <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
-                            <li>max number of attacks  {{$ship_in_this_port->num_attacks}}</li>
+                            {{--<li>max number of attacks  {{$ship_in_this_port->num_attacks}}</li>--}}
                         @else
                             <li>{{$ship_in_this_port->name}} (other's ship)</li>
                         @endif
