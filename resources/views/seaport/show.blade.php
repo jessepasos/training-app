@@ -8,7 +8,7 @@
         console.log(seaport_id);
         $(document).ready(function () {
             setInterval("getValuesSinceLastAction(seaport_id)", 1000);
-            setInterval("getNumAttacks(seaport_id, 1)", 1000);
+            setInterval("getNumAttacks(seaport_id)", 1000);
         });
     </script>
 

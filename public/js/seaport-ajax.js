@@ -13,13 +13,31 @@ function getValuesSinceLastAction(seaport_id) {
 }
 
 
-function getNumAttacks(seaport_id, ship_id) {
+function getNumAttacks(seaport_id) {
     $.ajax({
         type: "GET",
-        url: "/seaport/numAttacks/" + seaport_id + "/" + ship_id,
+        url: "/numAttacks/" + seaport_id + "/",
+        dataType: "json",
         success: function(result){
+            console.log(result);
+            myDictionary = result;
+            for (var key in myDictionary) {
+                var value = myDictionary[key];
+                // Use `key` and `value`
+                $("#" + key).empty().append(value);
+            }
+
+            // myStringArray = result;
+            // var arrayLength = result.length;
+            // for (var i = 0; i < arrayLength; i++) {
+            //     console.log(myStringArray[i]);
+            //     //Do something
+            // }
+
+
             // $("#timeSinceLastAction").empty().append(result['timeSinceLastAction']);
-            $("#numAttacks").empty().append(result);
+
+            // $("#numAttacks").empty().append(result);
         }
     });
 

@@ -121,13 +121,25 @@ class SeaportController extends Controller
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
-    public function getNumAttacks($seaport_id, $attack_ship_id){
+    public function getNumAttacks($seaport_id){
+        Log::info('in get num attacks function');
         $seaport = Seaport::find($seaport_id);
-        $attack_ship = Ship::find($attack_ship_id);
+        $attack_ships = $seaport->ships()->get();
+
+        Log::info($attack_ships);
+
+        $num_attacks_array = [];
         $defensive_rating = $seaport->defensive_rating;
-        $num_cannons = $attack_ship->num_cannons;
-        $num_attacks = $defensive_rating - $num_cannons;
-        return Response::json($num_attacks);
+        foreach($attack_ships as $attack_ship){
+
+            $num_cannons = $attack_ship->num_cannons;
+            $num_attacks = $defensive_rating - $num_cannons;
+            $num_attacks_array["numAttacks" . $attack_ship->id] = $num_attacks;
+
+        }
+        Log::info($num_attacks_array);
+        $type = 'json';
+        return Response::json($num_attacks_array)->header('Content-Type', $type);
     }
 
 
