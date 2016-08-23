@@ -121,6 +121,8 @@ class ShipController extends Controller
 
         $ship = Ship::find($id);
 
+        $previous_seaport_id = $ship->seaport_id;
+
         $ship_attributes = [
             'name',
             'displacement',
@@ -134,6 +136,13 @@ class ShipController extends Controller
 
         foreach ($ship_attributes as $ship_attribute) {
             $ship->{$ship_attribute} = $request->get('ship_' . $ship_attribute);
+        }
+
+//        if seaport was changed
+        if($previous_seaport_id != $request->get('ship_seaport_id')){
+            $seaport = Seaport::find($ship->seaport_id);
+            $num_attacks = $seaport -> defensive_rating - $ship -> num_cannons;
+            $ship -> num_attacks = $num_attacks;
         }
 
         $ship->save();
