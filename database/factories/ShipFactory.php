@@ -15,6 +15,7 @@ $factory->define(App\Ship::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
         'treasure_amount' => rand(1, 5) * 10,
+        'num_cannons' => rand(5,10),
 //        'email' => $faker->safeEmail,
 //        'password' => bcrypt(str_random(10)),
 //        'remember_token' => str_random(10),

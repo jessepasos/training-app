@@ -15,5 +15,6 @@ $factory->define(App\Seaport::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->city,
         'treasure_amount' => rand(5, 15) * 10,
+        'defensive_rating' => rand(1,4),
     ];
 });

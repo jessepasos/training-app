@@ -38,7 +38,6 @@ class SeaportController extends Controller
             $seaport->total_treasure = $seaport->getTotalTreasure();
         }
 
-
         return view('seaport.index', ['seaports' => $seaports]);
     }
 
@@ -119,7 +118,6 @@ class SeaportController extends Controller
         $attack_ship = Ship::find($attack_ship_id);
         $attack_ship->num_attacks = $attack_ship->num_attacks - 1;
 
-
         if (rand(0, 1)) {
 //        require the below if attack succeeds
             $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
@@ -148,15 +146,13 @@ class SeaportController extends Controller
         Log::info($attack_ships);
 
         $num_attacks_array = [];
-//        $defensive_rating = $seaport->defensive_rating;
+
         foreach ($attack_ships as $attack_ship) {
-
-//            $num_cannons = $attack_ship->num_cannons;
-//            $num_attacks = $defensive_rating - $num_cannons;
             $num_attacks_array["numAttacks" . $attack_ship->id] = $attack_ship->num_attacks;
-
         }
+
         Log::info($num_attacks_array);
+
         $type = 'json';
 
         return Response::json($num_attacks_array)->header('Content-Type', $type);
@@ -178,7 +174,7 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $deposit_ship = Ship::find($deposit_ship_id);
 
-        $seaport->treasure_amount = $seaport->treasure_amount + $deposit_ship->treasure_amount;
+        $seaport->treasure_amount = $seaport->getTotalTreasure() + $deposit_ship->treasure_amount;
         $deposit_ship->treasure_amount = 0;
 
         $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
