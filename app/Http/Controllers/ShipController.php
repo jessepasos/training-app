@@ -169,7 +169,9 @@ class ShipController extends Controller
         $ship = Ship::find($id);
         $ship->pirates()->destroy();
         $ship->destroy();
-        
+//        $ship->destroy();
+//        $this->photo()->delete();
+
 //        $this->destroy($id);
     }
 }

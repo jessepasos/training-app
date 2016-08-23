@@ -137,7 +137,12 @@ class SeaportController extends Controller
             $attack_ship->current_hit_points = $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
 
             if ($attack_ship->current_hit_points <= 0) {
-                Ship::destroy($attack_ship->id);
+//                Ship::destroy($attack_ship->id);
+//                ShipController::removeShip($attack_ship->id);
+//                $ship = Ship::find($id);
+                $attack_ship->pirates()->delete();
+                $attack_ship->delete();
+
                 return redirect()->back()->with('status', 'ship had no hp and was destroyed');
             }
 
