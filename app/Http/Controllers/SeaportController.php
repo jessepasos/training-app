@@ -127,7 +127,7 @@ class SeaportController extends Controller
         $defensive_rating = $seaport->defensive_rating;
         $num_cannons = $attack_ship->num_cannons;
         $num_attacks = $defensive_rating - $num_cannons;
-        return $num_attacks;
+        return Response::json($num_attacks);
     }
 
 

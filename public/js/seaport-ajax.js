@@ -19,7 +19,7 @@ function getNumAttacks(seaport_id, ship_id) {
         url: "/seaport/numAttacks/" + seaport_id + "/" + ship_id,
         success: function(result){
             // $("#timeSinceLastAction").empty().append(result['timeSinceLastAction']);
-            $("#numAttacks").empty().append(result['numAttacks']);
+            $("#numAttacks").empty().append(result);
         }
     });
 
