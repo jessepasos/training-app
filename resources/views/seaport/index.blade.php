@@ -35,7 +35,8 @@
                                 <div>name: {{ $seaport->name }} </div>
                                 <div>treasure amount: {{ $seaport -> treasure_amount }}</div>
                                 <div>user owner: {{$seaport->user['name']}}</div>
-                                <div>treasure_regenerated since last attack : {{ $seaport->treasure_regenerated }} </div>
+                                <div>treasure_regenerated since last attack
+                                    : {{ $seaport->treasure_regenerated }} </div>
 
                                 @if($seaport -> attacked_at == '0000-00-00 00:00:00')
                                     <div> never attacked before</div>
