@@ -21,8 +21,14 @@ class UsersTableSeeder extends Seeder
 //            'email' => 'vincent@gmail.com',
 //            'password' => bcrypt('asdasd')
 //        ]);
-        factory(App\User::class, 50)->create()->each(function ($u) {
-            $u->seaports()->save(factory(App\Seaport::class)->make());
+        factory(App\User::class, 5)->create()->each(function ($u) {
+            for ($x = 0; $x < 2; $x++) {
+                $u->seaports()->save(factory(App\Seaport::class)->make());
+            }
+            for ($x = 0; $x < 5; $x++) {
+                $u->ships()->save(factory(App\Ship::class)->make());
+                $u->pirates()->save(factory(App\Pirate::class)->make());
+            }
         });
     }
 }
