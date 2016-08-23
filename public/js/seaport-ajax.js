@@ -11,3 +11,16 @@ function getValuesSinceLastAction(seaport_id) {
     });
 
 }
+
+
+function getNumAttacks(seaport_id, ship_id) {
+    $.ajax({
+        type: "GET",
+        url: "/seaport/numAttacks/" + seaport_id + "/" + ship_id,
+        success: function(result){
+            // $("#timeSinceLastAction").empty().append(result['timeSinceLastAction']);
+            $("#numAttacks").empty().append(result['numAttacks']);
+        }
+    });
+
+}

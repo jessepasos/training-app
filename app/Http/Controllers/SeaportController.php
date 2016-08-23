@@ -121,6 +121,15 @@ class SeaportController extends Controller
         return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
     }
 
+    public function getNumAttacks($seaport_id, $attack_ship_id){
+        $seaport = Seaport::find($seaport_id);
+        $attack_ship = Ship::find($attack_ship_id);
+        $defensive_rating = $seaport->defensive_rating;
+        $num_cannons = $attack_ship->num_cannons;
+        $num_attacks = $defensive_rating - $num_cannons;
+        return $num_attacks;
+    }
+
 
     /**
      * Get attacked; set treasure_amount to 0 and update created_at with current time.
