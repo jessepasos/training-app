@@ -9,6 +9,9 @@ class Ship extends Model
 
     protected $attributes = [
         'name' => 'Default Ship Name',
+        'current_hit_points' => 10,
+        'max_hit_points' => 10,
+        'num_cannons' => 4,
 //        'pirates' => NULL,
     ];
 
