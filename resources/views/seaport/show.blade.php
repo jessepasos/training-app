@@ -2,6 +2,7 @@
 
 @section('time_since_last_action')
     Seaport id: {{$seaport->id}}
+    defensive rating: {{$seaport->defensive_rating}}
 
     <script>
         var seaport_id = "{{$seaport->id}}";

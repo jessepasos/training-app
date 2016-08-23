@@ -141,7 +141,7 @@ class ShipController extends Controller
 //        if seaport was changed
         if($previous_seaport_id != $request->get('ship_seaport_id')){
             $seaport = Seaport::find($ship->seaport_id);
-            $num_attacks = $seaport -> defensive_rating - $ship -> num_cannons;
+            $num_attacks = $ship -> num_cannons - $seaport -> defensive_rating;
             $ship -> num_attacks = $num_attacks;
         }
 
