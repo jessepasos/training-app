@@ -46,7 +46,7 @@
                             <li>* {{$ship_in_this_port->name}} (your ship)</li>
                                 {{--<li>* {{$ship_in_this_port->num_attacks}} (your ship)</li>--}}
                                 {{--<div>total treasure:</div>--}}
-                                <li id="numAttacks"></li>
+                                <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
                         @else
                             <li>{{$ship_in_this_port->name}} (other's ship)</li>
                         @endif

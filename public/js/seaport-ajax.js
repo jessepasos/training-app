@@ -16,7 +16,7 @@ function getValuesSinceLastAction(seaport_id) {
 function getNumAttacks(seaport_id) {
     $.ajax({
         type: "GET",
-        url: "/numAttacks/" + seaport_id + "/",
+        url: "/numAttacks/" + seaport_id,
         dataType: "json",
         success: function(result){
             console.log(result);
