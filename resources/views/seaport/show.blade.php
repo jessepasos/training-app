@@ -39,11 +39,15 @@
     @endif
 
     @if(Auth::guard('user')->user())
+
+        user id from seaport: {{$seaport -> user_id}}
+        user id from auth: {{Auth::user()->id}}
         <div>ships stationed here:
             <ul>
                 @if($ships_in_this_port != [])
                     @foreach($ships_in_this_port as $ship_in_this_port)
                         @if($ship_in_this_port->user_id == Auth::user()->id)
+                        {{--@if(true)--}}
                             <?php
                             if ($ship_in_this_port->num_attacks > 0) {
                                 $current_user_ships[$ship_in_this_port->id] = $ship_in_this_port->name;
@@ -63,6 +67,7 @@
                 @endif
             </ul>
         </div>
+
 
         @if($current_user_ships != [])
             @if($seaport -> user_id != Auth::user()->id)
