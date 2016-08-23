@@ -33,7 +33,7 @@ class SeaportController extends Controller
     public function index()
     {
         $seaports = Seaport::all();
-        foreach($seaports as $seaport){
+        foreach ($seaports as $seaport) {
             $seaport->treasure_regenerated = $seaport->getTreasureRegeneratedSinceLastAction();
             $seaport->total_treasure = $seaport->getTotalTreasure();
         }
@@ -86,12 +86,19 @@ class SeaportController extends Controller
     {
         $seaport = Seaport::find($id);
         $users = User::all();
-        $time_since_last_action =  $seaport->findTimeSinceLastAction();
+        $time_since_last_action = $seaport->findTimeSinceLastAction();
         $numTimeIntervals = $seaport->findNumTimeIntervals($time_since_last_action);
-        $treasureRegenerated = $seaport-> getTreasureRegeneratedSinceLastAction();
-        $totalTreasure = $seaport -> getTotalTreasure();
+        $treasureRegenerated = $seaport->getTreasureRegeneratedSinceLastAction();
+        $totalTreasure = $seaport->getTotalTreasure();
 
-        return view('seaport.show')->with(['seaport' => $seaport, 'users' => $users, 'time_since_last_action' => $time_since_last_action, 'numTimeIntervals' => $numTimeIntervals, 'treasureRegenerated' => $treasureRegenerated, 'totalTreasure' => $totalTreasure]);
+        return view('seaport.show')->with([
+            'seaport'                => $seaport,
+            'users'                  => $users,
+            'time_since_last_action' => $time_since_last_action,
+            'numTimeIntervals'       => $numTimeIntervals,
+            'treasureRegenerated'    => $treasureRegenerated,
+            'totalTreasure'          => $totalTreasure
+        ]);
     }
 
     /**
@@ -106,24 +113,39 @@ class SeaportController extends Controller
         Log::info('ship_id is:');
         Log::info($request->get('ship_id'));
 
+
+//        require the following regardless of whether attack succeeds or not
         $attack_ship_id = $request->get('ship_id');
         $seaport = Seaport::find($id);
         $attack_ship = Ship::find($attack_ship_id);
-
         $attack_ship->num_attacks = $attack_ship->num_attacks - 1;
 
-        $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
-        $seaport->treasure_amount = 0;
-        $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
-        Log::info($formatted_time);
-        $seaport->attacked_at = $formatted_time;
+
+        if (rand(0, 1)) {
+
+//        require the below if attack succeeds
+            $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
+            $seaport->treasure_amount = 0;
+            $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
+            Log::info($formatted_time);
+            $seaport->attacked_at = $formatted_time;
+            $attack_ship->num_attacks = 0;
+            $status_message = 'Got Attacked, treasure amount reset to 0';
+        } else {
+//        if attack does not succeed
+            $status_message = 'attack failed';
+
+
+        }
+
         $seaport->save();
         $attack_ship->save();
 
-        return redirect()->back()->with('status', 'Got Attacked, treasure amount reset to 0');
+        return redirect()->back()->with('status', $status_message);
     }
 
-    public function getNumAttacks($seaport_id){
+    public function getNumAttacks($seaport_id)
+    {
         Log::info('in get num attacks function');
         $seaport = Seaport::find($seaport_id);
         $attack_ships = $seaport->ships()->get();
@@ -132,7 +154,7 @@ class SeaportController extends Controller
 
         $num_attacks_array = [];
 //        $defensive_rating = $seaport->defensive_rating;
-        foreach($attack_ships as $attack_ship){
+        foreach ($attack_ships as $attack_ship) {
 
 //            $num_cannons = $attack_ship->num_cannons;
 //            $num_attacks = $defensive_rating - $num_cannons;
@@ -141,6 +163,7 @@ class SeaportController extends Controller
         }
         Log::info($num_attacks_array);
         $type = 'json';
+
         return Response::json($num_attacks_array)->header('Content-Type', $type);
     }
 
@@ -214,6 +237,7 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
         $seaport->totalTreasure = $seaport->getTotalTreasure();
+
         return Response::json($seaport);
     }
 //

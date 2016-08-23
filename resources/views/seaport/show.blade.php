@@ -45,13 +45,12 @@
                         @if($ship_in_this_port->user_id == Auth::user()->id)
                             <?php $current_user_ships[$ship_in_this_port->id] = $ship_in_this_port->name; ?>
                             <li>* {{$ship_in_this_port->name}} (your ship)</li>
-                                {{--<li>* {{$ship_in_this_port->num_attacks}} (your ship)</li>--}}
-                                {{--<div>total treasure:</div>--}}
                             <li>num attacks left: </li>
                                 <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
-                            {{--<li>max number of attacks  {{$ship_in_this_port->num_attacks}}</li>--}}
                         @else
                             <li>{{$ship_in_this_port->name}} (other's ship)</li>
+                            <li>num attacks left: </li>
+                            <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
                         @endif
                     @endforeach
                 @else
