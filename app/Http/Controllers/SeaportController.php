@@ -130,7 +130,8 @@ class SeaportController extends Controller
         } elseif($attack_ship->num_attacks == 0) {
 //        if attack does not succeed
             $attack_ship->current_hit_points =  $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
-            $status_message = 'attack failed and you were on your last chance';
+//            $attack_ship->num_attacks = $attack_ship->max_num_attacks;
+            $status_message = 'attack failed and you were on your last chance. hit points was reduced by 20 percent but num attacks has been reset';
         } else {
             $status_message = 'attack failed';
         }
