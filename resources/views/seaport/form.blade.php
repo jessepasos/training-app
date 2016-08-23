@@ -26,6 +26,7 @@
                             $seaport_attributes = [
                                     'name',
                                     'treasure_amount',
+                                    'defensive_rating',
                             ];
                             ?>
 

@@ -113,7 +113,6 @@ class SeaportController extends Controller
         Log::info('ship_id is:');
         Log::info($request->get('ship_id'));
 
-
 //        require the following regardless of whether attack succeeds or not
         $attack_ship_id = $request->get('ship_id');
         $seaport = Seaport::find($id);
@@ -122,7 +121,6 @@ class SeaportController extends Controller
 
 
         if (rand(0, 1)) {
-
 //        require the below if attack succeeds
             $attack_ship->treasure_amount = $attack_ship->treasure_amount + $seaport->getTotalTreasure();
             $seaport->treasure_amount = 0;
@@ -134,10 +132,7 @@ class SeaportController extends Controller
         } else {
 //        if attack does not succeed
             $status_message = 'attack failed';
-
-
         }
-
         $seaport->save();
         $attack_ship->save();
 
@@ -226,6 +221,7 @@ class SeaportController extends Controller
         $seaport->name = $request->get('seaport_name');
         $seaport->treasure_amount = $request->get('seaport_treasure_amount');
         $seaport->user_id = $request->get('user_id');
+        $seaport->defensive_rating = $request->get('seaport_defensive_rating');
 
         $seaport->save();
 
