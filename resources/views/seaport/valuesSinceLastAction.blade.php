@@ -1,12 +1,12 @@
 Seaport id: {{$seaport->id}}
 
-<script>
-    var seaport_id = "{{$seaport->id}}";
-    console.log(seaport_id);
-    $(document).ready(function () {
-        setInterval("getValuesSinceLastAction(seaport_id)", 100);
-    });
-</script>
+{{--<script>--}}
+    {{--var seaport_id = "{{$seaport->id}}";--}}
+    {{--console.log(seaport_id);--}}
+    {{--$(document).ready(function () {--}}
+        {{--setTimeout("getValuesSinceLastAction(seaport_id)", 100);--}}
+    {{--});--}}
+{{--</script>--}}
 
 <div>time since last action:</div>
 <div class="timeSinceLastAction"></div>
