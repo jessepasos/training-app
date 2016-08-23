@@ -127,8 +127,11 @@ class SeaportController extends Controller
             $seaport->attacked_at = $formatted_time;
             $attack_ship->num_attacks = 0;
             $status_message = 'Got Attacked, treasure amount reset to 0';
-        } else {
+        } elseif($attack_ship->num_attacks == 0) {
 //        if attack does not succeed
+            $attack_ship->current_hit_points =  $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
+            $status_message = 'attack failed and you were on your last chance';
+        } else {
             $status_message = 'attack failed';
         }
         $seaport->save();
