@@ -163,9 +163,13 @@ class ShipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function removeShip()
+    public function removeShip($id)
     {
         //
+        $ship = Ship::find($id);
+        $ship->pirates()->destroy();
+        $ship->destroy();
+        
 //        $this->destroy($id);
     }
 }
