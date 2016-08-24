@@ -205,6 +205,38 @@ class SeaportController extends Controller
         return redirect()->back()->with('status', 'Deposited money into this port.');
     }
 
+
+    /**
+     * Get attacked; set treasure_amount to 0 and update created_at with current time.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function repairShip($id, Request $request)
+    {
+        Log::info('ship_id is:');
+        Log::info($request->get('ship_id'));
+
+        $deposit_ship_id = $request->get('ship_id');
+        $seaport = Seaport::find($id);
+        $deposit_ship = Ship::find($deposit_ship_id);
+
+        $deposit_ship->current_hit_points =  min($deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points), $deposit_ship->max_hit_points) ;
+
+        $seaport->treasure_amount = $seaport->getTotalTreasure() - 1;
+
+
+//        $seaport->treasure_amount = $seaport->getTotalTreasure() + $deposit_ship->treasure_amount;
+//        $deposit_ship->treasure_amount = 0;
+//
+//        $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
+//        Log::info($formatted_time);
+        $seaport->save();
+        $deposit_ship->save();
+
+        return redirect()->back()->with('status', 'ship can be repaired at the cost of 1 piece of gold for 10 percent damage');
+    }
+
 //
 //    /**
 //     * Show the form for editing the specified resource.
