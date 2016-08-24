@@ -221,8 +221,8 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $deposit_ship = Ship::find($deposit_ship_id);
 
-        $deposit_ship->current_hit_points =  $deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points);
-//        $deposit_ship->current_hit_points =  min($deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points), $deposit_ship->max_hit_points) ;
+//        $deposit_ship->current_hit_points =  $deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points);
+        $deposit_ship->current_hit_points =  min($deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points), $deposit_ship->max_hit_points) ;
 
         $seaport->treasure_amount = $seaport->getTotalTreasure() - 1;
 
