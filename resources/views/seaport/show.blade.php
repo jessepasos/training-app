@@ -14,10 +14,15 @@
         });
     </script>
 
+
+    <div>treasure after last attack before regeneration: {{$seaport->treasure_amount}}</div>
+
     <div>time since last action ajax:</div>
     <div id="timeSinceLastAction"></div>
     <div>total treasure ajax:</div>
     <div id="totalTreasure"></div>
+
+
 
     <?php $ships_in_this_port = $seaport->ships()->get();
     $current_user_ships = array();
