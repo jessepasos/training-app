@@ -64,7 +64,6 @@ class SeaportController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $seaport = new Seaport();
         Log::info($request);
         $seaport->name = $request->get('seaport_name');
@@ -112,13 +111,11 @@ class SeaportController extends Controller
         Log::info('ship_id is:');
         Log::info($request->get('ship_id'));
 
-
 //        require the following regardless of whether attack succeeds or not
         $attack_ship_id = $request->get('ship_id');
         $seaport = Seaport::find($id);
         $attack_ship = Ship::find($attack_ship_id);
         $attack_ship->num_attacks = $attack_ship->num_attacks - 1;
-
 
         $rand = rand(1, 10);
         if ($rand > 8) {
@@ -133,13 +130,9 @@ class SeaportController extends Controller
             $status_message = 'Attacked this seaport, your ship takes half the seaports treasure and num_chances was reset';
         } elseif ($attack_ship->num_attacks == 0) {
 //        if attack does not succeed
-
             $attack_ship->current_hit_points = $attack_ship->current_hit_points - 0.2 * ($attack_ship->max_hit_points);
 
             if ($attack_ship->current_hit_points <= 0) {
-//                Ship::destroy($attack_ship->id);
-//                ShipController::removeShip($attack_ship->id);
-//                $ship = Ship::find($id);
                 $attack_ship->pirates()->delete();
                 $attack_ship->delete();
 
@@ -221,35 +214,19 @@ class SeaportController extends Controller
         $seaport = Seaport::find($id);
         $deposit_ship = Ship::find($deposit_ship_id);
 
-//        $deposit_ship->current_hit_points =  $deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points);
-        $deposit_ship->current_hit_points =  min($deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points), $deposit_ship->max_hit_points) ;
+        $deposit_ship->current_hit_points = min($deposit_ship->current_hit_points + 0.1 * ($deposit_ship->max_hit_points),
+            $deposit_ship->max_hit_points);
 
         $seaport->treasure_amount = $seaport->getTotalTreasure() - 1;
 
-
-//        $seaport->treasure_amount = $seaport->getTotalTreasure() + $deposit_ship->treasure_amount;
-//        $deposit_ship->treasure_amount = 0;
-//
-//        $formatted_time = Carbon\Carbon::now()->format('Y-m-d H:i:s');
-//        Log::info($formatted_time);
         $seaport->save();
         $deposit_ship->save();
 
-        return redirect()->back()->with('status', 'ship can be repaired at the cost of 1 piece of gold for 10 percent damage');
+        return redirect()->back()->with('status',
+            'ship can be repaired at the cost of 1 piece of gold for 10 percent damage');
     }
 
-//
-//    /**
-//     * Show the form for editing the specified resource.
-//     *
-//     * @param  int  $id
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function edit($id)
-//    {
-//        //
-//    }
-//
+
     /**
      * Update the specified resource in storage.
      *
@@ -281,6 +258,19 @@ class SeaportController extends Controller
 
         return Response::json($seaport);
     }
+
+    //
+//    /**
+//     * Show the form for editing the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function edit($id)
+//    {
+//        //
+//    }
+//
 //
 //    /**
 //     * Remove the specified resource from storage.

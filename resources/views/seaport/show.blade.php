@@ -9,14 +9,14 @@
         console.log(seaport_id);
         $(document).ready(function () {
 //            change to setTimeout instead of setInterval
-            setTimeout("getValuesSinceLastAction(seaport_id)", 1000);
-            setTimeout("getNumAttacks(seaport_id)", 1000);
+            setInterval("getValuesSinceLastAction(seaport_id)", 1000);
+//            setInterval("getNumAttacks(seaport_id)", 1000);
         });
     </script>
 
-    <div>time since last action:</div>
+    <div>time since last action ajax:</div>
     <div id="timeSinceLastAction"></div>
-    <div>total treasure:</div>
+    <div>total treasure ajax:</div>
     <div id="totalTreasure"></div>
 
     <?php $ships_in_this_port = $seaport->ships()->get();
@@ -96,7 +96,7 @@
             {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/repairShip')) }}
             {{ csrf_field() }}
             {{Form::select('ship_id', $current_user_ships_include_0_attacks)}}
-            <button type="submit" class="btn btn-success" color="blue">Repair your ship (placeholder actually deposits)
+            <button type="submit" class="btn btn-success" color="blue">Repair your ship (1 gold per 10 percent hp)
             </button>
             {{ Form::close() }}
 
