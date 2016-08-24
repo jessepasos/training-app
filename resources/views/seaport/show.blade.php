@@ -93,10 +93,10 @@
             {{ Form::close() }}
 
 
-            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
+            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/repairShip')) }}
             {{ csrf_field() }}
             {{Form::select('ship_id', $current_user_ships_include_0_attacks)}}
-            <button type="submit" class="btn btn-success" color="blue">Heal your ship (placeholder actually deposits)
+            <button type="submit" class="btn btn-success" color="blue">Repair your ship (placeholder actually deposits)
             </button>
             {{ Form::close() }}
 

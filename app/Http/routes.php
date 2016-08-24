@@ -57,6 +57,7 @@ Route::get('/seaport/{id}',  'SeaportController@show');
 Route::post('/seaport/{id}', 'SeaportController@update');
 Route::post('/seaport/{id}/attack', 'SeaportController@getAttacked');
 Route::post('/seaport/{id}/deposit', 'SeaportController@getDeposit');
+Route::post('/seaport/{id}/repairShip', 'SeaportController@repairShip');
 Route::get('/valuesSinceLastActionTaken/{id}', 'SeaportController@findValuesSinceLastActionJSON');
 Route::get('/numAttacks/{seaport_id}', 'SeaportController@getNumAttacks');
 
