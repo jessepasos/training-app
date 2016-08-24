@@ -84,7 +84,7 @@ class SeaportController extends Controller
     {
         $seaport = Seaport::find($id);
         $users = User::all();
-        $time_since_last_action = $seaport->findTimeSinceLastAction();
+        $time_since_last_action = $seaport->findTimeSinceLastAction($seaport->attacked_at);
         $numTimeIntervals = $seaport->findNumTimeIntervals($time_since_last_action);
         $treasureRegenerated = $seaport->getTreasureRegeneratedSinceLastAction();
         $totalTreasure = $seaport->getTotalTreasure();
@@ -253,7 +253,7 @@ class SeaportController extends Controller
     public function findValuesSinceLastActionJSON($id)
     {
         $seaport = Seaport::find($id);
-        $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction();
+        $seaport->timeSinceLastAction = $seaport->findTimeSinceLastAction($seaport->attacked_at);
         $seaport->totalTreasure = $seaport->getTotalTreasure();
 
         return Response::json($seaport);

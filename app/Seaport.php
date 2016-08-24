@@ -28,10 +28,10 @@ class Seaport extends Model
         return Carbon::parse($date);
     }
 
-    public function findTimeSinceLastAction()
+    public function findTimeSinceLastAction($db_date)
     {
         $now = Carbon::now();
-        $parsedDate = $this->parseDate($this->attacked_at);
+        $parsedDate = $this->parseDate($db_date);
         $totalDuration = $now->diffInSeconds($parsedDate);
 
         return $totalDuration;
@@ -51,12 +51,14 @@ class Seaport extends Model
     public function getTreasureRegeneratedSinceLastAction()
     {
         if ($this->attacked_at == '0000-00-00 00:00:00') {
-            $treasureRegenerated = 0;
+//            $treasureRegenerated = 0;
+            $time_since_last_action = $this->findTimeSinceLastAction($this->created_at);
         } else {
-            $time_since_last_action = $this->findTimeSinceLastAction();
-            $numTimeIntervals = $this->findNumTimeIntervals($time_since_last_action);
-            $treasureRegenerated = $this->findTreasureRegeneratedSinceLastAction($numTimeIntervals);
+            $time_since_last_action = $this->findTimeSinceLastAction($this->attacked_at);
+
         }
+        $numTimeIntervals = $this->findNumTimeIntervals($time_since_last_action);
+        $treasureRegenerated = $this->findTreasureRegeneratedSinceLastAction($numTimeIntervals);
         return $treasureRegenerated;
     }
 
