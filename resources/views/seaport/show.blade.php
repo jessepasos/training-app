@@ -21,6 +21,7 @@
 
     <?php $ships_in_this_port = $seaport->ships()->get();
     $current_user_ships = array();
+    $current_user_ships_include_0_attacks = array();
     ?>
 
 
@@ -47,13 +48,16 @@
                 @if($ships_in_this_port != [])
                     @foreach($ships_in_this_port as $ship_in_this_port)
                         @if($ship_in_this_port->user_id == Auth::user()->id)
-                        {{--@if(true)--}}
+                            {{--@if(true)--}}
                             <?php
+                            $current_user_ships_include_0_attacks[$ship_in_this_port->id] = $ship_in_this_port->name;
                             if ($ship_in_this_port->num_attacks > 0) {
                                 $current_user_ships[$ship_in_this_port->id] = $ship_in_this_port->name;
                             }
                             ?>
-                            <li>* {{$ship_in_this_port->name}} (your ship) hp: {{$ship_in_this_port->current_hit_points}} / {{$ship_in_this_port->max_hit_points}}</li>
+                            <li>* {{$ship_in_this_port->name}} (your ship)
+                                hp: {{$ship_in_this_port->current_hit_points}}
+                                / {{$ship_in_this_port->max_hit_points}}</li>
                             <li>num attacks left out of {{$ship_in_this_port->max_num_attacks}}:</li>
                             <li id="{{'numAttacks' . $ship_in_this_port->id}}"></li>
                         @else
@@ -69,25 +73,34 @@
         </div>
 
 
-        @if($current_user_ships != [])
-            @if($seaport -> user_id != Auth::user()->id)
-                {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
-                {{ csrf_field() }}
-                {{Form::select('ship_id', $current_user_ships)}}
-                <button type="submit" class="btn btn-danger">Attack this port!</button>
-                {{ Form::close() }}
 
-            @else
-                {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
-                {{ csrf_field() }}
+        @if($seaport -> user_id != Auth::user()->id && $current_user_ships != [])
+            {{--@if($current_user_ships != [])--}}
+            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/attack')) }}
+            {{ csrf_field() }}
+            {{Form::select('ship_id', $current_user_ships)}}
+            <button type="submit" class="btn btn-danger">Attack this port!</button>
+            {{ Form::close() }}
 
-                {{Form::select('ship_id', $current_user_ships)}}
-                <button type="submit" class="btn btn-success" color="green">Deposit money in
-                    your
-                    port!
-                </button>
-                {{ Form::close() }}
-            @endif
+        @elseif($seaport -> user_id == Auth::user()->id && $current_user_ships_include_0_attacks != [])
+            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
+            {{ csrf_field() }}
+            {{Form::select('ship_id', $current_user_ships_include_0_attacks)}}
+            <button type="submit" class="btn btn-success" color="green">Deposit money in
+                your
+                port!
+            </button>
+            {{ Form::close() }}
+
+
+            {{ Form::open(array('url' => '/seaport/' . $seaport -> id . '/deposit')) }}
+            {{ csrf_field() }}
+            {{Form::select('ship_id', $current_user_ships_include_0_attacks)}}
+            <button type="submit" class="btn btn-success" color="blue">Heal your ship (placeholder actually deposits)
+            </button>
+            {{ Form::close() }}
+
+
         @endif
     @endif
 
