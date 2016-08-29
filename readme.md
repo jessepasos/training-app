@@ -2,24 +2,27 @@
 
 Datanerds uses the Laravel framework for most of our applications. This training process is designed to get you up to speed on this framework, our style of building apps, and version control.
 
-Complete each of these challenges in order. When you need help, please consult the laravel documentation, the literature we have available, and laracasts. If you are still stuck, we’d be happy to help you. Don’t try to be fancy and get too deep on any one of these tasks, the point is to develop and show you have a clear understanding of the fundamentals.
+Complete each of these challenges in order. When you need help, please consult the laravel documentation, the literature we have available, and Laracasts. If you are still stuck, we’d be happy to help you. Don’t try to be fancy and get too deep on any one of these tasks, the point is to develop and show you have a clear understanding of the fundamentals.
 
 For these challenges, you will only need to use the routes file, Controllers folder, Models folder, database migrations folder, and views folder.
 
 ## Software you need:
 
-- phpStorm
-- Homestead
+- phpStorm/Sublime text
+- Homestead (https://laravel.com/docs/5.3/homestead)
 - SequelPro
-- iTerm2
 
 Our instructions assume you are using these tools. 
 
 ## Install the app locally:
+`Note: the steps to set up the application within homestead are located within the Laravel documentation`
 
-1. Follow this doc instructing you how to install the app, pulling from this github repo: git@github.com:datanerdscom/training-app.git
-2. Navigate to training-app.dev:8000
-3. You should see a login prompt. Login with “newbird@datanerds.com”, password “DataNerds23”. You should see the pirate ship home page.
+1. Fork the repository located at https://github.com/datanerdscom/training-app
+2. Install the composer dependencies
+3. Migrate and seed the database using php artisan migrate --seed
+4. Configure the .env file to point to the new database
+5. Navigate to training-app.dev:8000 in your favorite web browser and get ready to start playing
+6. Click on "Continue" to register yourself as a new user of the app
 
 ## Challenge 1: Gather the crew
 `Edit basic routing, request handling, edit a view, eloquent interaction`

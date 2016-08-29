@@ -1,0 +1,118 @@
+@import 'https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i|Oswald:300,400,700';
+
+html {  }
+body { background: url(../images/pirate-storm.jpg) top left no-repeat #000; background-size: cover; font-family: "Open Sans",sans-serif; color: #fff; }
+img { max-width: 100%; }
+hr { background: url(../images/hr-skull.png) center center no-repeat transparent; height: 36px; border: none; opacity: 0.5; }
+
+h1,h2,h3,h4 { font-family: "Oswald",sans-serif; letter-spacing: 2px; line-height: normal; }
+pre { 
+	color: #7fcf44;
+	border-color: rgba(255,255,255,0.2);
+	background: rgba(0,0,0,0.6);
+}
+
+input.error { box-shadow: 0 0 0 3px rgba(255,0,0,0.4); color: red !important; }
+label.error { border-color: red !important; color: red !important; font-size: 11px; display: block; }
+
+.no-m-t { margin-top: 0; }
+.serif { font-family: "Crimson Text",serif; }
+.letter-spaced { letter-spacing: 1px; }
+
+.modal-backdrop.in { opacity: .7 }
+.modal-content { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.3); overflow: hidden; box-shadow: 3px 3px 33px 0 rgba(0,0,0,0.8); }
+.modal-header { background: rgba(63,43,44,0.7); border-color: rgba(255,255,255,0.3); text-transform: uppercase; color: #b09b99; }
+.modal-header .close { color: #fff; }
+.modal-footer { border-color: rgba(255,255,255,0.3); }
+.close { opacity: 0.7; font-size: 1.3em; }
+.modal-body { padding: 20px 40px; }
+
+.form-control { background: rgba(255,255,255,0.2); border: none; transition: all .2s ease; }
+.form-control:focus { box-shadow: none; background: rgba(255,255,255,0.5); color: #fff; }
+
+.btn { transition: all .2s ease; letter-spacing: 2px; font-size: 17px; border: 2px solid #fff; color: #fff; text-transform: uppercase; font-weight: normal; border-radius: 0; padding: 6px 30px; margin: 5px; font-family: "Oswald",sans-serif; }
+.btn:hover { color: #666; border-color: #666; }
+
+.lead { font-family: "Crimson Text",serif; }
+
+header { text-align: center; padding: 30px 0; }
+.account { float: right; color: #fff; text-transform: uppercase; letter-spacing: 2px; display: inline-block; padding: 2px 30px; transition: all .2s ease; font-family: "Oswald",sans-serif; }
+.account:hover { background: #fff; color: #000; text-decoration: none; }
+.brand img { opacity: 0.8; transition: all 0.2s ease; }
+.brand:hover img { opacity: 1; }
+
+#user-bar { background: rgba(0,0,0,0.8); overflow: hidden; color: #8f8f8f; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.2) }
+#user-bar ul { margin: 0; padding: 0; }
+#user-bar li { list-style: none; display: inline-block; margin: 0; padding: 0; }
+#user-bar li a { display: inline-block; padding: 10px 15px; color: #b8a7a7; transition: all .2s ease; }
+#user-bar li a:hover { color: #fff; }
+
+#game { background: rgba(0,0,0,0.59); border: 1px solid #fff; padding: 12px; text-align: center; box-shadow: 0 0 22px 0 rgba(255,255,255,0.6); position: relative; }
+/*#game a { color: #fff; }*/
+#game-imagery { background: #000; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; position: relative; min-height: 650px; }
+.rain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url(../images/rain.gif) center center no-repeat; background-size: cover; opacity: 0.2; }
+#game-play { position: absolute; bottom: 0; left: 0; width: 100%; }
+
+#message-area { background: rgba(0,0,0,0.7); max-width: 940px; padding: 20px 40px; margin: 20px auto 50px auto; overflow: hidden; }
+.game-answer { border: 1px solid #333; padding: 10px; border-radius: 4px; transition: all .2s ease; }
+.game-answer:hover { background: rgba(255,255,255,0.1); }
+
+#game-play.static { position: static; position: relative; }
+#game-play.static #message-area { padding: 20px; margin: 0; max-width: initial; }
+
+.btn-default { text-transform: uppercase; border-radius: 0; border: 2px solid #fff; color: #000; }
+.btn-default:hover { background: #000; color: #fff; border-color: #fff; }
+
+/* Pulse animation */
+.pulse { box-shadow: 0 0 0 rgba(255,255,255, 0.8); animation: pulse 2s infinite; }
+.pulse:hover { animation: none; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+    box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+      box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+      box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+
+footer { font-family: Arial,Verdana,sans-serif; color: #ccc; text-align: center; padding: 30px 0 15px 0; font-size: 12px; opacity: 0.7; }
+footer a { color: #fff; }
+footer a:hover { color: #fff; text-decoration: underline; }
+
+
+@media (max-width: 1200px) {
+	#game-play { position: static; position: relative; }
+	#message-area { margin: 0; padding: 20px; }
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) { 
+	.brand { display: block; margin-bottom: 20px; }
+	.account { float: none; }
+	#message-area { padding: 12px 20px; }
+	#user-bar li { display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+	#user-bar ul > li:first-child { padding: 10px; }
+} 
+
+

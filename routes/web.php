@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
-Route::auth();
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/the-black-perl', 'ShipController@theBlackPerl');
 Route::get('/pirate/{id}', 'PirateController@index');
