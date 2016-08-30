@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePiratesTable extends Migration
+class CreateShipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +13,10 @@ class CreatePiratesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pirates', function (Blueprint $table) {
+        Schema::create('ships', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('ship_id')->unsigned()->nullable();
             $table->string('name');
-            $table->string('rank');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePiratesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pirates');
+        Schema::drop('ships');
     }
 }

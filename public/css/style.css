@@ -3,13 +3,15 @@
 html {  }
 body { background: url(../images/pirate-storm.jpg) top left no-repeat #000; background-size: cover; font-family: "Open Sans",sans-serif; color: #fff; }
 img { max-width: 100%; }
-hr { background: url(../images/hr-skull.png) center center no-repeat transparent; height: 36px; border: none; opacity: 0.5; }
+hr { border-color: #484848; }
+hr.skull { background: url(../images/hr-skull.png) center center no-repeat transparent; height: 36px; border: none; opacity: 0.5; }
 
 h1,h2,h3,h4 { font-family: "Oswald",sans-serif; letter-spacing: 2px; line-height: normal; }
-pre { 
-	color: #7fcf44;
-	border-color: rgba(255,255,255,0.2);
-	background: rgba(0,0,0,0.6);
+a { color: #fff; }
+pre {
+    color: #7fcf44;
+    border-color: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.6);
 }
 
 input.error { box-shadow: 0 0 0 3px rgba(255,0,0,0.4); color: red !important; }
@@ -18,6 +20,13 @@ label.error { border-color: red !important; color: red !important; font-size: 11
 .no-m-t { margin-top: 0; }
 .serif { font-family: "Crimson Text",serif; }
 .letter-spaced { letter-spacing: 1px; }
+
+.text-green { color: #60d35e; }
+.text-red { color: #da4f40; }
+.text-blue { color: #53b8e7; }
+.text-orange { color: #da7c49; }
+.text-teal { color: #00ebb6; }
+.text-gold { color: #f9d543; }
 
 .modal-backdrop.in { opacity: .7 }
 .modal-content { background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.3); overflow: hidden; box-shadow: 3px 3px 33px 0 rgba(0,0,0,0.8); }
@@ -33,6 +42,8 @@ label.error { border-color: red !important; color: red !important; font-size: 11
 .btn { transition: all .2s ease; letter-spacing: 2px; font-size: 17px; border: 2px solid #fff; color: #fff; text-transform: uppercase; font-weight: normal; border-radius: 0; padding: 6px 30px; margin: 5px; font-family: "Oswald",sans-serif; }
 .btn:hover { color: #666; border-color: #666; }
 
+#btn-attack { text-align: center; margin: -60px 0 25px 0; display: block; }
+
 .lead { font-family: "Crimson Text",serif; }
 
 header { text-align: center; padding: 30px 0; }
@@ -45,13 +56,14 @@ header { text-align: center; padding: 30px 0; }
 #user-bar ul { margin: 0; padding: 0; }
 #user-bar li { list-style: none; display: inline-block; margin: 0; padding: 0; }
 #user-bar li a { display: inline-block; padding: 10px 15px; color: #b8a7a7; transition: all .2s ease; }
-#user-bar li a:hover { color: #fff; }
+#user-bar li a:hover { color: #fff; text-decoration: none; }
 
 #game { background: rgba(0,0,0,0.59); border: 1px solid #fff; padding: 12px; text-align: center; box-shadow: 0 0 22px 0 rgba(255,255,255,0.6); position: relative; }
-/*#game a { color: #fff; }*/
 #game-imagery { background: #000; border: 1px solid rgba(255,255,255,0.2); overflow: hidden; position: relative; min-height: 650px; }
 .rain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url(../images/rain.gif) center center no-repeat; background-size: cover; opacity: 0.2; }
 #game-play { position: absolute; bottom: 0; left: 0; width: 100%; }
+#step_count { position: absolute; top: 15px; left: 15px; background: rgba(113,35,29,0.6); padding: 6px 12px; font-family: "Oswald",sans-serif; text-transform: uppercase; letter-spacing: 1px; border-radius: 3px; font-size: 12px; color: #92413b; }
+#step_count .num { font-size: 32px; font-weight: 300; color: #fff; }
 
 #message-area { background: rgba(0,0,0,0.7); max-width: 940px; padding: 20px 40px; margin: 20px auto 50px auto; overflow: hidden; }
 .game-answer { border: 1px solid #333; padding: 10px; border-radius: 4px; transition: all .2s ease; }
@@ -63,34 +75,57 @@ header { text-align: center; padding: 30px 0; }
 .btn-default { text-transform: uppercase; border-radius: 0; border: 2px solid #fff; color: #000; }
 .btn-default:hover { background: #000; color: #fff; border-color: #fff; }
 
+#create_account { max-width: 500px; margin: 15px auto; background: rgba(0,0,0,0.6); border-radius: 6px; box-shadow: 5px 5px 33px 0 rgba(0,0,0,0.4); padding: 20px 40px; border: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2); }
+
+#port-royal { text-align: left; }
+#port-royal .inner-content { padding: 15px 40px; }
+
+.stat { background: #1b1a1a; opacity: .8; border-radius: 4px; padding: 10px; text-align: center; margin: 5px auto; font-family: "Oswald",sans-serif; text-transform: uppercase; }
+.stat:hover { opacity: 1; }
+.stat small { display: block; color: #e2d5b9; font-size: 15px; font-weight: 300; letter-spacing: 2px; }
+.stat strong { font-size: 20px; }
+
+.inventory h4 { color: #e2d5b9; letter-spacing: normal; font-size: 20px; border-bottom: 1px solid #363636; padding-bottom: 5px; }
+.inventory_item { background: url(../images/icon-bg.jpg) center center no-repeat #413827; border: 1px solid #5f5139; width: 175px; height: 180px; margin: 4px; padding: 10px; box-shadow: inset 0 0 75px 0 rgba(0,0,0,0.9); vertical-align: top; transition: all .2s ease; }
+.inventory_item:hover { border-color: #927e5c; box-shadow: inset 0 0 33px 0 rgba(255,255,255,0.8); }
+.inventory_item .icon { margin: 0 auto 20px auto; }
+.inventory_item .item-rank { display: block; font-family: "Oswald",sans-serif; text-transform: uppercase; padding: 3px 5px; border-radius: 3px; font-size: 14px; font-weight: 400; color: #000 }
+.inventory_item .item-title { display: block; font-family: "Oswald",sans-serif; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 3px 5px; border-radius: 3px; font-size: 15px; font-weight: 400; text-shadow: 1px 1px 1px #000; }
+
+.dark-table { border: 1px solid #323232; width: 100%; }
+.dark-table th { padding: 6px; background: rgba(113,35,29,0.4); border-bottom: 1px solid #323232; border-left: 1px solid #323232; }
+.dark-table tr th:first-child { border-left: none; }
+.dark-table td { padding: 6px; border-top: 1px solid #323232; border-left: 1px solid #323232; }
+.dark-table tr td:first-child { border-left: none; }
+
 /* Pulse animation */
 .pulse { box-shadow: 0 0 0 rgba(255,255,255, 0.8); animation: pulse 2s infinite; }
 .pulse:hover { animation: none; }
 
 @-webkit-keyframes pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
-  }
-  70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
-  }
-  100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
-  }
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
 }
 @keyframes pulse {
-  0% {
-    -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
-    box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
-  }
-  70% {
-      -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
-      box-shadow: 0 0 0 10px rgba(255,255,255, 0);
-  }
-  100% {
-      -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
-      box-shadow: 0 0 0 0 rgba(255,255,255, 0);
-  }
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0.8);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
 }
 
 footer { font-family: Arial,Verdana,sans-serif; color: #ccc; text-align: center; padding: 30px 0 15px 0; font-size: 12px; opacity: 0.7; }
@@ -99,20 +134,20 @@ footer a:hover { color: #fff; text-decoration: underline; }
 
 
 @media (max-width: 1200px) {
-	#game-play { position: static; position: relative; }
-	#message-area { margin: 0; padding: 20px; }
+    #game-play { position: static; position: relative; }
+    #message-area { margin: 0; padding: 20px; }
 }
 
 @media (max-width: 992px) {
 
 }
 
-@media (max-width: 768px) { 
-	.brand { display: block; margin-bottom: 20px; }
-	.account { float: none; }
-	#message-area { padding: 12px 20px; }
-	#user-bar li { display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
-	#user-bar ul > li:first-child { padding: 10px; }
+@media (max-width: 768px) {
+    .brand { display: block; margin-bottom: 20px; }
+    .account { float: none; }
+    #message-area { padding: 12px 20px; }
+    #user-bar li { display: block; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    #user-bar ul > li:first-child { padding: 10px; }
 } 
 
 

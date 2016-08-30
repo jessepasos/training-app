@@ -28,7 +28,7 @@ class PirateController extends Controller
     {
         $pirate = Pirate::find($id);
 
-        return view('pirate')->withPirate($pirate);
+        return view('pirates')->withPirate($pirate);
     }
 
     public function store($id, Request $request)

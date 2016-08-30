@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pirate extends Model
+class Ship extends Model
 {
     /**
-     * A pirate belongs to a user
+     * A ship belongs to a user
      */
     public function user()
     {
@@ -15,10 +15,10 @@ class Pirate extends Model
     }
 
     /**
-     * A pirate belongs to a ship
+     * A user has many pirates in their inventory
      */
-    public function pirate()
+    public function ships()
     {
-        return $this->belongsTo(Pirate::class);
+        return $this->hasMany(Pirate::class);
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ShipsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(PiratesTableSeeder::class);
-         $this->call(ShipsTableSeeder::class);
+        DB::table('ships')->insert([
+            'user_id' => 1,
+            'name' => 'Black Perl',
+        ]);
     }
 }

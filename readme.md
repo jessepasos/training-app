@@ -27,12 +27,11 @@ Our instructions assume you are using these tools.
 ## Challenge 1: Gather the crew
 `Edit basic routing, request handling, edit a view, eloquent interaction`
 
-Captain Blackbird has assembled a crew and ‘acquired’ a ship called the Black PERL. The Black PERL’s home base is Port Royal. He needs to assign every member of his crew to a role on the ship.
+Captain Blackbird has assembled a crew and ‘acquired’ a ship called the Black PERL. The Black PERL’s home base is Port Royal. Your first task is to assign a role to the other pirates on this ship.
 
-Go to the pirate ship roster page. You’ll see a list of the crew. Click on the edit icon next to any crew member. This takes you to their detail page where you will see their basic information. 
+Click on your ship, the Black Perl. You will see the details of the ship, and the pirates who belong to the ship. Click on any of the crew members to edit their information.
 
-Add in a field to the crew detail page called “Crew rank”. The options for this field will be a drop down list:
-- Captain
+Each crew member should be assigned a role for the ship. Using the drop down list on the page, create a new method to change the role for each pirate to be one of the following:
 - First mate
 - Boatswain
 - Second mate
@@ -40,7 +39,7 @@ Add in a field to the crew detail page called “Crew rank”. The options for t
 - Seaman
 - Cook
 
-You will need to add this option into the view, the controller, and the model. 
+Next, build the functionality to add attributes to a pirate. This will require a new table (pirate_attributes), a new model, and the proper relationships set up. The view already has the fields for both the key and the value to make a new attribute.
 
 > Objective: Once you’ve completed this task, a user should be able to edit any crew member and change their rank.
 

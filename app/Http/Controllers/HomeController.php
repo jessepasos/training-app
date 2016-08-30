@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Pirate;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ShipController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,10 +24,15 @@ class ShipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function theBlackPerl()
+    public function index()
     {
-        $pirates = Pirate::all();
+        $user = auth()->user();
 
-        return view('ships')->withPirates($pirates);
+        $data = [
+            'ships' => $user->ships,
+            'pirates' => $user->pirates
+        ];
+
+        return view('home', $data);
     }
 }

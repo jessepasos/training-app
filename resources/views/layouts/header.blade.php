@@ -1,5 +1,5 @@
 <header>
-    <a href="#" class="brand"><img src="images/black-perl.png" alt="the Black PERL"></a>
+    <a href="/" class="brand"><img src="images/black-perl.png" alt="the Black PERL"></a>
     @if (Auth::guest())
         <a href="#" class="account" data-toggle="modal" data-target="#login"><i class="fa fa-ship" aria-hidden="true"></i> Login</a>
     @else

@@ -26,4 +26,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * A user belongs to a port
+     */
+    public function port()
+    {
+        return $this->belongsTo(Port::class);
+    }
+
+    /**
+     * A user has many pirates in their inventory
+     */
+    public function pirates()
+    {
+        return $this->hasMany(Pirate::class);
+    }
+
+    /**
+     * A user has many ships
+     */
+    public function ships()
+    {
+        return $this->hasMany(Ship::class);
+    }
 }
