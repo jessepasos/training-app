@@ -29,6 +29,7 @@ class HomeController extends Controller
         $user = auth()->user();
 
         $data = [
+            'port' => $user->port,
             'ships' => $user->ships,
             'pirates' => $user->pirates
         ];

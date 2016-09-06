@@ -22,6 +22,8 @@
                         <form role="form" method="POST" action="{{ url('/register') }}" id="registerForm">
                             {{ csrf_field() }}
 
+                            <input type="hidden" name="port_id" value="1"><!-- perhaps in the future the user can select what port they want to start at -->
+
                             <div class="form-group">
                                 <label for="name" class="sr-only">Name</label>
                                 <input id="name" type="text" class="form-control input-lg" name="name" value="{{ old('name') }}" placeholder="Your Name">

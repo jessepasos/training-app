@@ -19,8 +19,10 @@
 
                                 <a href="#" id="btn-attack"><img src="images/btn-start-attack.png" class="attack" alt="start attack"></a>
 
-
-
+                                <div class="stat port">
+                                    <img src="images/i-" alt="icon" class="stat-icon">
+                                    <p><small class="stat-label">Your Home Port:</small> <strong> {{ $port->name }}</strong></p>
+                                </div>
                                 <div class="stat attacks">
                                     <img src="images/i-cannon.png" alt="icon" class="stat-icon">
                                     <p><small class="stat-label">Port Attacked at:</small> <strong>No attacks yet</strong></p>

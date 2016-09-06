@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pirate extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'ship_id', 'name', 'rank'
+    ];
+
+    /**
      * A pirate belongs to a user
      */
     public function user()
