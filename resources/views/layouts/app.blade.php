@@ -16,7 +16,7 @@
         <div class="container">
 
             <ul>
-                <li>Welcome back, <strong>{{ Auth::user()->name }}</strong>.</li>
+                <li>Hi, <strong>{{ Auth::user()->name }}</strong>.</li>
                 <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage Account</a></li>
                 <li><a href="#"><i class="fa fa-circle text-gold" aria-hidden="true"></i> Your Treasure <span class="badge">$0</span></a></li>
                 <li><a href="#"><i class="fa fa-ship text-gold" aria-hidden="true"></i> Your Ships <span class="badge">{{ count($ships) }}</span></a></li>

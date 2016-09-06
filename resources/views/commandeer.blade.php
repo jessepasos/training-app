@@ -9,7 +9,7 @@
         <section id="game">
             <div id="game-imagery">
 
-                <img src="images/screen-create-account.jpg" alt="intro">
+                <img src="images/screen-commandeer.jpg" alt="intro">
                 <div class="rain"></div>
                 <span id="step_count">Step / <span class="num">02</span></span>
      
@@ -17,15 +17,23 @@
 
                     <div id="create_account">
 
-                        <h1 class="text-center no-m-t">The Black PERL has been at the port without a captain for some time now. Now is your chance to show the world your mettle! Commandeer the Black PERL!</h1>
+                    <h1 class="text-center no-m-t">Take the ship</h1>
 
-                        <form action="/commandeer" method="post">
-                        {{ csrf_field() }}
-                            <input type="hidden" name="ship_name" value="The Black PERL">
+                        <form>
+                            {{ csrf_field() }}
 
-                            <input class="form-control" type="submit"></form>
+                            <input type="hidden" name="ship_name" value="The Black Perl">
+
+                            <div class="form-group">
+                                <p>The Black Perl has been at the port without a captain for some time now. It's up to you to commandeer the ship, and assemble a crew.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default pulse">
+                                    <i class="fa fa-btn fa-ship"></i> Commandeer the Black Perl
+                                </button>
+                            </div>
                         </form>
-
 
                     </div>
 

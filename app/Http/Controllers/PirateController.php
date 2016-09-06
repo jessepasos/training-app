@@ -18,28 +18,4 @@ class PirateController extends Controller
     {
         $this->middleware('auth');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id)
-    {
-        $pirate = Pirate::find($id);
-
-        return view('pirates')->withPirate($pirate);
-    }
-
-    public function store($id, Request $request)
-    {
-        $pirate = Pirate::find($id);
-
-        $pirate->name = $request->get('pirate_name');
-        $pirate->attributes = $request->get('attributes');
-
-        $pirate->save();
-
-        return redirect()->back()->with('status', 'Profile saved!');
-    }
 }

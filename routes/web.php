@@ -12,18 +12,11 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+
+// Authentication routes
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
+// Application routes for authenticated users
 Route::get('/home', 'HomeController@index');
-Route::get('/the-black-perl', 'ShipController@theBlackPerl');
-Route::get('/pirate/{id}', 'PirateController@index');
-Route::post('/pirate/{id}', 'PirateController@store');
-
-// The first ship the user gets
 Route::get('/commandeer', 'ShipController@commandeer');
-Route::post('/commandeer', 'ShipController@saveShip');
-
-//Pirate recruiting
-Route::get('/recruit', 'PirateController@recruit');
-Route::post('/recruit', 'PirateController@savePirate');
