@@ -29,9 +29,9 @@ Our instructions assume you are using these tools.
 
 Immediately after registration, the user should be presented with a page where they are instructed to commandeer a ship, the Black Perl. 
 
-In order to build this functionality, you need to register a new route, "/commandeer". This route can point to a new method on the ShipController, commandeer. Within this method, you need to show the corresponding view. 
+In order to build this functionality, you need to register a new route, `/commandeer`. This route can point to a new method on the `ShipController`, commandeer. Within this method, you need to show the corresponding view. 
 
-Within the view, create a form which posts directly back to the same page with a hidden input item with the ship's name, The Black Perl. This route should point to another method on the ShipController where you will save the ship in the database, as well as link the ship to the authenticated user. It should then return a redirect response to the homepage.
+Within the view, create a form which posts directly back to the same page with a hidden input item with the ship's name, The Black Perl. This route should point to another method on the `ShipController` where you will save the ship in the database, as well as link the ship to the authenticated user. It should then return a redirect response to the homepage.
 
 On the homepage, the user should now see their new ship as well as some other information about their port. The next step is to build the functionality to add pirates to the new ship.
 
@@ -43,7 +43,7 @@ Under the section title "Pirates", add a form with the following fields: Pirate 
 - Seaman
 - Cook
 
-You will need to register a new route to accept the posted form to create a pirate, and create new methods on the PirateController to save each pirate.
+You will need to register a new route to accept the posted form to create a pirate, and create new methods on the `PirateController` to save each pirate.
 
 Next, create the following pirates:
 
