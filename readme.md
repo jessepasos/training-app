@@ -1,4 +1,4 @@
-# Datanerds Training App 
+# Data Nerds Training App 
 
 Datanerds uses the Laravel framework for most of our applications. This training process is designed to get you up to speed on this framework, our style of building apps, and version control.
 
