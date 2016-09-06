@@ -35,7 +35,7 @@ Within the view, create a form which posts directly back to the same page with a
 
 On the homepage, the user should now see their new ship as well as some other information about their port. The next step is to build the functionality to add pirates to the new ship.
 
-Under the section titled "Pirates", add a form with the following fields: Pirate name and a drop down called rank (for now all the pirates will belong to your new ship, the Black Perl). Each pirate should be assigned a role for the ship. Add the following options to the rank drop down list:
+Under the section titled "Your Pirates", you should see a link that says "It looks like you need a crew" which opens a popup modal window with a form to add a pirate. Add the following options to the rank drop down list:
 - Captain
 - First mate
 - Second mate
