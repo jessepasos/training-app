@@ -26,14 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-
-        $data = [
-            'port' => $user->port,
-            'ships' => $user->ships,
-            'pirates' => $user->pirates
-        ];
-
-        return view('home', $data);
+        return view('home');
     }
 }

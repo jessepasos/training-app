@@ -58,7 +58,9 @@
                                 <h4>Your Pirates</h4>
 
                                 <div class="icon_set ships">
-
+                                    @if ($pirates !=='')
+                                        {{'It looks like you need a crew.'}}
+                                    @endif
                                     @foreach ($pirates as $pirate)
 
                                         @if ($loop->first)
