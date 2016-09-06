@@ -24,24 +24,37 @@ Our instructions assume you are using these tools.
 5. Navigate to training-app.dev:8000 in your favorite web browser and get ready to start playing
 6. Click on "Continue" to register yourself as a new user of the app
 
-## Challenge 1: Gather the crew
+## Challenge 1: Commandeer a ship, and gather the crew
 `Edit basic routing, request handling, edit a view, eloquent interaction`
 
-Captain Blackbird has assembled a crew and ‘acquired’ a ship called the Black PERL. The Black PERL’s home base is Port Royal. Your first task is to assign a role to the other pirates on this ship.
+Immediately after registration, the user should be presented with a page where they are instructed to commandeer a ship, the Black Perl. 
 
-Click on your ship, the Black Perl. You will see the details of the ship, and the pirates who belong to the ship. Click on any of the crew members to edit their information.
+In order to build this functionality, you need to register a new route, "/commandeer". This route can point to a new method on the ShipController, commandeer. Within this method, you need to show the corresponding view. 
 
-Each crew member should be assigned a role for the ship. Using the drop down list on the page, create a new method to change the role for each pirate to be one of the following:
+Within the view, create a form which posts directly back to the same page with a hidden input item with the ship's name, The Black Perl. This route should point to another method on the ShipController where you will save the ship in the database, as well as link the ship to the authenticated user. It should then return a redirect response to the homepage.
+
+On the homepage, the user should now see their new ship as well as some other information about their port. The next step is to build the functionality to add pirates to the new ship.
+
+Under the section title "Pirates", add a form with the following fields: Pirate name and a drop down called rank (for now all the pirates will belong to your new ship, the Black Perl). Each pirate should be assigned a role for the ship. Add the following options to the rank drop down list:
+- Captain
 - First mate
-- Boatswain
 - Second mate
 - Sergeant-at-arms
 - Seaman
 - Cook
 
-Next, build the functionality to add attributes to a pirate. This will require a new table (pirate_attributes), a new model, and the proper relationships set up. The view already has the fields for both the key and the value to make a new attribute.
+You will need to register a new route to accept the posted form to create a pirate, and create new methods on the PirateController to save each pirate.
 
-> Objective: Once you’ve completed this task, a user should be able to edit any crew member and change their rank.
+Next, create the following pirates:
+
+- Captain Blackbird
+- First Mate Jaybird
+- Second Mate Thunderbird
+- Sergeant-at-arms Firebird
+- Seaman Raven
+- Cook Bigbird
+
+> Objective: Once you’ve completed this task, a newly registered user should have one new ship, and a full roster of pirates.
 
 ## Challenge 2: Survey the sea
 ` Create new route, create new controller, create new migration, create new view.`
