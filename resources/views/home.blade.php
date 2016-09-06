@@ -58,8 +58,8 @@
                                 <h4>Your Pirates</h4>
 
                                 <div class="icon_set ships">
-                                    @if ($pirates !=='')
-                                        {{'It looks like you need a crew.'}}
+                                    @if (count($pirates) == 0)
+                                        <a href="#" data-toggle="modal" data-target="#createPirate">It looks like you need a crew. </a>
                                     @endif
                                     @foreach ($pirates as $pirate)
 
@@ -149,64 +149,42 @@
         </div>
     </div>
 
-    <!-- Pirate Stats -->
-    <div class="modal fade" id="pirate-stats" tabindex="-1" role="dialog" aria-labelledby="piratestats">
+    <!-- Create new pirate -->
+    <div class="modal fade" id="createPirate" tabindex="-1" role="dialog" aria-labelledby="createPirate">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Pirate Statistics:</h4>
+                    <h4 class="modal-title" id="myModalLabel">Pirate Profile:</h4>
                 </div>
                 <div class="modal-body">
-
                     <p class="text-center"><img src="images/pirate-sparrow.png" alt="pirate"></p>
-                    <h2 class="text-center">Captain Jack Sparrow</h2>
+                    <h2 class="text-center">Create a pirate</h2>
                     <hr class="skull">
 
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="stat">
-                                <p><small class="stat-label">Rank:</small> <strong>4/10</strong></p>
+                    <form action="/" method="post">
+                        {{ csrf_field() }}
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="key">Pirate Name:</label>
+                                    <input type="text" class="form-control" name="pirate_name" id="pirate_name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="key">Pirate Rank:</label>
+                                    <select class="form-control" name="rank">
+                                        <option>ENTER OPTIONS HERE</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-8">
-                            <h4 class="text-uppercase"><em>Attributes</em></h4>
-                            <table class="dark-table">
-                                <thead>
-                                <tr>
-                                    <th>Attribute:</th>
-                                    <th>Rank:</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Alchoholism</td>
-                                    <td><span class="text-teal"><i class="fa fa-star" aria-hidden="true"></i> 300%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Craziness</td>
-                                    <td><span class="text-green">80%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Strength</td>
-                                    <td><span class="text-red">30%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cunning</td>
-                                    <td><span class="text-green">90%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Stamina</td>
-                                    <td><span class="text-orange">50%</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Humor</td>
-                                    <td><span class="text-blue">120%</span></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                        <div class="text-center">
+                            <button class="btn btn-default btn-block"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create Pirate!</button>
                         </div>
-                    </div>
+
+                    </form>
 
                 </div>
             </div>
