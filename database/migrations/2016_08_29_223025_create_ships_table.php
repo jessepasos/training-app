@@ -17,6 +17,9 @@ class CreateShipsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
+            $table->integer('level')->unsigned();
+            $table->integer('current_health')->unsigned();
+            $table->integer('current_cannons')->unsigned();
             $table->timestamps();
         });
     }

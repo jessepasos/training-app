@@ -22,6 +22,7 @@
                         <form action="/commandeer" method="post">
                         {{ csrf_field() }}
                             <input type="hidden" name="ship_name" value="The Black PERL">
+                            <input type="hidden" name="level" value=1>
 
                             <input class="form-control" type="submit"></form>
                         </form>

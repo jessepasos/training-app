@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/scripts.js"></script>
 </head>
 <body>
 
@@ -18,7 +23,7 @@
             <ul>
                 <li>Welcome back, <strong>{{ Auth::user()->name }}</strong>.</li>
                 <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Manage Account</a></li>
-                <li><a href="#"><i class="fa fa-circle text-gold" aria-hidden="true"></i> Your Treasure <span class="badge">$0</span></a></li>
+                <li><a href="#"><i class="fa fa-circle text-gold" aria-hidden="true"></i> Your Treasure <span class="badge">${{ Auth::user()->treasure }}</span></a></li>
                 <li><a href="#"><i class="fa fa-ship text-gold" aria-hidden="true"></i> Your Ships <span class="badge">{{ count($ships) }}</span></a></li>
                 <li><a href="#"><i class="fa fa-user text-gold" aria-hidden="true"></i> Your Pirates <span class="badge">{{ count($pirates) }}</span></a></li>
             </ul>
@@ -61,11 +66,6 @@
             </div>
         </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/scripts.js"></script>
-
+        
 </body>
 </html>

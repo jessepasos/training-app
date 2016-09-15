@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AttackPort;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $attackPorts = AttackPort::all();
+        $user= \Auth::user();
+        return view('home')->with('attackPorts',$attackPorts)->with('user',$user);
     }
 }

@@ -12,7 +12,7 @@ class Pirate extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'ship_id', 'name', 'rank'
+        'user_id', 'ship_id', 'name', 'rank_id', 'saltiness'
     ];
 
     /**
@@ -26,8 +26,26 @@ class Pirate extends Model
     /**
      * A pirate belongs to a ship
      */
-    public function pirate()
+    public function ship()
     {
-        return $this->belongsTo(Pirate::class);
+        return $this->belongsTo(Ship::class);
+    }
+
+    /**
+     * A pirate is assigned a rank
+     */
+    public function rank()
+    {
+        return $this->belongsTo(Rank::class);
+    }
+
+    public function getRankName()
+    {
+        if ($this->rank) {
+            return $this->rank->name;
+        }
+
+        return "Unassigned";
+
     }
 }

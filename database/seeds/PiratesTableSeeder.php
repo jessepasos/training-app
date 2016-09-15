@@ -15,7 +15,7 @@ class PiratesTableSeeder extends Seeder
             'user_id' => 1,
             'ship_id' => 1,
             'name' => 'Blackbird',
-            'rank' => 'Captain'
+            'rank_id' => 1
         ]);
 
         DB::table('pirates')->insert([

@@ -17,13 +17,21 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/the-black-perl', 'ShipController@theBlackPerl');
+
+//Pirate stuff
 Route::get('/pirate/{id}', 'PirateController@index');
-Route::post('/pirate/{id}', 'PirateController@store');
+Route::post('/update-pirate', 'PirateController@update');
+Route::post('/new-pirate', 'PirateController@new');
+
 
 // The first ship the user gets
 Route::get('/commandeer', 'ShipController@commandeer');
 Route::post('/commandeer', 'ShipController@saveShip');
+// Future ships will use this creation
+Route::post('/ship-new', 'ShipController@saveShip');
+Route::post('/ship-level-up', 'ShipController@shipLevelUp');
 
-//Pirate recruiting
-Route::get('/recruit', 'PirateController@recruit');
-Route::post('/recruit', 'PirateController@savePirate');
+
+//Attacking
+Route::get('/attack-home', 'AttackController@index');
+Route::post('/attack', 'AttackController@attack');

@@ -8,7 +8,7 @@
                     <div class="panel-heading">{{ $pirate->rank }} {{ $pirate->name }}</div>
 
                     <div class="panel-body">
-                        A message from your Captain: <b>"{{ $captains_message }}"</b>
+                        {{-- A message from your Captain: <b>"{{ $captains_message }}"</b> --}}
 
                         <h1>Edit Pirate</h1>
 

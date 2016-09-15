@@ -17,7 +17,8 @@ class CreatePiratesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('ship_id')->unsigned()->nullable();
             $table->string('name');
-            $table->string('rank');
+            $table->integer('rank_id')->unsigned()->nullable();
+            $table->integer('saltiness')->unsigned();
             $table->timestamps();
         });
     }
