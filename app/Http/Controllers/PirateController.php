@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\TreasureInsufficientException;
 use App\Pirate;
 use App\ShipRole;
 use App\Ship;
 use App\User;
 use Illuminate\Http\Request;
+
+
 
 use App\Http\Requests;
 use App\Exceptions\ShipUnavailableException;
@@ -18,8 +21,8 @@ class PirateController extends Controller
      *
      * @return void
      */
-
     use Traits\treasure;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -39,13 +42,17 @@ class PirateController extends Controller
 
     public function new(Request $request)
     {
-        $this->treasure_decrease(500);
+        try {
+            $this->treasure_decrease(500);
+        } catch(\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
         if($request->ship_id != "NULL"){
             try {
                 $this->checkThatShipIsAvailable($request);
             } catch(\Exception $e) {
                 // Make the pirate not on the given ship.
-                $pirate = Pirate::create([
+                Pirate::create([
                     'user_id'=>auth()->id(),
                     'ship_id'=>$request->get('NULL'),
                     'name'=>$request->get('pirate_name'),
@@ -57,7 +64,7 @@ class PirateController extends Controller
             try {
                 $this->checkThatRankIsAvailable($request);
             } catch(\Exception $e) {
-                $pirate = Pirate::create([
+                Pirate::create([
                     'user_id'=>auth()->id(),
                     'ship_id'=>$request->get('ship_id'),
                     'name'=>$request->get('pirate_name'),
@@ -68,7 +75,7 @@ class PirateController extends Controller
             }
         }
 
-        $pirate = Pirate::create([
+        Pirate::create([
             'user_id'=>auth()->id(),
             'ship_id'=>$request->get('ship_id'),
             'name'=>$request->get('pirate_name'),
