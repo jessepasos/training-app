@@ -70,8 +70,9 @@ class ShipController extends Controller
         } catch(\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
-
         $ship->level = $ship->level + 1;
+        dd($ship->levelDetails->max_health);
+        $ship->current_health = $ship->levelDetails->max_health;
         $ship->save();
         return redirect()->back()->with('success', 'Ship Upgraded!');
     }

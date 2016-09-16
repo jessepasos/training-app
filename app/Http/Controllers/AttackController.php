@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AttackPort;
+use App\Ship;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,6 +12,7 @@ use Carbon\Carbon;
 
 class AttackController extends Controller
 {
+    use Traits\treasure;
     /**
      * Create a new controller instance.
      *
@@ -34,10 +36,23 @@ class AttackController extends Controller
 
     public function attack(Request $request)
     {
-        $attack = AttackPort::where('name', $request->get('port'))->first();
+        $attack = AttackPort::find($request->get('port'));
+        $ships = Ship::find($request->get('ships'));
 
         $attack->attacked_at = Carbon::now();
-        $attack->treasure_amount = '0';
+        //Check the max cargo on all attacking ships.
+        //Take the lesser of max cargo or half the treasure amount of the port.
+        $maxLoot = 0;
+        foreach($ships as $ship){
+            $maxLoot += ($ship->levelDetails->max_cargo * 100);
+        }
+        $loot = $attack->treasure_amount/2;
+        if($loot > $maxLoot){
+            $this->treasure_increase($maxLoot);
+        } else{
+            $this->treasure_increase($loot);
+        }
+        $attack->treasure_amount /= 2;
 
         $attack->save();
 
