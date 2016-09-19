@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\TreasureInsufficientException;
 use App\Pirate;
 use App\ShipRole;
 use App\Ship;
-use App\User;
 use Illuminate\Http\Request;
 
 

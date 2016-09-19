@@ -20,6 +20,7 @@ class CreateShipsTable extends Migration
             $table->integer('level')->unsigned();
             $table->integer('current_health')->unsigned();
             $table->integer('current_cannons')->unsigned();
+            $table->integer('extra_crew')->unsigned();
             $table->timestamps();
         });
     }

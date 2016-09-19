@@ -23,6 +23,8 @@
                             {{ csrf_field() }}
 
                             <input type="hidden" name="port_id" value="1"><!-- perhaps in the future the user can select what port they want to start at -->
+                            <input type="hidden" name="treasure" value="1000">
+
 
                             <div class="form-group">
                                 <label for="name" class="sr-only">Name</label>

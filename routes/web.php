@@ -30,8 +30,11 @@ Route::post('/commandeer', 'ShipController@saveShip');
 // Future ships will use this creation
 Route::post('/ship-new', 'ShipController@saveShip');
 Route::post('/ship-level-up', 'ShipController@shipLevelUp');
-
+//Store to hire extra crew and buy cannons
+Route::post('ship-store', 'ShipController@shipStore');
 
 //Attacking
 Route::get('/attack-home', 'AttackController@index');
 Route::post('/attack', 'AttackController@attack');
+
+

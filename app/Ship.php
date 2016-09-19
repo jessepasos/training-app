@@ -51,7 +51,8 @@ class Ship extends Model
     }
 
     public function getCrewSize(){
-        return $this->crew->count();
+        return $this->crew->count() + $this->extra_crew;
+
     }
 
     public function getRemainingCapacity(){
@@ -63,7 +64,7 @@ class Ship extends Model
     }
 
     public function getOtherCrew(){
-        return $this->crew->where('rank_id', NULL)->count() + 0;
+        return $this->crew->where('rank_id', NULL)->count() + $this->extra_crew + 0;
     }
 
 }

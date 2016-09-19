@@ -30,10 +30,12 @@
                                     <img src="images/i-cannon.png" alt="icon" class="stat-icon">
                                     <p><small class="stat-label">Port Attacked at:</small> <strong>No attacks yet</strong></p>
                                 </div>
+                                <a id="btn-store" data-toggle="modal" data-target="#store">
                                 <div class="stat treasure">
                                     <img src="images/i-treasure.png" alt="icon" class="stat-icon">
                                     <p><small class="stat-label">Treasure Amount:</small> <strong>${{ $user->treasure }}</strong></p>
                                 </div>
+                                </a>
 
                             </div>
                             <div class="col-md-9 inventory">
@@ -136,4 +138,6 @@
     @include('modals.pirate-duel')
     {{-- modal for the available attack options. --}}
     @include('modals.attack')
+    {{--modal for the store page to purchase extra crew and cannons for the ships--}}
+    @include('modals.store')
 @endsection

@@ -45,7 +45,7 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="stat">
-                                <p><small class="stat-label"># of Cannons:</small> <strong>{{$ship->current_cannons}}</strong></p>
+                                <p><small class="stat-label">Cannons:</small> <strong>{{$ship->current_cannons}}/{{$ship->levelDetails->max_cannons}}</strong></p>
                             </div>
                         </div>
                     </div>
