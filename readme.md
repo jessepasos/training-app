@@ -12,7 +12,13 @@ For these challenges, you will only need to use the routes file, Controllers fol
 - Homestead (https://laravel.com/docs/5.3/homestead)
 - SequelPro
 
-Our instructions assume you are using these tools. 
+## Builders:
+
+If you are completing this as part of an INTERVIEW with Datanerds, please only go as far as the end of challenge 4. 
+
+If you are doing this as part of your training, keep going through to the end.
+
+If you are doing this for fun or as part of the LaraPirate game community and make something cool, please hit us with a pull request. Also, you're awesome, you scurvy dog you.
 
 ## Install the app locally:
 `Note: the steps to set up the application within homestead are located within the Laravel documentation`
@@ -84,11 +90,11 @@ When you append the name of the port to this url we need the database to update 
 > Objective: Once you’ve completed this task, a user should be able to attack any port and steal their treasure.
 
 ## Challenge 4: The fleet grows
-`Create new route, new view, edit methods, access control.`
+`Create new route, new view, edit methods, access control. Create a trait`
 
 Our pirates have had a successful raiding season. We have captured two ships, and now we need to keep track of them. 
 
-Create a list view for the ships in our pirate fleet, and an edit page. You should be edit any of the properties of the ship:
+Create a list view for the ships in our pirate fleet, and an edit page. You should be able to edit any of the properties of the ship:
 
 - Captain (this will be an id that can pull in the crew_id from the crew table)
 - Displacement
@@ -100,10 +106,10 @@ Create a list view for the ships in our pirate fleet, and an edit page. You shou
 That should be easy by now. Here’s where it gets interesting. You need to create a different level of access for Admiral Blackbird to be able to order the ships to perform any of these actions:
 
 - Assign/Move crew between ships
-- Send a ship back to homeport
-- Send a ship to attack a port
 - Rename a ship
-- Transfer the treasure from any ship to Port Royal
+- Be able to use treasure to buy more ships and crew (Use a trait to be able to spend or earn treasure).
+
+Ensure that only one pirate can have a given rank on a ship, allow pirates to be able to be unassigned for rank and ship. 
 
 
 > Objective: Once you’ve completed this task, a user should be view or edit any of the properties of a ship. An administrator will be able to order the ships to perform a number of actions, but a regular user will not.
