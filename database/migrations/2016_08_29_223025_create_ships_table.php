@@ -17,6 +17,12 @@ class CreateShipsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('name');
+            $table->string('captain');
+            $table->integer('displacement');
+            $table->integer('length');
+            $table->integer('draft');
+            $table->integer('saltiness');
+            $table->integer('cannons');
             $table->timestamps();
         });
     }

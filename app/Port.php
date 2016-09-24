@@ -15,9 +15,21 @@ class Port extends Model
     ];
 
 
-    public function port()
+    public static function lastAttack()
     {
-    	return "OK";
-        // return $this->hasMany(Port::class);
+
+        $portsAttacked = 'No attacks yet';
+
+        $ports = Port::all();
+
+        $attackedAt = 0;
+        foreach($ports as $port) {
+            if(strtotime($port->attacked_at) > strtotime($attackedAt)) {
+                $attackedAt = $port->attacked_at;
+                $portsAttacked = $port->name;
+            }
+        }
+
+        return $portsAttacked;
     }
 }

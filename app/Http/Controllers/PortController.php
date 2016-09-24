@@ -20,6 +20,7 @@ class PortController extends Controller
     {
         $this->middleware('auth');
         view()->share('ports', Port::all());
+        view()->share('last_attack', Port::lastAttack());
     }
 
     public function ports(Request $objRequest)
@@ -46,7 +47,7 @@ class PortController extends Controller
 
         	Port::find($arrPort->id)
         	->update([
-        		'attacked_at' => date('Y-m-d'),
+        		'attacked_at' => date('Y-m-d H:i:s'),
         		'treasure_amount' => 0,
         	]);
         }

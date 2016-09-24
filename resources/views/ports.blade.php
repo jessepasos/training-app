@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="stat attacks">
                                     <img src="images/i-cannon.png" alt="icon" class="stat-icon">
-                                    <p><small class="stat-label">Port Attacked at:</small> <strong>No attacks yet</strong></p>
+                                    <p><small class="stat-label">Port Attacked at:</small> <strong>{{ $last_attack }}</strong></p>
                                 </div>
                                 <div class="stat treasure">
                                     <img src="images/i-treasure.png" alt="icon" class="stat-icon">

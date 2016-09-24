@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ship;
 use App\Pirate;
+use App\Port;
+use Input;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -17,6 +19,7 @@ class ShipController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        view()->share('last_attack', Port::lastAttack());
     }
 
     public function commandeer()
@@ -40,6 +43,19 @@ class ShipController extends Controller
 
         // Return to the home view:
         return view('home');
+    }
+
+    public function ship()
+    {
+
+        if (!Input::get()) {
+            return view('ships');
+        }
+
+        // Return to the home view:
+        return view('ships')
+        ->with('ports', Port::all())
+        ->with('ship', Ship::find(Input::get('ship_id')));
     }
 
 }

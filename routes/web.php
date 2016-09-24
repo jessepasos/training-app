@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/commandeer', 'ShipController@commandeer');
 
 Route::post('/commandeer', 'ShipController@postCommandeer');
+Route::get('/ships', 'ShipController@ship');
 
 Route::post('/createPirate', 'PirateController@createPirate');
 Route::get('/ports', 'PortController@ports');
