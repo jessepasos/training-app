@@ -24,3 +24,4 @@ Route::get('/commandeer', 'ShipController@commandeer');
 Route::post('/commandeer', 'ShipController@postCommandeer');
 
 Route::post('/createPirate', 'PirateController@createPirate');
+Route::get('/ports', 'PortController@ports');

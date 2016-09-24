@@ -17,7 +17,7 @@
 
                             <div class="col-md-3 port_stats">
 
-                                <a href="#" id="btn-attack"><img src="images/btn-start-attack.png" class="attack" alt="start attack"></a>
+                                <a href="/datanerds/public/ports" id="btn-attack"><img src="images/btn-start-attack.png" class="attack" alt="start attack"></a>
 
                                 <div class="stat port">
                                     <img src="images/i-" alt="icon" class="stat-icon">

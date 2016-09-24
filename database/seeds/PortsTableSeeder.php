@@ -34,5 +34,21 @@ class PortsTableSeeder extends Seeder
         DB::table('ports')->insert([
             'name' => 'Barataria Bay'
         ]);
+
+        DB::table('ports')->insert([
+            'name' => 'Mirelark Bay'
+        ]);
+
+        DB::table('ports')->insert([
+            'name' => 'Crusty Sailor Island'
+        ]);
+
+        DB::table('ports')->insert([
+            'name' => 'Termina'
+        ]);
+
+        DB::table('ports')->insert([
+            'name' => 'Port Mudcrabby Crab'
+        ]);
     }
 }

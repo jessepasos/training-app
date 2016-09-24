@@ -16,6 +16,8 @@ class CreatePortsTable extends Migration
         Schema::create('ports', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->date('attacked_at');
+            $table->integer('treasure_amount');
         });
     }
 
