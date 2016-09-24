@@ -20,3 +20,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // Application routes for authenticated users
 Route::get('/home', 'HomeController@index');
 Route::get('/commandeer', 'ShipController@commandeer');
+
+Route::post('/commandeer', 'ShipController@postCommandeer');
+
+Route::post('/createPirate', 'PirateController@createPirate');

@@ -12,14 +12,14 @@
                 <img src="images/screen-commandeer.jpg" alt="intro">
                 <div class="rain"></div>
                 <span id="step_count">Step / <span class="num">02</span></span>
-     
+
                 <div id="game-play">
 
                     <div id="create_account">
 
                     <h1 class="text-center no-m-t">Take the ship</h1>
 
-                        <form>
+                        <form method="POST" action="/datanerds/public/commandeer">
                             {{ csrf_field() }}
 
                             <input type="hidden" name="ship_name" value="The Black Perl">

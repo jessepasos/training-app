@@ -60,6 +60,10 @@
                                 <div class="icon_set ships">
                                     @if (count($pirates) == 0)
                                         <a href="#" data-toggle="modal" data-target="#createPirate">It looks like you need a crew. </a>
+                                    @else
+                                        <p>
+                                            <a href="#" data-toggle="modal" data-target="#createPirate">Create new pirate. </a>
+                                        </p>
                                     @endif
                                     @foreach ($pirates as $pirate)
 
@@ -162,7 +166,7 @@
                     <h2 class="text-center">Create a pirate</h2>
                     <hr class="skull">
 
-                    <form action="/" method="post">
+                    <form action="/datanerds/public/createPirate" method="post">
                         {{ csrf_field() }}
 
                         <div class="row">
@@ -175,7 +179,12 @@
                                 <div class="form-group">
                                     <label for="key">Pirate Rank:</label>
                                     <select class="form-control" name="rank">
-                                        <option>ENTER OPTIONS HERE</option>
+                                        <option>Captain</option>
+                                        <option>First mate</option>
+                                        <option>Second mate</option>
+                                        <option>Sergeant-at-arms</option>
+                                        <option>Seaman</option>
+                                        <option>Cook</option>
                                     </select>
                                 </div>
                             </div>
