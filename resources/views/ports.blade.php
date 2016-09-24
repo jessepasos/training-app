@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="stat treasure">
                                     <img src="images/i-treasure.png" alt="icon" class="stat-icon">
-                                    <p><small class="stat-label">Treasure Amount:</small> <strong>$1,000</strong></p>
+                                    <p><small class="stat-label">Treasure Amount:</small> <strong>${{ number_format(Auth::user()->funds, 2) }}</strong></p>
                                 </div>
 
                             </div>
@@ -49,7 +49,7 @@
                                             <h6>{{ $port->treasure_amount }}</h6>
                                         </div>
                                         <div class="col-md-2 col-sm-2">
-                                            <a class="btn btn-danger pull-right" href="#" role="button">Attack</a>
+                                            <a class="btn btn-danger pull-right" href="/datanerds/public/attack?port={{ $port->name }}" role="button">Attack</a>
                                         </div>
                                     </div>
                                 @endforeach

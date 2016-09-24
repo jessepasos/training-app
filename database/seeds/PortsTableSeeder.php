@@ -12,43 +12,53 @@ class PortsTableSeeder extends Seeder
     public function run()
     {
         DB::table('ports')->insert([
-            'name' => 'Port Royal'
+            'name'            => 'Port Royal',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => "St. Mary's Island"
+            'name'            => "St. Mary's Island",
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Tortuga'
+            'name'            => 'Tortuga',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Clew Bay'
+            'name'            => 'Clew Bay',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'New Providence'
+            'name'            => 'New Providence',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Barataria Bay'
+            'name'            => 'Barataria Bay',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Mirelark Bay'
+            'name'            => 'Mirelark Bay',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Crusty Sailor Island'
+            'name'            => 'Crusty Sailor Island',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Termina'
+            'name'            => 'Termina',
+            'treasure_amount' => 100,
         ]);
 
         DB::table('ports')->insert([
-            'name' => 'Port Mudcrabby Crab'
+            'name'            => 'Port Mudcrabby Crab',
+            'treasure_amount' => 100,
         ]);
     }
 }

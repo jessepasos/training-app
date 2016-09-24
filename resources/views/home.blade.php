@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="stat treasure">
                                     <img src="images/i-treasure.png" alt="icon" class="stat-icon">
-                                    <p><small class="stat-label">Treasure Amount:</small> <strong>$1,000</strong></p>
+                                    <p><small class="stat-label">Treasure Amount:</small> <strong>${{ number_format(Auth::user()->funds, 2) }}</strong></p>
                                 </div>
 
                             </div>
