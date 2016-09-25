@@ -42,17 +42,28 @@
 
                                     <div class="row">
                                         <div class="col-sm-12">
+
+                                            <input type="hidden" class="form-control" name="id" id="id" value="{{ $ship->id }}">
+
+                                            @if(Auth::user()->user_level == 1)
                                             <div class="form-group">
-                                                <label for="key">Ship Name:</label>
+                                                <label for="ship_name">Ship Name:</label>
                                                 <input type="text" class="form-control" name="ship_name" id="ship_name" value="{{ $ship->name }}">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="ship_name">Rank:</label>
+                                                <input type="number" min="1" max="99" class="form-control" name="ship_rank" id="ship_rank" value="{{ $ship->rank }}">
+                                            </div>
+
+
+                                            @endif
 
                                             <div class="form-group">
-                                                <label for="key">Captain:</label>
+                                                <label for="captain">Captain:</label>
                                                 @if (count($pirates) == 0)
                                                     You currently have no crew mates.
                                                 @else
-                                                    <select class="form-control" name="rank">
+                                                    <select class="form-control" name="captain">
                                                     @foreach ($pirates as $pirate)
                                                         @if($pirate->rank == 'Captain')
                                                             {{ $selected = '' }}
@@ -68,28 +79,28 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="key">Displacement:</label>
+                                                <label for="displacement">Displacement:</label>
                                                 <input type="number" min="0" class="form-control" name="displacement" id="displacement" value="{{ $ship->displacement }}">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="key">Length (ft):</label>
+                                                <label for="length">Length (ft):</label>
                                                 <input type="number" min="0" class="form-control" name="length" id="length" value="{{ $ship->length }}">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="key">Draft:</label>
+                                                <label for="draft">Draft:</label>
                                                 <input type="number" min="0" class="form-control" name="draft" id="draft" value="{{ $ship->draft }}">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="key">Crew Saltiness:</label>
-                                                <input type="number" min="0" class="form-control" name="crew_saltiness" id="crew_saltiness"  value="{{ $ship->saltiness }}">
+                                                <label for="saltiness">Crew Saltiness:</label>
+                                                <input type="number" min="0" class="form-control" name="saltiness" id="saltiness"  value="{{ $ship->saltiness }}">
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="key">Number of Cannons:</label>
-                                                <select class="form-control" name="rank">
+                                                <label for="cannons">Number of Cannons:</label>
+                                                <select class="form-control" name="cannons">
                                                 @for($n = 0; $n <= 10; $n++)
                                                     {{ $selected = '' }}
                                                     @if($n == $ship->cannons)

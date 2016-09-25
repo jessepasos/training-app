@@ -19,13 +19,19 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // Application routes for authenticated users
 Route::get('/home', 'HomeController@index');
-Route::get('/commandeer', 'ShipController@commandeer');
 
-Route::post('/commandeer', 'ShipController@postCommandeer');
+// Ship routes:
 Route::get('/ships', 'ShipController@ship');
+Route::get('/commandeer', 'ShipController@commandeer');
+Route::post('/commandeer', 'ShipController@postCommandeer');
+Route::post('/createShip', 'ShipController@createShip');
+Route::post('/manageShip', 'ShipController@manageShip');
 
-Route::post('/createPirate', 'PirateController@createPirate');
+// Port routes:
 Route::get('/ports', 'PortController@ports');
-
-
 Route::get('/attack', 'PortController@attack');
+
+// Pirate routes:
+Route::post('/createPirate', 'PirateController@createPirate');
+Route::post('/managePirate', 'PirateController@managePirate');
+

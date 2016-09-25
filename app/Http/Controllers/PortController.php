@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Port;
-use App\Ship;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -23,35 +22,49 @@ class PortController extends Controller
         view()->share('last_attack', Port::lastAttack());
     }
 
+    /**
+     * @func      ports
+     * @desc      description
+     * @param     Request       $objRequest         HTTP Request
+     * @return    view
+     */
     public function ports(Request $objRequest)
     {
         return view('ports');
     }
 
+    /**
+     * @func      attack
+     * @desc      Attack a port.
+     * @return    view
+     */
     public function attack()
     {
         if (!Input::get()) {
             return view('ports');
         }
 
+        // Get current port:
         $objPorts = Port::where('name', Input::get('port'))->get();
 
-        foreach($objPorts as $arrPort) {
+        // Cycle through responses:
+        foreach ($objPorts as $arrPort) {
 
-        	$intTreasure = $arrPort->treasure_amount + Auth::user()->funds;
+            // Update users funds:
+            User::find(Auth::user()->id)
+                ->update([
+                    'funds' => $arrPort->treasure_amount + Auth::user()->funds,
+            ]);
 
-        	User::find(Auth::user()->id)
-        	->update([
-        		'funds' => $intTreasure,
-        	]);
-
-        	Port::find($arrPort->id)
-        	->update([
-        		'attacked_at' => date('Y-m-d H:i:s'),
-        		'treasure_amount' => 0,
-        	]);
+            // Update port status:
+            Port::find($arrPort->id)
+                ->update([
+                    'attacked_at'     => date('Y-m-d H:i:s'),
+                    'treasure_amount' => 0,
+            ]);
         }
 
+        // Redirect to ports view:
         return redirect('/ports');
     }
 }

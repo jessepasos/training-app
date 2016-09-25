@@ -12,7 +12,15 @@ class Ship extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'name'
+        'user_id',
+        'name',
+        'captain',
+        'displacement',
+        'length',
+        'draft',
+        'saltiness',
+        'cannons',
+        'rank',
     ];
 
     /**

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('port_id');
             $table->integer('funds');
+            $table->integer('user_level');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'funds',
+        'name', 'email', 'password', 'funds', 'user_level',
     ];
 
     /**
@@ -48,6 +48,7 @@ class User extends Authenticatable
      */
     public function ships()
     {
+
         return $this->hasMany(Ship::class);
     }
 }
